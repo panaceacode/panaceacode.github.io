@@ -1,37 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
-    <title>SSH连接GitHub账号</title>
-    <url>/panaceacode.github.io/2021/01/19/hello-world/</url>
-    <content><![CDATA[<p>简单介绍一下用SSH连接GitHub的流程<a href="https://docs.github.com/en/github/authenticating-to-github/connecting-to-github-with-ssh">参考链接</a></p>
-<h3 id="Mac环境下检查一下已存在的SSH-Keys"><a href="#Mac环境下检查一下已存在的SSH-Keys" class="headerlink" title="Mac环境下检查一下已存在的SSH Keys"></a>Mac环境下检查一下已存在的SSH Keys</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ ls -al ~/.ssh</span><br></pre></td></tr></table></figure>
-<p>可能的keys：id_rsa.pub、id_ecdsa.pub、id_ed25519.pub</p>
-<h3 id="生成新的SSH-keys"><a href="#生成新的SSH-keys" class="headerlink" title="生成新的SSH keys"></a>生成新的SSH keys</h3><p>在Terminal中输入</p>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ ssh-keygen -t ed25519 -C <span class="string">&quot;your_email@example.com&quot;</span></span><br></pre></td></tr></table></figure>
-<p>如果不支持ed25519，可以用</p>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ ssh-keygen -t rsa -b 4096 -C <span class="string">&quot;your_email@example.com&quot;</span></span><br></pre></td></tr></table></figure>
-<p>生成一个新的ssh key，用邮箱作为label</p>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">&gt; Generating public/private ed25519 key pair.</span><br></pre></td></tr></table></figure>
-<p>Press enter</p>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">&gt; Enter a file <span class="keyword">in</span> <span class="built_in">which</span> to save the key (/Users/you/.ssh/id_ed25519): [Press enter]</span><br></pre></td></tr></table></figure>
-<p>可设置passphrase</p>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">&gt; Enter passphrase (empty <span class="keyword">for</span> no passphrase): [Type a passphrase]</span><br><span class="line">&gt; Enter same passphrase again: [Type passphrase again]</span><br></pre></td></tr></table></figure>
-<h3 id="将SSH-keys加入ssh-agent"><a href="#将SSH-keys加入ssh-agent" class="headerlink" title="将SSH keys加入ssh-agent"></a>将SSH keys加入ssh-agent</h3><p>启动ssh-agent</p>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ <span class="built_in">eval</span> <span class="string">&quot;<span class="subst">$(ssh-agent -s)</span>&quot;</span></span><br><span class="line">&gt; Agent pid 59566</span><br></pre></td></tr></table></figure>
-<p>如果你是macOS Sierra 10.12.2或更高，需要修改~/.ssh/config文件，才能自动把keys加载到ssh-agent并在keychain中储存passphrases</p>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ open ~/.ssh/config</span><br><span class="line">&gt; The file /Users/you/.ssh/config does not exist.</span><br></pre></td></tr></table></figure>
-<p>如果该文件不存在，创建该文件</p>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ touch ~/.ssh/config</span><br></pre></td></tr></table></figure>
-<p>如果你使用默认路径和命名，修改为如下内容</p>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">Host *</span><br><span class="line">  AddKeysToAgent yes</span><br><span class="line">  UseKeychain yes</span><br><span class="line">  IdentityFile ~/.ssh/id_ed25519</span><br></pre></td></tr></table></figure>
-<p>将SSH私钥加入到ssh-agent，并在keychain中储存passphrase</p>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ ssh-add -K ~/.ssh/id_ed25519</span><br></pre></td></tr></table></figure>
-<h3 id="将SSH-key加入到GitHub账号中"><a href="#将SSH-key加入到GitHub账号中" class="headerlink" title="将SSH key加入到GitHub账号中"></a>将SSH key加入到GitHub账号中</h3><p>拷贝SSH公钥</p>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ pbcopy &lt; ~/.ssh/id_ed25519.pub</span><br><span class="line"><span class="comment"># Copies the contents of the id_ed25519.pub file to your clipboard</span></span><br></pre></td></tr></table></figure>
-<p>进入GitHub Settings =&gt; “SSH and GPG keys”，新建并添加新key</p>
-]]></content>
-  </entry>
-  <entry>
     <title>Edinburgh</title>
     <url>/panaceacode.github.io/2021/01/21/Edinburgh/</url>
     <content><![CDATA[<h1 id="2019-12-17"><a href="#2019-12-17" class="headerlink" title="2019/12/17"></a><em>2019/12/17</em></h1><p><em>出发去英国</em><br><img src="/images/19-12-17/ticket.jpg" width="50%" height="35%" align="bottom" /><br></p>
@@ -46,5 +15,40 @@
         <tag>Travel</tag>
         <tag>Edinburgh</tag>
       </tags>
+  </entry>
+  <entry>
+    <title>SSH连接GitHub账号</title>
+    <url>/panaceacode.github.io/2021/01/19/hello-world/</url>
+    <content><![CDATA[<p>简单介绍一下用SSH连接GitHub的流程<a href="https://docs.github.com/en/github/authenticating-to-github/connecting-to-github-with-ssh">参考链接</a></p>
+<h3 id="1-Mac环境下检查一下已存在的SSH-Keys"><a href="#1-Mac环境下检查一下已存在的SSH-Keys" class="headerlink" title="1. Mac环境下检查一下已存在的SSH Keys"></a><em>1. Mac环境下检查一下已存在的SSH Keys</em></h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ ls -al ~/.ssh</span><br></pre></td></tr></table></figure>
+<p>可能的keys：id_rsa.pub、id_ecdsa.pub、id_ed25519.pub<br><br></p>
+<h3 id="2-生成新的SSH-keys"><a href="#2-生成新的SSH-keys" class="headerlink" title="2. 生成新的SSH keys"></a><em>2. 生成新的SSH keys</em></h3><p>在Terminal中输入</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ ssh-keygen -t ed25519 -C <span class="string">&quot;your_email@example.com&quot;</span></span><br></pre></td></tr></table></figure>
+<p>如果不支持ed25519，可以用</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ ssh-keygen -t rsa -b 4096 -C <span class="string">&quot;your_email@example.com&quot;</span></span><br></pre></td></tr></table></figure>
+<p>生成一个新的ssh key，用邮箱作为label</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">&gt; Generating public/private ed25519 key pair.</span><br></pre></td></tr></table></figure>
+<p>Press enter</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">&gt; Enter a file <span class="keyword">in</span> <span class="built_in">which</span> to save the key (/Users/you/.ssh/id_ed25519): [Press enter]</span><br></pre></td></tr></table></figure>
+<p>可设置passphrase</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">&gt; Enter passphrase (empty <span class="keyword">for</span> no passphrase): [Type a passphrase]</span><br><span class="line">&gt; Enter same passphrase again: [Type passphrase again]</span><br></pre></td></tr></table></figure>
+<br>
+
+<h3 id="3-将SSH-keys加入ssh-agent"><a href="#3-将SSH-keys加入ssh-agent" class="headerlink" title="3. 将SSH keys加入ssh-agent"></a><em>3. 将SSH keys加入ssh-agent</em></h3><p>启动ssh-agent</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ <span class="built_in">eval</span> <span class="string">&quot;<span class="subst">$(ssh-agent -s)</span>&quot;</span></span><br><span class="line">&gt; Agent pid 59566</span><br></pre></td></tr></table></figure>
+<p>如果你是macOS Sierra 10.12.2或更高，需要修改~/.ssh/config文件，才能自动把keys加载到ssh-agent并在keychain中储存passphrases</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ open ~/.ssh/config</span><br><span class="line">&gt; The file /Users/you/.ssh/config does not exist.</span><br></pre></td></tr></table></figure>
+<p>如果该文件不存在，创建该文件</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ touch ~/.ssh/config</span><br></pre></td></tr></table></figure>
+<p>如果你使用默认路径和命名，修改为如下内容</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">Host *</span><br><span class="line">  AddKeysToAgent yes</span><br><span class="line">  UseKeychain yes</span><br><span class="line">  IdentityFile ~/.ssh/id_ed25519</span><br></pre></td></tr></table></figure>
+<p>将SSH私钥加入到ssh-agent，并在keychain中储存passphrase</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ ssh-add -K ~/.ssh/id_ed25519</span><br></pre></td></tr></table></figure>
+<br>
+
+<h3 id="4-将SSH-key加入到GitHub账号中"><a href="#4-将SSH-key加入到GitHub账号中" class="headerlink" title="4. 将SSH key加入到GitHub账号中"></a><em>4. 将SSH key加入到GitHub账号中</em></h3><p>拷贝SSH公钥</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ pbcopy &lt; ~/.ssh/id_ed25519.pub</span><br><span class="line"><span class="comment"># Copies the contents of the id_ed25519.pub file to your clipboard</span></span><br></pre></td></tr></table></figure>
+<p>进入GitHub Settings =&gt; “SSH and GPG keys”，新建并添加新key</p>
+]]></content>
   </entry>
 </search>
