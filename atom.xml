@@ -45,10 +45,10 @@
   
   <entry>
     <title>SSH连接GitHub账号</title>
-    <link href="https://panaceacode.github.io/2021/01/19/hello-world/"/>
-    <id>https://panaceacode.github.io/2021/01/19/hello-world/</id>
-    <published>2021-01-19T12:33:56.065Z</published>
-    <updated>2021-01-28T09:32:02.123Z</updated>
+    <link href="https://panaceacode.github.io/2021/01/19/SSH%E8%BF%9E%E6%8E%A5GitHub%E8%B4%A6%E5%8F%B7/"/>
+    <id>https://panaceacode.github.io/2021/01/19/SSH%E8%BF%9E%E6%8E%A5GitHub%E8%B4%A6%E5%8F%B7/</id>
+    <published>2021-01-19T11:37:37.000Z</published>
+    <updated>2021-01-28T10:29:36.507Z</updated>
     
     
       
@@ -62,6 +62,12 @@
     
     
     
+    <category term="技术随笔" scheme="https://panaceacode.github.io/categories/%E6%8A%80%E6%9C%AF%E9%9A%8F%E7%AC%94/"/>
+    
+    
+    <category term="GitHub" scheme="https://panaceacode.github.io/tags/GitHub/"/>
+    
+    <category term="技术随笔" scheme="https://panaceacode.github.io/tags/%E6%8A%80%E6%9C%AF%E9%9A%8F%E7%AC%94/"/>
     
   </entry>
   

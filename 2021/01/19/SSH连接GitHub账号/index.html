@@ -9,7 +9,7 @@
     
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
   <title>
-    Edinburgh |  Zirun
+    SSH连接GitHub账号 |  Zirun
   </title>
   <meta name="generator" content="hexo-theme-ayer">
   
@@ -48,7 +48,7 @@
     <main class="content on">
       <section class="outer">
   <article
-  id="post-Edinburgh"
+  id="post-SSH连接GitHub账号"
   class="article article-type-post"
   itemscope
   itemprop="blogPost"
@@ -59,18 +59,18 @@
     <header class="article-header">
        
 <h1 class="article-title sea-center" style="border-left:0" itemprop="name">
-  Edinburgh
+  SSH连接GitHub账号
 </h1>
  
 
     </header>
      
     <div class="article-meta">
-      <a href="/panaceacode.github.io/2021/01/21/Edinburgh/" class="article-date">
-  <time datetime="2021-01-21T11:38:53.000Z" itemprop="datePublished">2021-01-21</time>
+      <a href="/panaceacode.github.io/2021/01/19/SSH%E8%BF%9E%E6%8E%A5GitHub%E8%B4%A6%E5%8F%B7/" class="article-date">
+  <time datetime="2021-01-19T11:37:37.000Z" itemprop="datePublished">2021-01-19</time>
 </a> 
   <div class="article-category">
-    <a class="article-category-link" href="/panaceacode.github.io/categories/Travel/">Travel</a>
+    <a class="article-category-link" href="/panaceacode.github.io/categories/%E6%8A%80%E6%9C%AF%E9%9A%8F%E7%AC%94/">技术随笔</a>
   </div>
   
 <div class="word_count">
@@ -78,7 +78,7 @@
         <span class="post-meta-item-icon">
             <i class="ri-quill-pen-line"></i>
             <span class="post-meta-item-text"> Word count:</span>
-            <span class="post-count">50</span>
+            <span class="post-count">451</span>
         </span>
     </span>
 
@@ -87,7 +87,7 @@
         <span class="post-meta-item-icon">
             <i class="ri-book-open-line"></i>
             <span class="post-meta-item-text"> Reading time≈</span>
-            <span class="post-count">1 min</span>
+            <span class="post-count">2 min</span>
         </span>
     </span>
 </div>
@@ -102,11 +102,44 @@
   
     <div class="article-entry" itemprop="articleBody">
        
-  <h1 id="2019-12-17"><a href="#2019-12-17" class="headerlink" title="2019/12/17"></a><em>2019/12/17</em></h1><p><em>出发去英国</em><br><img src="/images/19-12-17/ticket.jpg" width="50%" height="35%" align="bottom" /><br></p>
-<p><em>落地伦敦，提前复习了一遍哈利波特，特意到King’s Cross转车</em><br><img src="/images/19-12-17/kingscross.jpg" width="50%" height="50%" align="bottom" /><br><img src="/images/19-12-17/kingscross1.jpg" width="50%" height="50%" align="bottom" /><br></p>
-<p><em>出发去爱丁堡，开心！</em><br><img src="/images/19-12-17/trainTicket.jpg" width="50%" height="35%" align="bottom" /><br></p>
-<h1 id="2019-12-18"><a href="#2019-12-18" class="headerlink" title="2019/12/18"></a><em>2019/12/18</em></h1><p><em>在爱丁堡的第一天</em><br><img src="/images/19-12-17/edinburgh.jpg" width="50%" height="50%" align="bottom" /></p>
- 
+  <p>简单介绍一下用SSH连接GitHub的流程<a target="_blank" rel="noopener" href="https://docs.github.com/en/github/authenticating-to-github/connecting-to-github-with-ssh">参考链接</a></p>
+<h3 id="1-Mac环境下检查一下已存在的-SSH-Keys"><a href="#1-Mac环境下检查一下已存在的-SSH-Keys" class="headerlink" title="1. Mac环境下检查一下已存在的 SSH Keys"></a><em>1. Mac环境下检查一下已存在的 SSH Keys</em></h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ ls -al ~/.ssh</span><br></pre></td></tr></table></figure>
+<p>可能的keys：id_rsa.pub、id_ecdsa.pub、id_ed25519.pub<br><br></p>
+<h3 id="2-生成新的-SSH-keys"><a href="#2-生成新的-SSH-keys" class="headerlink" title="2. 生成新的 SSH keys"></a><em>2. 生成新的 SSH keys</em></h3><p>在Terminal中输入</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ ssh-keygen -t ed25519 -C <span class="string">&quot;your_email@example.com&quot;</span></span><br></pre></td></tr></table></figure>
+<p>如果不支持ed25519，可以用</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ ssh-keygen -t rsa -b 4096 -C <span class="string">&quot;your_email@example.com&quot;</span></span><br></pre></td></tr></table></figure>
+<p>生成一个新的ssh key，用邮箱作为label</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&gt; Generating public/private ed25519 key pair.</span><br></pre></td></tr></table></figure>
+<p>Press enter</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&gt; Enter a file <span class="keyword">in</span> <span class="built_in">which</span> to save the key (/Users/you/.ssh/id_ed25519): [Press enter]</span><br></pre></td></tr></table></figure>
+<p>可设置passphrase</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">&gt; Enter passphrase (empty <span class="keyword">for</span> no passphrase): [Type a passphrase]</span><br><span class="line">&gt; Enter same passphrase again: [Type passphrase again]</span><br></pre></td></tr></table></figure>
+<br>
+
+<h3 id="3-将-SSH-keys加入ssh-agent"><a href="#3-将-SSH-keys加入ssh-agent" class="headerlink" title="3. 将 SSH keys加入ssh-agent"></a><em>3. 将 SSH keys加入ssh-agent</em></h3><p>启动ssh-agent</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">$ <span class="built_in">eval</span> <span class="string">&quot;<span class="subst">$(ssh-agent -s)</span>&quot;</span></span><br><span class="line">&gt; Agent pid 59566</span><br></pre></td></tr></table></figure>
+<p>如果你是macOS Sierra 10.12.2或更高，需要修改~/.ssh/config文件，才能自动把keys加载到ssh-agent并在keychain中储存passphrases</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">$ open ~/.ssh/config</span><br><span class="line">&gt; The file /Users/you/.ssh/config does not exist.</span><br></pre></td></tr></table></figure>
+<p>如果该文件不存在，创建该文件</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ touch ~/.ssh/config</span><br></pre></td></tr></table></figure>
+<p>如果你使用默认路径和命名，修改为如下内容</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">Host *</span><br><span class="line">  AddKeysToAgent yes</span><br><span class="line">  UseKeychain yes</span><br><span class="line">  IdentityFile ~/.ssh/id_ed25519</span><br></pre></td></tr></table></figure>
+<p>将SSH私钥加入到ssh-agent，并在keychain中储存passphrase</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ ssh-add -K ~/.ssh/id_ed25519</span><br></pre></td></tr></table></figure>
+<br>
+
+<h3 id="4-将-SSH-key加入到-GitHub账号中"><a href="#4-将-SSH-key加入到-GitHub账号中" class="headerlink" title="4. 将 SSH key加入到 GitHub账号中"></a><em>4. 将 SSH key加入到 GitHub账号中</em></h3><p>拷贝SSH公钥</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">$ pbcopy &lt; ~/.ssh/id_ed25519.pub</span><br><span class="line"><span class="comment"># Copies the contents of the id_ed25519.pub file to your clipboard</span></span><br></pre></td></tr></table></figure>
+<p>进入GitHub Settings =&gt; “SSH and GPG keys”，新建并添加新key<br><br></p>
+<h3 id="5-测试连接"><a href="#5-测试连接" class="headerlink" title="5. 测试连接"></a><em>5. 测试连接</em></h3><p>在Terminal中输入</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">$ pbcopy &lt; ~/.ssh/id_ed25519.pub</span><br><span class="line"><span class="comment"># Copies the contents of the id_ed25519.pub file to your clipboard</span></span><br></pre></td></tr></table></figure>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">&gt; The authenticity of host <span class="string">&#x27;github.com (IP ADDRESS)&#x27;</span> can<span class="string">&#x27;t be established.</span></span><br><span class="line"><span class="string">&gt; RSA key fingerprint is SHA256:nThbg6kXUpJWGl7E1IGOCspRomTxdCARLviKw6E5SY8.</span></span><br><span class="line"><span class="string">&gt; Are you sure you want to continue connecting (yes/no)?</span></span><br><span class="line"><span class="string"># print yes</span></span><br></pre></td></tr></table></figure>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">&gt; Hi username! You<span class="string">&#x27;ve successfully authenticated, but GitHub does not</span></span><br><span class="line"><span class="string">&gt; provide shell access.</span></span><br></pre></td></tr></table></figure>
+<br>
+
+<h3 id="现在可进行关联远程仓库等操作"><a href="#现在可进行关联远程仓库等操作" class="headerlink" title="现在可进行关联远程仓库等操作"></a><em>现在可进行关联远程仓库等操作</em></h3><p>关联远程仓库</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ git remote add origin git@github.com:&lt;username&gt;/&lt;repositoryName&gt;.git</span><br></pre></td></tr></table></figure> 
       <!-- reward -->
       
       <div id="reword-out">
@@ -176,12 +209,12 @@
     <a class="modal-close" href="javascript:;"><i class="ri-close-circle-line"></i></a>
     <p>扫一扫，分享到微信</p>
     <div class="wx-qrcode">
-      <img src="//api.qrserver.com/v1/create-qr-code/?size=150x150&data=https://panaceacode.github.io/2021/01/21/Edinburgh/" alt="微信分享二维码">
+      <img src="//api.qrserver.com/v1/create-qr-code/?size=150x150&data=https://panaceacode.github.io/2021/01/19/SSH%E8%BF%9E%E6%8E%A5GitHub%E8%B4%A6%E5%8F%B7/" alt="微信分享二维码">
     </div>
 </div>
 
 <div id="share-mask"></div>  
-  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/panaceacode.github.io/tags/Edinburgh/" rel="tag">Edinburgh</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/panaceacode.github.io/tags/Travel/" rel="tag">Travel</a></li></ul>
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/panaceacode.github.io/tags/GitHub/" rel="tag">GitHub</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/panaceacode.github.io/tags/%E6%8A%80%E6%9C%AF%E9%9A%8F%E7%AC%94/" rel="tag">技术随笔</a></li></ul>
 
     </footer>
   </div>
@@ -189,11 +222,15 @@
    
   <nav class="article-nav">
     
-    
-      <a href="/panaceacode.github.io/2021/01/19/SSH%E8%BF%9E%E6%8E%A5GitHub%E8%B4%A6%E5%8F%B7/" class="article-nav-link">
-        <strong class="article-nav-caption">下一篇</strong>
-        <div class="article-nav-title">SSH连接GitHub账号</div>
+      <a href="/panaceacode.github.io/2021/01/21/Edinburgh/" class="article-nav-link">
+        <strong class="article-nav-caption">上一篇</strong>
+        <div class="article-nav-title">
+          
+            Edinburgh
+          
+        </div>
       </a>
+    
     
   </nav>
 
