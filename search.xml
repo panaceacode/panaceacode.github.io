@@ -1,6 +1,22 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title>Edinburgh</title>
+    <url>/panaceacode.github.io/2019/12/18/Edinburgh/</url>
+    <content><![CDATA[<h1 id="2019-12-17"><a href="#2019-12-17" class="headerlink" title="2019/12/17"></a><em>2019/12/17</em></h1><p><em>出发去英国</em><br><img src="/images/19-12-17/ticket.jpg" width="50%" height="35%" align="bottom" /><br></p>
+<p><em>落地伦敦，提前复习了一遍哈利波特，特意到King’s Cross转车</em><br><img src="/images/19-12-17/kingscross.jpg" width="50%" height="50%" align="bottom" /><br><img src="/images/19-12-17/kingscross1.jpg" width="50%" height="50%" align="bottom" /><br></p>
+<p><em>出发去爱丁堡，开心！</em><br><img src="/images/19-12-17/trainTicket.jpg" width="50%" height="35%" align="bottom" /><br></p>
+<h1 id="2019-12-18"><a href="#2019-12-18" class="headerlink" title="2019/12/18"></a><em>2019/12/18</em></h1><p><em>在爱丁堡的第一天</em><br><img src="/images/19-12-17/edinburgh.jpg" width="50%" height="50%" align="bottom" /></p>
+]]></content>
+      <categories>
+        <category>Travel</category>
+      </categories>
+      <tags>
+        <tag>Travel</tag>
+        <tag>Edinburgh</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>SSH连接GitHub账号</title>
     <url>/panaceacode.github.io/2021/01/19/SSH%E8%BF%9E%E6%8E%A5GitHub%E8%B4%A6%E5%8F%B7/</url>
     <content><![CDATA[<p>简单介绍一下用SSH连接GitHub的流程<a href="https://docs.github.com/en/github/authenticating-to-github/connecting-to-github-with-ssh">参考链接</a></p>
@@ -47,22 +63,6 @@
       <tags>
         <tag>GitHub</tag>
         <tag>技术随笔</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>Edinburgh</title>
-    <url>/panaceacode.github.io/2019/12/18/Edinburgh/</url>
-    <content><![CDATA[<h1 id="2019-12-17"><a href="#2019-12-17" class="headerlink" title="2019/12/17"></a><em>2019/12/17</em></h1><p><em>出发去英国</em><br><img src="/images/19-12-17/ticket.jpg" width="50%" height="35%" align="bottom" /><br></p>
-<p><em>落地伦敦，提前复习了一遍哈利波特，特意到King’s Cross转车</em><br><img src="/images/19-12-17/kingscross.jpg" width="50%" height="50%" align="bottom" /><br><img src="/images/19-12-17/kingscross1.jpg" width="50%" height="50%" align="bottom" /><br></p>
-<p><em>出发去爱丁堡，开心！</em><br><img src="/images/19-12-17/trainTicket.jpg" width="50%" height="35%" align="bottom" /><br></p>
-<h1 id="2019-12-18"><a href="#2019-12-18" class="headerlink" title="2019/12/18"></a><em>2019/12/18</em></h1><p><em>在爱丁堡的第一天</em><br><img src="/images/19-12-17/edinburgh.jpg" width="50%" height="50%" align="bottom" /></p>
-]]></content>
-      <categories>
-        <category>Travel</category>
-      </categories>
-      <tags>
-        <tag>Travel</tag>
-        <tag>Edinburgh</tag>
       </tags>
   </entry>
 </search>
