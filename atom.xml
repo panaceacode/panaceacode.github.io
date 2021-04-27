@@ -45,11 +45,38 @@
   </entry>
   
   <entry>
-    <title>Alg.1</title>
+    <title>Alg-2 Validate Subsequence</title>
+    <link href="https://panaceacode.github.io/2020/04/04/Alg-2/"/>
+    <id>https://panaceacode.github.io/2020/04/04/Alg-2/</id>
+    <published>2020-04-04T10:06:57.000Z</published>
+    <updated>2021-04-27T10:16:28.967Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;p&gt;&lt;em&gt;一道数组题，验证一个数组是否是另一个的子集，如[1, 6, -1, 10]为[5, 1, 22, 25, 6, -1, 8,</summary>
+        
+      
+    
+    
+    
+    <category term="Algorithm" scheme="https://panaceacode.github.io/categories/Algorithm/"/>
+    
+    
+    <category term="Algorithm" scheme="https://panaceacode.github.io/tags/Algorithm/"/>
+    
+    <category term="Arrays" scheme="https://panaceacode.github.io/tags/Arrays/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>Alg.1 Two Sum</title>
     <link href="https://panaceacode.github.io/2020/04/04/Alg-1/"/>
     <id>https://panaceacode.github.io/2020/04/04/Alg-1/</id>
     <published>2020-04-04T09:16:22.000Z</published>
-    <updated>2021-04-27T09:41:14.248Z</updated>
+    <updated>2021-04-27T10:16:27.912Z</updated>
     
     
       
