@@ -17,6 +17,37 @@
       </tags>
   </entry>
   <entry>
+    <title>Alg.1</title>
+    <url>/panaceacode.github.io/2021/04/27/Alg-1/</url>
+    <content><![CDATA[<p><em>简单记录下刷过的题和思路</em> <br><br><br><em>第一道当然是喜闻乐见的two sum，具体思路大致就那几种：</em><br><br><em>1. 暴力O^2</em><br></p>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">int</span>[] twoNumberSum(<span class="keyword">int</span>[] array, <span class="keyword">int</span> targetSum) &#123;</span><br><span class="line">    <span class="comment">// Write your code here.</span></span><br><span class="line">        <span class="keyword">int</span>[] ans = <span class="keyword">new</span> <span class="keyword">int</span>[<span class="number">2</span>];</span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; array.length - <span class="number">1</span>; i++) &#123;</span><br><span class="line">            <span class="keyword">for</span> (<span class="keyword">int</span> j = i + <span class="number">1</span>; j &lt; array.length; j++) &#123;</span><br><span class="line">                <span class="keyword">if</span> (array[i] + array[j] == targetSum) &#123;</span><br><span class="line">                    ans[<span class="number">0</span>] = array[i];</span><br><span class="line">                    ans[<span class="number">1</span>] = array[j];</span><br><span class="line">                    <span class="keyword">return</span> ans;</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">    <span class="keyword">return</span> <span class="keyword">new</span> <span class="keyword">int</span>[<span class="number">0</span>];</span><br><span class="line">  &#125;</span><br></pre></td></tr></table></figure>
+
+]]></content>
+      <categories>
+        <category>Algorithm</category>
+      </categories>
+      <tags>
+        <tag>Algorithm</tag>
+        <tag>Arrays</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>Edinburgh</title>
+    <url>/panaceacode.github.io/2019/12/18/Edinburgh/</url>
+    <content><![CDATA[<h1 id="2019-12-17"><a href="#2019-12-17" class="headerlink" title="2019/12/17"></a><em>2019/12/17</em></h1><p><em>出发去英国</em><br><img src="https://blog-lzr.oss-cn-shanghai.aliyuncs.com/Edinburgh/ticket.jpg" width="50%" height="35%" align="middle" /><br></p>
+<p><em>落地伦敦，提前复习了一遍哈利波特，特意到King’s Cross转车</em><br><img src="https://blog-lzr.oss-cn-shanghai.aliyuncs.com/Edinburgh/kingscross.jpg" width="50%" height="50%" align="middle" /><br><img src="https://blog-lzr.oss-cn-shanghai.aliyuncs.com/Edinburgh/kingscross1.jpg" width="50%" height="50%" align="middle" /><br></p>
+<p><em>出发去爱丁堡，开心！</em><br><img src="https://blog-lzr.oss-cn-shanghai.aliyuncs.com/Edinburgh/trainTicket.jpg" width="50%" height="35%" align="middle" /><br></p>
+<h1 id="2019-12-18"><a href="#2019-12-18" class="headerlink" title="2019/12/18"></a><em>2019/12/18</em></h1><p><em>在爱丁堡的第一天</em><br><img src="https://blog-lzr.oss-cn-shanghai.aliyuncs.com/Edinburgh/edinburgh.jpg" width="50%" height="50%" align="middle" /></p>
+]]></content>
+      <categories>
+        <category>Travel</category>
+      </categories>
+      <tags>
+        <tag>Travel</tag>
+        <tag>Edinburgh</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>SSH连接GitHub账号</title>
     <url>/panaceacode.github.io/2021/01/19/SSH%E8%BF%9E%E6%8E%A5GitHub%E8%B4%A6%E5%8F%B7/</url>
     <content><![CDATA[<p>简单介绍一下用SSH连接GitHub的流程<a href="https://docs.github.com/en/github/authenticating-to-github/connecting-to-github-with-ssh">参考链接</a></p>
@@ -63,22 +94,6 @@
       <tags>
         <tag>GitHub</tag>
         <tag>技术随笔</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>Edinburgh</title>
-    <url>/panaceacode.github.io/2019/12/18/Edinburgh/</url>
-    <content><![CDATA[<h1 id="2019-12-17"><a href="#2019-12-17" class="headerlink" title="2019/12/17"></a><em>2019/12/17</em></h1><p><em>出发去英国</em><br><img src="https://blog-lzr.oss-cn-shanghai.aliyuncs.com/Edinburgh/ticket.jpg" width="50%" height="35%" align="middle" /><br></p>
-<p><em>落地伦敦，提前复习了一遍哈利波特，特意到King’s Cross转车</em><br><img src="https://blog-lzr.oss-cn-shanghai.aliyuncs.com/Edinburgh/kingscross.jpg" width="50%" height="50%" align="middle" /><br><img src="https://blog-lzr.oss-cn-shanghai.aliyuncs.com/Edinburgh/kingscross1.jpg" width="50%" height="50%" align="middle" /><br></p>
-<p><em>出发去爱丁堡，开心！</em><br><img src="https://blog-lzr.oss-cn-shanghai.aliyuncs.com/Edinburgh/trainTicket.jpg" width="50%" height="35%" align="middle" /><br></p>
-<h1 id="2019-12-18"><a href="#2019-12-18" class="headerlink" title="2019/12/18"></a><em>2019/12/18</em></h1><p><em>在爱丁堡的第一天</em><br><img src="https://blog-lzr.oss-cn-shanghai.aliyuncs.com/Edinburgh/edinburgh.jpg" width="50%" height="50%" align="middle" /></p>
-]]></content>
-      <categories>
-        <category>Travel</category>
-      </categories>
-      <tags>
-        <tag>Travel</tag>
-        <tag>Edinburgh</tag>
       </tags>
   </entry>
 </search>
