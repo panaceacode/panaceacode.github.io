@@ -6,7 +6,7 @@
   <link href="https://panaceacode.github.io/atom.xml" rel="self"/>
   
   <link href="https://panaceacode.github.io/"/>
-  <updated>2021-04-27T09:36:48.777Z</updated>
+  <updated>2021-01-28T10:55:32.358Z</updated>
   <id>https://panaceacode.github.io/</id>
   
   <author>
@@ -15,34 +15,6 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
-  
-  <entry>
-    <title>Alg.1</title>
-    <link href="https://panaceacode.github.io/2021/04/27/Alg-1/"/>
-    <id>https://panaceacode.github.io/2021/04/27/Alg-1/</id>
-    <published>2021-04-27T09:16:22.000Z</published>
-    <updated>2021-04-27T09:36:48.777Z</updated>
-    
-    
-      
-      
-        
-        
-    <summary type="html">&lt;p&gt;&lt;em&gt;简单记录下刷过的题和思路&lt;/em&gt; &lt;br&gt;&lt;br&gt;&lt;em&gt;第一道当然是喜闻乐见的two sum，具体思路大致就那几种：&lt;/em&gt;&lt;br&gt;&lt;br&gt;&lt;em&gt;1. 暴力O^2&lt;/em&gt;&lt;br&gt;&lt;/p&gt;
-&lt;figure class=&quot;highlight</summary>
-        
-      
-    
-    
-    
-    <category term="Algorithm" scheme="https://panaceacode.github.io/categories/Algorithm/"/>
-    
-    
-    <category term="Algorithm" scheme="https://panaceacode.github.io/tags/Algorithm/"/>
-    
-    <category term="Arrays" scheme="https://panaceacode.github.io/tags/Arrays/"/>
-    
-  </entry>
   
   <entry>
     <title>SSH连接GitHub账号</title>
@@ -69,6 +41,34 @@
     <category term="GitHub" scheme="https://panaceacode.github.io/tags/GitHub/"/>
     
     <category term="技术随笔" scheme="https://panaceacode.github.io/tags/%E6%8A%80%E6%9C%AF%E9%9A%8F%E7%AC%94/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>Alg.1</title>
+    <link href="https://panaceacode.github.io/2020/04/04/Alg-1/"/>
+    <id>https://panaceacode.github.io/2020/04/04/Alg-1/</id>
+    <published>2020-04-04T09:16:22.000Z</published>
+    <updated>2021-04-27T09:41:14.248Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;p&gt;&lt;em&gt;简单记录下刷过的题和思路&lt;/em&gt; &lt;br&gt;&lt;br&gt;&lt;em&gt;第一道当然是喜闻乐见的two sum，具体思路大致就那几种：&lt;/em&gt;&lt;br&gt;&lt;br&gt;&lt;em&gt;1. 暴力O^2&lt;/em&gt;&lt;br&gt;&lt;/p&gt;
+&lt;figure class=&quot;highlight</summary>
+        
+      
+    
+    
+    
+    <category term="Algorithm" scheme="https://panaceacode.github.io/categories/Algorithm/"/>
+    
+    
+    <category term="Algorithm" scheme="https://panaceacode.github.io/tags/Algorithm/"/>
+    
+    <category term="Arrays" scheme="https://panaceacode.github.io/tags/Arrays/"/>
     
   </entry>
   
