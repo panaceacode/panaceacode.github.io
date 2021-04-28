@@ -1,21 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
-    <title>Alg.2 Validate Subsequence</title>
-    <url>/panaceacode.github.io/2020/04/04/Alg-2-Validate-Subsequence/</url>
-    <content><![CDATA[<p><em>Write a function that determines whether “sequence” array is a subsequence of “array” array. For example, [1, 6, -1, 10] is a subsequence of [5, 1, 22, 25, 6, -1, 8, 10]</em><br><br><em>First, we iterate “array”, at the same time, we use a pointer to track the current position of “sequence”. If the value of “array” equals the value of current “sequence”, “sequence”‘s pointer will increment by 1. When we finish the iteration, we only need to compare the length of “sequence” and “sequence”‘s pointer.</em><br></p>
-<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">boolean</span> <span class="title">isValidSubsequence</span><span class="params">(List&lt;Integer&gt; array, List&lt;Integer&gt; sequence)</span> </span>&#123;</span><br><span class="line">    <span class="comment">// Write your code here.</span></span><br><span class="line">        <span class="keyword">int</span> j = <span class="number">0</span>;</span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; array.size(); i++) &#123;</span><br><span class="line">            <span class="keyword">if</span> (j == sequence.size()) <span class="keyword">return</span> <span class="keyword">true</span>;</span><br><span class="line">            <span class="keyword">if</span> (array.get(i) == sequence.get(j)) j++;</span><br><span class="line">        &#125;</span><br><span class="line">    <span class="keyword">return</span> j == sequence.size();</span><br><span class="line">  &#125;</span><br></pre></td></tr></table></figure>
-<p>Time complexity: O(n); Space complexity: O(1)</p>
-]]></content>
-      <categories>
-        <category>Algorithm</category>
-      </categories>
-      <tags>
-        <tag>Algorithm</tag>
-        <tag>Arrays</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>Alg.1 Two Sum</title>
     <url>/panaceacode.github.io/2020/04/04/Alg-1-Two-Sum/</url>
     <content><![CDATA[<p><em>Two Sum, basically 3 ways to solve this problem：</em><br><br><em>1. Brute Force</em><br></p>
@@ -61,6 +46,21 @@
       <tags>
         <tag>Travel</tag>
         <tag>Belfast</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>Alg.2 Validate Subsequence</title>
+    <url>/panaceacode.github.io/2020/04/04/Alg-2-Validate-Subsequence/</url>
+    <content><![CDATA[<p><em>Write a function that determines whether “sequence” array is a subsequence of “array” array. For example, [1, 6, -1, 10] is a subsequence of [5, 1, 22, 25, 6, -1, 8, 10]</em><br><br><em>First, we iterate “array”, at the same time, we use a pointer to track the current position of “sequence”. If the value of “array” equals the value of current “sequence”, “sequence”‘s pointer will increment by 1. When we finish the iteration, we only need to compare the length of “sequence” and “sequence”‘s pointer.</em><br></p>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">boolean</span> <span class="title">isValidSubsequence</span><span class="params">(List&lt;Integer&gt; array, List&lt;Integer&gt; sequence)</span> </span>&#123;</span><br><span class="line">    <span class="comment">// Write your code here.</span></span><br><span class="line">        <span class="keyword">int</span> j = <span class="number">0</span>;</span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; array.size(); i++) &#123;</span><br><span class="line">            <span class="keyword">if</span> (j == sequence.size()) <span class="keyword">return</span> <span class="keyword">true</span>;</span><br><span class="line">            <span class="keyword">if</span> (array.get(i) == sequence.get(j)) j++;</span><br><span class="line">        &#125;</span><br><span class="line">    <span class="keyword">return</span> j == sequence.size();</span><br><span class="line">  &#125;</span><br></pre></td></tr></table></figure>
+<p>Time complexity: O(n); Space complexity: O(1)</p>
+]]></content>
+      <categories>
+        <category>Algorithm</category>
+      </categories>
+      <tags>
+        <tag>Algorithm</tag>
+        <tag>Arrays</tag>
       </tags>
   </entry>
   <entry>
