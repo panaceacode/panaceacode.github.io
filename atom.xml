@@ -49,8 +49,17 @@
     <link href="https://panaceacode.github.io/2020/04/04/Alg-3-Remove-Duplicates-From-Linked-List/"/>
     <id>https://panaceacode.github.io/2020/04/04/Alg-3-Remove-Duplicates-From-Linked-List/</id>
     <published>2020-04-04T10:20:51.000Z</published>
-    <updated>2021-04-27T10:23:31.670Z</updated>
+    <updated>2021-04-27T11:09:12.284Z</updated>
     
+    
+      
+      
+        
+        
+    <summary type="html">&lt;p&gt;__&lt;/p&gt;
+</summary>
+        
+      
     
     
     
@@ -68,14 +77,14 @@
     <link href="https://panaceacode.github.io/2020/04/04/Alg-2-Validate-Subsequence/"/>
     <id>https://panaceacode.github.io/2020/04/04/Alg-2-Validate-Subsequence/</id>
     <published>2020-04-04T10:06:57.000Z</published>
-    <updated>2021-04-27T10:23:32.846Z</updated>
+    <updated>2021-04-28T13:57:27.832Z</updated>
     
     
       
       
         
         
-    <summary type="html">&lt;p&gt;&lt;em&gt;一道数组题，验证一个数组是否是另一个的子集，如[1, 6, -1, 10]为[5, 1, 22, 25, 6, -1, 8,</summary>
+    <summary type="html">&lt;p&gt;&lt;em&gt;Write a function that determines whether “sequence” array is a subsequence of “array” array. For example, [1, 6, -1, 10] is a</summary>
         
       
     
@@ -95,14 +104,14 @@
     <link href="https://panaceacode.github.io/2020/04/04/Alg-1-Two-Sum/"/>
     <id>https://panaceacode.github.io/2020/04/04/Alg-1-Two-Sum/</id>
     <published>2020-04-04T09:16:22.000Z</published>
-    <updated>2021-04-27T10:16:27.912Z</updated>
+    <updated>2021-04-28T13:47:12.621Z</updated>
     
     
       
       
         
         
-    <summary type="html">&lt;p&gt;&lt;em&gt;简单记录下刷过的题和思路&lt;/em&gt; &lt;br&gt;&lt;br&gt;&lt;em&gt;第一道当然是喜闻乐见的two sum，具体思路大致就那几种：&lt;/em&gt;&lt;br&gt;&lt;br&gt;&lt;em&gt;1. 暴力O^2&lt;/em&gt;&lt;br&gt;&lt;/p&gt;
+    <summary type="html">&lt;p&gt;&lt;em&gt;Two Sum, basically 3 ways to solve this problem：&lt;/em&gt;&lt;br&gt;&lt;br&gt;&lt;em&gt;1. Brute Force&lt;/em&gt;&lt;br&gt;&lt;/p&gt;
 &lt;figure class=&quot;highlight</summary>
         
       

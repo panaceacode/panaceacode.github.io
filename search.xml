@@ -1,28 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
-    <title>Alg.1 Two Sum</title>
-    <url>/panaceacode.github.io/2020/04/04/Alg-1-Two-Sum/</url>
-    <content><![CDATA[<p><em>简单记录下刷过的题和思路</em> <br><br><em>第一道当然是喜闻乐见的two sum，具体思路大致就那几种：</em><br><br><em>1. 暴力O^2</em><br></p>
-<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">int</span>[] twoNumberSum(<span class="keyword">int</span>[] array, <span class="keyword">int</span> targetSum) &#123;</span><br><span class="line">    <span class="comment">// Write your code here.</span></span><br><span class="line">        <span class="keyword">int</span>[] ans = <span class="keyword">new</span> <span class="keyword">int</span>[<span class="number">2</span>];</span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; array.length - <span class="number">1</span>; i++) &#123;</span><br><span class="line">            <span class="keyword">for</span> (<span class="keyword">int</span> j = i + <span class="number">1</span>; j &lt; array.length; j++) &#123;</span><br><span class="line">                <span class="keyword">if</span> (array[i] + array[j] == targetSum) &#123;</span><br><span class="line">                    ans[<span class="number">0</span>] = array[i];</span><br><span class="line">                    ans[<span class="number">1</span>] = array[j];</span><br><span class="line">                    <span class="keyword">return</span> ans;</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">    <span class="keyword">return</span> <span class="keyword">new</span> <span class="keyword">int</span>[<span class="number">0</span>];</span><br><span class="line">  &#125;</span><br></pre></td></tr></table></figure>
-<p><em>2. 借助一个Set，空间换时间</em> <br></p>
-<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">int</span>[] twoNumberSum(<span class="keyword">int</span>[] array, <span class="keyword">int</span> targetSum) &#123;</span><br><span class="line">    <span class="comment">// Write your code here.</span></span><br><span class="line">        Set&lt;Integer&gt; set = <span class="keyword">new</span> HashSet&lt;&gt;();</span><br><span class="line">        <span class="keyword">int</span>[] ans = <span class="keyword">new</span> <span class="keyword">int</span>[<span class="number">2</span>];</span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; array.length; i++) &#123;</span><br><span class="line">            <span class="keyword">int</span> remain = targetSum - array[i];</span><br><span class="line">            <span class="keyword">if</span> (set.contains(remain)) &#123;</span><br><span class="line">                ans[<span class="number">0</span>] = array[i];</span><br><span class="line">                ans[<span class="number">1</span>] = targetSum - ans[<span class="number">0</span>];</span><br><span class="line">                <span class="keyword">return</span> ans;</span><br><span class="line">            &#125;</span><br><span class="line">            set.add(array[i]);</span><br><span class="line">        &#125;</span><br><span class="line">    <span class="keyword">return</span> <span class="keyword">new</span> <span class="keyword">int</span>[<span class="number">0</span>];</span><br><span class="line">  &#125;</span><br></pre></td></tr></table></figure>
-<p><em>3. 双指针，但是需要原数组是有序的</em><br></p>
-<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">int</span>[] twoNumberSum(<span class="keyword">int</span>[] array, <span class="keyword">int</span> targetSum) &#123;</span><br><span class="line">    <span class="comment">// Write your code here.</span></span><br><span class="line">        Arrays.sort(array);</span><br><span class="line">        <span class="keyword">int</span> left = <span class="number">0</span>, right = array.length - <span class="number">1</span>;</span><br><span class="line">        <span class="keyword">while</span> (left &lt; right) &#123;</span><br><span class="line">            <span class="keyword">if</span> (array[left] + array[right] == targetSum) </span><br><span class="line">                <span class="keyword">return</span> <span class="keyword">new</span> <span class="keyword">int</span>[] &#123;array[left], array[right]&#125;;</span><br><span class="line">            <span class="keyword">else</span> <span class="keyword">if</span> (array[left] + array[right] &lt; targetSum) left++;</span><br><span class="line">            <span class="keyword">else</span> right--;</span><br><span class="line">        &#125;</span><br><span class="line">    <span class="keyword">return</span> <span class="keyword">new</span> <span class="keyword">int</span>[<span class="number">0</span>];</span><br><span class="line">  &#125;</span><br></pre></td></tr></table></figure>
-]]></content>
-      <categories>
-        <category>Algorithm</category>
-      </categories>
-      <tags>
-        <tag>Algorithm</tag>
-        <tag>Arrays</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>Alg.2 Validate Subsequence</title>
     <url>/panaceacode.github.io/2020/04/04/Alg-2-Validate-Subsequence/</url>
-    <content><![CDATA[<p><em>一道数组题，验证一个数组是否是另一个的子集，如[1, 6, -1, 10]为[5, 1, 22, 25, 6, -1, 8, 10]的子集</em><br><br><em>输入为两个数组，验证sequence是否为array的子集</em><br><br><em>基本思路为遍历array，同时用一个指针记录sequence当前位置，当遍历到的array的值与sequence当前位置的值相等时，sequence的值+1，遍历结束后比较指针与sequence的长度即可</em><br></p>
+    <content><![CDATA[<p><em>Write a function that determines whether “sequence” array is a subsequence of “array” array. For example, [1, 6, -1, 10] is a subsequence of [5, 1, 22, 25, 6, -1, 8, 10]</em><br><br><em>First, we iterate “array”, at the same time, we use a pointer to track the current position of “sequence”. If the value of “array” equals the value of current “sequence”, “sequence”‘s pointer will increment by 1. When we finish the iteration, we only need to compare the length of “sequence” and “sequence”‘s pointer.</em><br></p>
 <figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">boolean</span> <span class="title">isValidSubsequence</span><span class="params">(List&lt;Integer&gt; array, List&lt;Integer&gt; sequence)</span> </span>&#123;</span><br><span class="line">    <span class="comment">// Write your code here.</span></span><br><span class="line">        <span class="keyword">int</span> j = <span class="number">0</span>;</span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; array.size(); i++) &#123;</span><br><span class="line">            <span class="keyword">if</span> (j == sequence.size()) <span class="keyword">return</span> <span class="keyword">true</span>;</span><br><span class="line">            <span class="keyword">if</span> (array.get(i) == sequence.get(j)) j++;</span><br><span class="line">        &#125;</span><br><span class="line">    <span class="keyword">return</span> j == sequence.size();</span><br><span class="line">  &#125;</span><br></pre></td></tr></table></figure>
+<p>Time complexity: O(n); Space complexity: O(1)</p>
 ]]></content>
       <categories>
         <category>Algorithm</category>
@@ -35,13 +18,49 @@
   <entry>
     <title>Alg.3 Remove Duplicates From Linked List</title>
     <url>/panaceacode.github.io/2020/04/04/Alg-3-Remove-Duplicates-From-Linked-List/</url>
-    <content><![CDATA[]]></content>
+    <content><![CDATA[<p>__</p>
+]]></content>
       <categories>
         <category>Algorithm</category>
       </categories>
       <tags>
         <tag>Algorithm</tag>
         <tag>Linked Lists</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>Alg.1 Two Sum</title>
+    <url>/panaceacode.github.io/2020/04/04/Alg-1-Two-Sum/</url>
+    <content><![CDATA[<p><em>Two Sum, basically 3 ways to solve this problem：</em><br><br><em>1. Brute Force</em><br></p>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">int</span>[] twoNumberSum(<span class="keyword">int</span>[] array, <span class="keyword">int</span> targetSum) &#123;</span><br><span class="line">    <span class="comment">// Write your code here.</span></span><br><span class="line">        <span class="keyword">int</span>[] ans = <span class="keyword">new</span> <span class="keyword">int</span>[<span class="number">2</span>];</span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; array.length - <span class="number">1</span>; i++) &#123;</span><br><span class="line">            <span class="keyword">for</span> (<span class="keyword">int</span> j = i + <span class="number">1</span>; j &lt; array.length; j++) &#123;</span><br><span class="line">                <span class="keyword">if</span> (array[i] + array[j] == targetSum) &#123;</span><br><span class="line">                    ans[<span class="number">0</span>] = array[i];</span><br><span class="line">                    ans[<span class="number">1</span>] = array[j];</span><br><span class="line">                    <span class="keyword">return</span> ans;</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">    <span class="keyword">return</span> <span class="keyword">new</span> <span class="keyword">int</span>[<span class="number">0</span>];</span><br><span class="line">  &#125;</span><br></pre></td></tr></table></figure>
+<p>Time complexity: O(n^2); Space complexity: O(1)<br><em>2. Use a set, improve time complexity by adding extra space comlexcity.</em> <br></p>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">int</span>[] twoNumberSum(<span class="keyword">int</span>[] array, <span class="keyword">int</span> targetSum) &#123;</span><br><span class="line">    <span class="comment">// Write your code here.</span></span><br><span class="line">        Set&lt;Integer&gt; set = <span class="keyword">new</span> HashSet&lt;&gt;();</span><br><span class="line">        <span class="keyword">int</span>[] ans = <span class="keyword">new</span> <span class="keyword">int</span>[<span class="number">2</span>];</span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; array.length; i++) &#123;</span><br><span class="line">            <span class="keyword">int</span> remain = targetSum - array[i];</span><br><span class="line">            <span class="keyword">if</span> (set.contains(remain)) &#123;</span><br><span class="line">                ans[<span class="number">0</span>] = array[i];</span><br><span class="line">                ans[<span class="number">1</span>] = targetSum - ans[<span class="number">0</span>];</span><br><span class="line">                <span class="keyword">return</span> ans;</span><br><span class="line">            &#125;</span><br><span class="line">            set.add(array[i]);</span><br><span class="line">        &#125;</span><br><span class="line">    <span class="keyword">return</span> <span class="keyword">new</span> <span class="keyword">int</span>[<span class="number">0</span>];</span><br><span class="line">  &#125;</span><br></pre></td></tr></table></figure>
+<p>Time complexity: O(n); Space complexity: O(n)<br><em>3. Two pointers, this method works only if the array is sorted. In this problem, we have to sort the array first.</em><br></p>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">int</span>[] twoNumberSum(<span class="keyword">int</span>[] array, <span class="keyword">int</span> targetSum) &#123;</span><br><span class="line">    <span class="comment">// Write your code here.</span></span><br><span class="line">        Arrays.sort(array);</span><br><span class="line">        <span class="keyword">int</span> left = <span class="number">0</span>, right = array.length - <span class="number">1</span>;</span><br><span class="line">        <span class="keyword">while</span> (left &lt; right) &#123;</span><br><span class="line">            <span class="keyword">if</span> (array[left] + array[right] == targetSum) </span><br><span class="line">                <span class="keyword">return</span> <span class="keyword">new</span> <span class="keyword">int</span>[] &#123;array[left], array[right]&#125;;</span><br><span class="line">            <span class="keyword">else</span> <span class="keyword">if</span> (array[left] + array[right] &lt; targetSum) left++;</span><br><span class="line">            <span class="keyword">else</span> right--;</span><br><span class="line">        &#125;</span><br><span class="line">    <span class="keyword">return</span> <span class="keyword">new</span> <span class="keyword">int</span>[<span class="number">0</span>];</span><br><span class="line">  &#125;</span><br></pre></td></tr></table></figure>
+<p>Time complexity:O(nlogn)(since we need to sort this array first); Space complexity:O(1)</p>
+]]></content>
+      <categories>
+        <category>Algorithm</category>
+      </categories>
+      <tags>
+        <tag>Algorithm</tag>
+        <tag>Arrays</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>Belfast</title>
+    <url>/panaceacode.github.io/2019/12/21/Belfast/</url>
+    <content><![CDATA[<h1 id="2019-12-19"><a href="#2019-12-19" class="headerlink" title="2019/12/19"></a><em>2019/12/19</em></h1><p><em>第一天计划去贝尔法斯特玩，我垚坚持要买早班飞机，结果早上起不来，于是就有了两张机票</em> <br><br><img src="https://blog-lzr.oss-cn-shanghai.aliyuncs.com/Belfast/ticket.jpg" width="50%" height="35%" align="bottom" /><br></p>
+<p><em>在贝法第一天去了泰坦尼克博物馆，晚上去吃了一个很不错的汉堡。当天晚上有个圣诞集市，贝法的景色还是很不错的</em> <br><br><img src="https://blog-lzr.oss-cn-shanghai.aliyuncs.com/Belfast/titanic.jpg" width="50%" height="50%" align="bottom" /><br><br><img src="https://blog-lzr.oss-cn-shanghai.aliyuncs.com/Belfast/titanic1.jpg" width="50%" height="50%" align="bottom" /><br><br><img src="https://blog-lzr.oss-cn-shanghai.aliyuncs.com/Belfast/19.jpg" width="50%" height="50%" align="bottom" /><br></p>
+<h1 id="2019-12-20"><a href="#2019-12-20" class="headerlink" title="2019/12/20"></a><em>2019/12/20</em></h1><p><em>今天是权游主题观光！！！吃到个超棒的chowder！！！</em> <br><br><img src="https://blog-lzr.oss-cn-shanghai.aliyuncs.com/Belfast/got1.JPG" width="50%" height="50%" align="bottom" /><br><br><img src="https://blog-lzr.oss-cn-shanghai.aliyuncs.com/Belfast/got2.JPG" width="50%" height="50%" align="bottom" /><br><br><img src="https://blog-lzr.oss-cn-shanghai.aliyuncs.com/Belfast/got3.JPG" width="50%" height="50%" align="bottom" /><br><br><img src="https://blog-lzr.oss-cn-shanghai.aliyuncs.com/Belfast/got4.JPG" width="50%" height="50%" align="bottom" /><br><br><img src="https://blog-lzr.oss-cn-shanghai.aliyuncs.com/Belfast/got5.JPG" width="50%" height="50%" align="bottom" /><br><br><img src="https://blog-lzr.oss-cn-shanghai.aliyuncs.com/Belfast/got6.JPG" width="50%" height="50%" align="bottom" /><br><br><img src="https://blog-lzr.oss-cn-shanghai.aliyuncs.com/Belfast/got7.JPG" width="50%" height="50%" align="bottom" /><br><br><img src="https://blog-lzr.oss-cn-shanghai.aliyuncs.com/Belfast/got8.JPG" width="50%" height="50%" align="bottom" /><br></p>
+<h1 id="2019-12-21"><a href="#2019-12-21" class="headerlink" title="2019/12/21"></a><em>2019/12/21</em></h1><p><em>最后一天简单逛了一下贝法的女王大学和市政厅，打道回府～</em> <br><br><img src="https://blog-lzr.oss-cn-shanghai.aliyuncs.com/Belfast/belfast.JPG" width="50%" height="50%" align="bottom" /><br></p>
+]]></content>
+      <categories>
+        <category>Travel</category>
+      </categories>
+      <tags>
+        <tag>Travel</tag>
+        <tag>Belfast</tag>
       </tags>
   </entry>
   <entry>
@@ -107,22 +126,6 @@
       <tags>
         <tag>GitHub</tag>
         <tag>技术随笔</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>Belfast</title>
-    <url>/panaceacode.github.io/2019/12/21/Belfast/</url>
-    <content><![CDATA[<h1 id="2019-12-19"><a href="#2019-12-19" class="headerlink" title="2019/12/19"></a><em>2019/12/19</em></h1><p><em>第一天计划去贝尔法斯特玩，我垚坚持要买早班飞机，结果早上起不来，于是就有了两张机票</em> <br><br><img src="https://blog-lzr.oss-cn-shanghai.aliyuncs.com/Belfast/ticket.jpg" width="50%" height="35%" align="bottom" /><br></p>
-<p><em>在贝法第一天去了泰坦尼克博物馆，晚上去吃了一个很不错的汉堡。当天晚上有个圣诞集市，贝法的景色还是很不错的</em> <br><br><img src="https://blog-lzr.oss-cn-shanghai.aliyuncs.com/Belfast/titanic.jpg" width="50%" height="50%" align="bottom" /><br><br><img src="https://blog-lzr.oss-cn-shanghai.aliyuncs.com/Belfast/titanic1.jpg" width="50%" height="50%" align="bottom" /><br><br><img src="https://blog-lzr.oss-cn-shanghai.aliyuncs.com/Belfast/19.jpg" width="50%" height="50%" align="bottom" /><br></p>
-<h1 id="2019-12-20"><a href="#2019-12-20" class="headerlink" title="2019/12/20"></a><em>2019/12/20</em></h1><p><em>今天是权游主题观光！！！吃到个超棒的chowder！！！</em> <br><br><img src="https://blog-lzr.oss-cn-shanghai.aliyuncs.com/Belfast/got1.JPG" width="50%" height="50%" align="bottom" /><br><br><img src="https://blog-lzr.oss-cn-shanghai.aliyuncs.com/Belfast/got2.JPG" width="50%" height="50%" align="bottom" /><br><br><img src="https://blog-lzr.oss-cn-shanghai.aliyuncs.com/Belfast/got3.JPG" width="50%" height="50%" align="bottom" /><br><br><img src="https://blog-lzr.oss-cn-shanghai.aliyuncs.com/Belfast/got4.JPG" width="50%" height="50%" align="bottom" /><br><br><img src="https://blog-lzr.oss-cn-shanghai.aliyuncs.com/Belfast/got5.JPG" width="50%" height="50%" align="bottom" /><br><br><img src="https://blog-lzr.oss-cn-shanghai.aliyuncs.com/Belfast/got6.JPG" width="50%" height="50%" align="bottom" /><br><br><img src="https://blog-lzr.oss-cn-shanghai.aliyuncs.com/Belfast/got7.JPG" width="50%" height="50%" align="bottom" /><br><br><img src="https://blog-lzr.oss-cn-shanghai.aliyuncs.com/Belfast/got8.JPG" width="50%" height="50%" align="bottom" /><br></p>
-<h1 id="2019-12-21"><a href="#2019-12-21" class="headerlink" title="2019/12/21"></a><em>2019/12/21</em></h1><p><em>最后一天简单逛了一下贝法的女王大学和市政厅，打道回府～</em> <br><br><img src="https://blog-lzr.oss-cn-shanghai.aliyuncs.com/Belfast/belfast.JPG" width="50%" height="50%" align="bottom" /><br></p>
-]]></content>
-      <categories>
-        <category>Travel</category>
-      </categories>
-      <tags>
-        <tag>Travel</tag>
-        <tag>Belfast</tag>
       </tags>
   </entry>
 </search>
