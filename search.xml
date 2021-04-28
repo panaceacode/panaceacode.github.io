@@ -20,10 +20,10 @@
       </tags>
   </entry>
   <entry>
-    <title>Alg.2 Validate Subsequence</title>
-    <url>/panaceacode.github.io/2020/04/04/Alg-2-Validate-Subsequence/</url>
-    <content><![CDATA[<p><em>Write a function that determines whether “sequence” array is a subsequence of “array” array. For example, [1, 6, -1, 10] is a subsequence of [5, 1, 22, 25, 6, -1, 8, 10]</em><br><br><em>First, we iterate “array”, at the same time, we use a pointer to track the current position of “sequence”. If the value of “array” equals the value of current “sequence”, “sequence”‘s pointer will increment by 1. When we finish the iteration, we only need to compare the length of “sequence” and “sequence”‘s pointer.</em><br></p>
-<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">boolean</span> <span class="title">isValidSubsequence</span><span class="params">(List&lt;Integer&gt; array, List&lt;Integer&gt; sequence)</span> </span>&#123;</span><br><span class="line">    <span class="comment">// Write your code here.</span></span><br><span class="line">        <span class="keyword">int</span> j = <span class="number">0</span>;</span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; array.size(); i++) &#123;</span><br><span class="line">            <span class="keyword">if</span> (j == sequence.size()) <span class="keyword">return</span> <span class="keyword">true</span>;</span><br><span class="line">            <span class="keyword">if</span> (array.get(i) == sequence.get(j)) j++;</span><br><span class="line">        &#125;</span><br><span class="line">    <span class="keyword">return</span> j == sequence.size();</span><br><span class="line">  &#125;</span><br></pre></td></tr></table></figure>
+    <title>Alg.3 Remove Duplicates From Linked List</title>
+    <url>/panaceacode.github.io/2020/04/04/Alg-3-Remove-Duplicates-From-Linked-List/</url>
+    <content><![CDATA[<p><em>GIven a singly linked list, their nodes are sorted with respect to their value. Write a function to remove the nodes with duplicate values.</em><br><br><em>This method is pretty straightforward</em><br></p>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="keyword">public</span> LinkedList <span class="title">removeDuplicatesFromLinkedList</span><span class="params">(LinkedList linkedList)</span> </span>&#123;</span><br><span class="line">    <span class="comment">// Write your code here.</span></span><br><span class="line">        LinkedList current = linkedList;</span><br><span class="line">        <span class="keyword">while</span> (current != <span class="keyword">null</span>) &#123;</span><br><span class="line">            LinkedList next = current.next;</span><br><span class="line">            <span class="keyword">while</span> (next != <span class="keyword">null</span> &amp;&amp; current.value == next.value) &#123;</span><br><span class="line">                next = next.next;</span><br><span class="line">            &#125;</span><br><span class="line">            current.next = next;</span><br><span class="line">            current = next;</span><br><span class="line">        &#125;</span><br><span class="line">    <span class="keyword">return</span> linkedList;</span><br><span class="line">  &#125;</span><br></pre></td></tr></table></figure>
 <p>Time complexity: O(n); Space complexity: O(1)</p>
 ]]></content>
       <categories>
@@ -31,21 +31,23 @@
       </categories>
       <tags>
         <tag>Algorithm</tag>
-        <tag>Arrays</tag>
+        <tag>Linked Lists</tag>
       </tags>
   </entry>
   <entry>
-    <title>Alg.3 Remove Duplicates From Linked List</title>
-    <url>/panaceacode.github.io/2020/04/04/Alg-3-Remove-Duplicates-From-Linked-List/</url>
-    <content><![CDATA[<p><em>GIven a singly linked list, their nodes are sorted with respect to their value. Write a function to remove the nodes with duplicate values.</em><br><br><em>This method is pretty straightforward</em><br></p>
-<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="keyword">public</span> LinkedList <span class="title">removeDuplicatesFromLinkedList</span><span class="params">(LinkedList linkedList)</span> </span>&#123;</span><br><span class="line">    <span class="comment">// Write your code here.</span></span><br><span class="line">        LinkedList current = linkedList;</span><br><span class="line">        <span class="keyword">while</span> (current != <span class="keyword">null</span>) &#123;</span><br><span class="line">            LinkedList next = current.next;</span><br><span class="line">            <span class="keyword">while</span> (next != <span class="keyword">null</span> &amp;&amp; current.value == next.value) &#123;</span><br><span class="line">                next = next.next;</span><br><span class="line">            &#125;</span><br><span class="line">            current.next = next;</span><br><span class="line">            current = next;</span><br><span class="line">        &#125;</span><br><span class="line">    <span class="keyword">return</span> linkedList;</span><br><span class="line">  &#125;</span><br></pre></td></tr></table></figure>
+    <title>Edinburgh</title>
+    <url>/panaceacode.github.io/2019/12/18/Edinburgh/</url>
+    <content><![CDATA[<h1 id="2019-12-17"><a href="#2019-12-17" class="headerlink" title="2019/12/17"></a><em>2019/12/17</em></h1><p><em>出发去英国</em><br><img src="https://blog-lzr.oss-cn-shanghai.aliyuncs.com/Edinburgh/ticket.jpg" width="50%" height="35%" align="middle" /><br></p>
+<p><em>落地伦敦，提前复习了一遍哈利波特，特意到King’s Cross转车</em><br><img src="https://blog-lzr.oss-cn-shanghai.aliyuncs.com/Edinburgh/kingscross.jpg" width="50%" height="50%" align="middle" /><br><img src="https://blog-lzr.oss-cn-shanghai.aliyuncs.com/Edinburgh/kingscross1.jpg" width="50%" height="50%" align="middle" /><br></p>
+<p><em>出发去爱丁堡，开心！</em><br><img src="https://blog-lzr.oss-cn-shanghai.aliyuncs.com/Edinburgh/trainTicket.jpg" width="50%" height="35%" align="middle" /><br></p>
+<h1 id="2019-12-18"><a href="#2019-12-18" class="headerlink" title="2019/12/18"></a><em>2019/12/18</em></h1><p><em>在爱丁堡的第一天</em><br><img src="https://blog-lzr.oss-cn-shanghai.aliyuncs.com/Edinburgh/edinburgh.jpg" width="50%" height="50%" align="middle" /></p>
 ]]></content>
       <categories>
-        <category>Algorithm</category>
+        <category>Travel</category>
       </categories>
       <tags>
-        <tag>Algorithm</tag>
-        <tag>Linked Lists</tag>
+        <tag>Travel</tag>
+        <tag>Edinburgh</tag>
       </tags>
   </entry>
   <entry>
@@ -65,19 +67,18 @@
       </tags>
   </entry>
   <entry>
-    <title>Edinburgh</title>
-    <url>/panaceacode.github.io/2019/12/18/Edinburgh/</url>
-    <content><![CDATA[<h1 id="2019-12-17"><a href="#2019-12-17" class="headerlink" title="2019/12/17"></a><em>2019/12/17</em></h1><p><em>出发去英国</em><br><img src="https://blog-lzr.oss-cn-shanghai.aliyuncs.com/Edinburgh/ticket.jpg" width="50%" height="35%" align="middle" /><br></p>
-<p><em>落地伦敦，提前复习了一遍哈利波特，特意到King’s Cross转车</em><br><img src="https://blog-lzr.oss-cn-shanghai.aliyuncs.com/Edinburgh/kingscross.jpg" width="50%" height="50%" align="middle" /><br><img src="https://blog-lzr.oss-cn-shanghai.aliyuncs.com/Edinburgh/kingscross1.jpg" width="50%" height="50%" align="middle" /><br></p>
-<p><em>出发去爱丁堡，开心！</em><br><img src="https://blog-lzr.oss-cn-shanghai.aliyuncs.com/Edinburgh/trainTicket.jpg" width="50%" height="35%" align="middle" /><br></p>
-<h1 id="2019-12-18"><a href="#2019-12-18" class="headerlink" title="2019/12/18"></a><em>2019/12/18</em></h1><p><em>在爱丁堡的第一天</em><br><img src="https://blog-lzr.oss-cn-shanghai.aliyuncs.com/Edinburgh/edinburgh.jpg" width="50%" height="50%" align="middle" /></p>
+    <title>Alg.2 Validate Subsequence</title>
+    <url>/panaceacode.github.io/2020/04/04/Alg-2-Validate-Subsequence/</url>
+    <content><![CDATA[<p><em>Write a function that determines whether “sequence” array is a subsequence of “array” array. For example, [1, 6, -1, 10] is a subsequence of [5, 1, 22, 25, 6, -1, 8, 10]</em><br><br><em>First, we iterate “array”, at the same time, we use a pointer to track the current position of “sequence”. If the value of “array” equals the value of current “sequence”, “sequence”‘s pointer will increment by 1. When we finish the iteration, we only need to compare the length of “sequence” and “sequence”‘s pointer.</em><br></p>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">boolean</span> <span class="title">isValidSubsequence</span><span class="params">(List&lt;Integer&gt; array, List&lt;Integer&gt; sequence)</span> </span>&#123;</span><br><span class="line">    <span class="comment">// Write your code here.</span></span><br><span class="line">        <span class="keyword">int</span> j = <span class="number">0</span>;</span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; array.size(); i++) &#123;</span><br><span class="line">            <span class="keyword">if</span> (j == sequence.size()) <span class="keyword">return</span> <span class="keyword">true</span>;</span><br><span class="line">            <span class="keyword">if</span> (array.get(i) == sequence.get(j)) j++;</span><br><span class="line">        &#125;</span><br><span class="line">    <span class="keyword">return</span> j == sequence.size();</span><br><span class="line">  &#125;</span><br></pre></td></tr></table></figure>
+<p>Time complexity: O(n); Space complexity: O(1)</p>
 ]]></content>
       <categories>
-        <category>Travel</category>
+        <category>Algorithm</category>
       </categories>
       <tags>
-        <tag>Travel</tag>
-        <tag>Edinburgh</tag>
+        <tag>Algorithm</tag>
+        <tag>Arrays</tag>
       </tags>
   </entry>
   <entry>
