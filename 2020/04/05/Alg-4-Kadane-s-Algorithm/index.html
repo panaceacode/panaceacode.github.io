@@ -71,7 +71,7 @@
         <span class="post-meta-item-icon">
             <i class="ri-quill-pen-line"></i>
             <span class="post-meta-item-text"> Word count:</span>
-            <span class="post-count">160</span>
+            <span class="post-count">157</span>
         </span>
     </span>
 
@@ -93,7 +93,7 @@
   
     <div class="article-entry" itemprop="articleBody">
        
-  <p><em>In this problem, we have to write a function to get a certain subarray’s maximum sum of a given non-empty array. So, in this case, Kadane’s Algorithm would be an efficient option for this one.</em><br><br><em>Assume we have an non-empty array, “array”, first, we need to iterate this array,  use a variable “currentSum” to record the current maximum sum. Obviouly, the maximum sum would be either the current element array[i] or ans + array[i]. We almost finish this problrm here, the last thing we need to do is to find the biggest “currentSum” while we iterate this array.</em><br></p>
+  <p><em>In this problem, we have to write a function to get a given array’s maximum sum of its subarray. So, in this case, Kadane’s Algorithm would be an efficient option for this one.</em><br><br><em>Assume we have an non-empty array, “array”, first, we need to iterate this array,  use a variable “currentSum” to record the current maximum sum. Obviouly, the maximum sum would be either the current element array[i] or ans + array[i]. We almost finish this problrm here, the last thing we need to do is to find the biggest “currentSum” while we iterate this array.</em><br></p>
 <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">int</span> <span class="title">kadanesAlgorithm</span><span class="params">(<span class="keyword">int</span>[] array)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">if</span> (array.length == <span class="number">1</span>) <span class="keyword">return</span> array[<span class="number">0</span>];</span><br><span class="line">        <span class="keyword">int</span> ans = array[<span class="number">0</span>];</span><br><span class="line">        <span class="keyword">int</span> currentSum = array[<span class="number">0</span>];</span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">1</span>; i &lt; array.length; i++) &#123;</span><br><span class="line">            currentSum = Math.max(array[i], currentSum + array[i]);</span><br><span class="line">            ans = Math.max(currentSum, ans);</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> ans;</span><br><span class="line">  &#125;</span><br></pre></td></tr></table></figure>
 <p>Time complexity: O(n); Space complexity: O(1)</p>
  
