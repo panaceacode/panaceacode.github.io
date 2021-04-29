@@ -6,7 +6,7 @@
   <link href="https://panaceacode.github.io/atom.xml" rel="self"/>
   
   <link href="https://panaceacode.github.io/"/>
-  <updated>2021-04-29T14:47:53.099Z</updated>
+  <updated>2021-04-29T15:11:55.910Z</updated>
   <id>https://panaceacode.github.io/</id>
   
   <author>
@@ -17,18 +17,18 @@
   <generator uri="https://hexo.io/">Hexo</generator>
   
   <entry>
-    <title>Alg.5 Bubble Sort</title>
-    <link href="https://panaceacode.github.io/2021/04/05/Alg-5-Bubble-Sort/"/>
-    <id>https://panaceacode.github.io/2021/04/05/Alg-5-Bubble-Sort/</id>
-    <published>2021-04-05T14:27:56.000Z</published>
-    <updated>2021-04-29T14:47:53.099Z</updated>
+    <title>Alg.6 Insertion Sort</title>
+    <link href="https://panaceacode.github.io/2021/04/05/Alg-6-Insertion-Sort/"/>
+    <id>https://panaceacode.github.io/2021/04/05/Alg-6-Insertion-Sort/</id>
+    <published>2021-04-05T14:49:29.000Z</published>
+    <updated>2021-04-29T15:11:55.910Z</updated>
     
     
       
       
         
         
-    <summary type="html">&lt;p&gt;&lt;em&gt;Bubble Sort is probably the first sorting algorithm we learned when we study algorithm. In this problem, we will use Bubble Sort to</summary>
+    <summary type="html">&lt;p&gt;_We apply Insertion Sort to sort the given arrays. For</summary>
         
       
     
@@ -68,6 +68,33 @@
     <category term="GitHub" scheme="https://panaceacode.github.io/tags/GitHub/"/>
     
     <category term="技术随笔" scheme="https://panaceacode.github.io/tags/%E6%8A%80%E6%9C%AF%E9%9A%8F%E7%AC%94/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>Alg.5 Bubble Sort</title>
+    <link href="https://panaceacode.github.io/2020/04/05/Alg-5-Bubble-Sort/"/>
+    <id>https://panaceacode.github.io/2020/04/05/Alg-5-Bubble-Sort/</id>
+    <published>2020-04-05T14:27:56.000Z</published>
+    <updated>2021-04-29T15:13:48.046Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;p&gt;&lt;em&gt;Bubble Sort is probably the first sorting algorithm we learned when we study algorithm. In this problem, we will use Bubble Sort to</summary>
+        
+      
+    
+    
+    
+    <category term="Algorithm" scheme="https://panaceacode.github.io/categories/Algorithm/"/>
+    
+    
+    <category term="Algorithm" scheme="https://panaceacode.github.io/tags/Algorithm/"/>
+    
+    <category term="Sorting" scheme="https://panaceacode.github.io/tags/Sorting/"/>
     
   </entry>
   
