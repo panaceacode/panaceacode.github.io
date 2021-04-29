@@ -6,7 +6,7 @@
   <link href="https://panaceacode.github.io/atom.xml" rel="self"/>
   
   <link href="https://panaceacode.github.io/"/>
-  <updated>2021-01-28T10:55:32.358Z</updated>
+  <updated>2021-04-29T14:47:53.099Z</updated>
   <id>https://panaceacode.github.io/</id>
   
   <author>
@@ -15,6 +15,33 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>Alg.5 Bubble Sort</title>
+    <link href="https://panaceacode.github.io/2021/04/05/Alg-5-Bubble-Sort/"/>
+    <id>https://panaceacode.github.io/2021/04/05/Alg-5-Bubble-Sort/</id>
+    <published>2021-04-05T14:27:56.000Z</published>
+    <updated>2021-04-29T14:47:53.099Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;p&gt;&lt;em&gt;Bubble Sort is probably the first sorting algorithm we learned when we study algorithm. In this problem, we will use Bubble Sort to</summary>
+        
+      
+    
+    
+    
+    <category term="Algorithm" scheme="https://panaceacode.github.io/categories/Algorithm/"/>
+    
+    
+    <category term="Algorithm" scheme="https://panaceacode.github.io/tags/Algorithm/"/>
+    
+    <category term="Sorting" scheme="https://panaceacode.github.io/tags/Sorting/"/>
+    
+  </entry>
   
   <entry>
     <title>SSH连接GitHub账号</title>

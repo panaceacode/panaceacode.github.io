@@ -65,6 +65,23 @@
       </tags>
   </entry>
   <entry>
+    <title>Alg.5 Bubble Sort</title>
+    <url>/panaceacode.github.io/2021/04/05/Alg-5-Bubble-Sort/</url>
+    <content><![CDATA[<p><em>Bubble Sort is probably the first sorting algorithm we learned when we study algorithm. In this problem, we will use Bubble Sort to sort the given arrays. What’s more, we will find potential method to make Bubble Sort more efficient.</em><br><br>_First, in this problem and future problems which are related to sorting algorithm, we may need to swap elements. _<br></p>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="keyword">private</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">swap</span><span class="params">(<span class="keyword">int</span>[] array, <span class="keyword">int</span> i, <span class="keyword">int</span> j)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">int</span> temp = array[i];</span><br><span class="line">        array[i] = array[j];</span><br><span class="line">        array[j] = temp;</span><br><span class="line">    &#125;</span><br></pre></td></tr></table></figure>
+
+<p><em>Then, we will apply Bubble Sort to solve this problem. Basically, in Bubble Sort, we need to iterate the original array n times which is its length to determine each element’s position. Here, we will use a little trick to end some unnecessary iterations. In a certain iteration, if there is no swap, it means all the elements are in the expecting positions.</em><br></p>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">int</span>[] bubbleSort(<span class="keyword">int</span>[] array) &#123;</span><br><span class="line">    <span class="comment">// Write your code here.</span></span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; array.length - <span class="number">1</span>; i++) &#123;</span><br><span class="line">            <span class="keyword">boolean</span> flag = <span class="keyword">true</span>;</span><br><span class="line">            <span class="keyword">for</span> (<span class="keyword">int</span> j = <span class="number">0</span>; j &lt; array.length - <span class="number">1</span> - i; j++) &#123;</span><br><span class="line">                <span class="keyword">if</span> (array[j] &gt; array[j + <span class="number">1</span>]) &#123;</span><br><span class="line">                    swap(array, j, j + <span class="number">1</span>);</span><br><span class="line">                    flag = <span class="keyword">false</span>;</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;</span><br><span class="line">            <span class="keyword">if</span> (flag) <span class="keyword">return</span> array;</span><br><span class="line">      &#125;</span><br><span class="line">    <span class="keyword">return</span> array;</span><br><span class="line">    &#125;</span><br></pre></td></tr></table></figure>
+]]></content>
+      <categories>
+        <category>Algorithm</category>
+      </categories>
+      <tags>
+        <tag>Algorithm</tag>
+        <tag>Sorting</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>Belfast</title>
     <url>/panaceacode.github.io/2019/12/21/Belfast/</url>
     <content><![CDATA[<h1 id="2019-12-19"><a href="#2019-12-19" class="headerlink" title="2019/12/19"></a><em>2019/12/19</em></h1><p><em>第一天计划去贝尔法斯特玩，我垚坚持要买早班飞机，结果早上起不来，于是就有了两张机票</em> <br><br><img src="https://blog-lzr.oss-cn-shanghai.aliyuncs.com/Belfast/ticket.jpg" width="50%" height="35%" align="bottom" /><br></p>
