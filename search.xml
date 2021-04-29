@@ -72,6 +72,7 @@
 
 <p><em>Then, we will apply Bubble Sort to solve this problem. Basically, in Bubble Sort, we need to iterate the original array n times which is its length to determine each element’s position. Here, we will use a little trick to end some unnecessary iterations. In a certain iteration, if there is no swap, it means all the elements are in the expecting positions.</em><br></p>
 <figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">int</span>[] bubbleSort(<span class="keyword">int</span>[] array) &#123;</span><br><span class="line">    <span class="comment">// Write your code here.</span></span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; array.length - <span class="number">1</span>; i++) &#123;</span><br><span class="line">            <span class="keyword">boolean</span> flag = <span class="keyword">true</span>;</span><br><span class="line">            <span class="keyword">for</span> (<span class="keyword">int</span> j = <span class="number">0</span>; j &lt; array.length - <span class="number">1</span> - i; j++) &#123;</span><br><span class="line">                <span class="keyword">if</span> (array[j] &gt; array[j + <span class="number">1</span>]) &#123;</span><br><span class="line">                    swap(array, j, j + <span class="number">1</span>);</span><br><span class="line">                    flag = <span class="keyword">false</span>;</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;</span><br><span class="line">            <span class="keyword">if</span> (flag) <span class="keyword">return</span> array;</span><br><span class="line">      &#125;</span><br><span class="line">    <span class="keyword">return</span> array;</span><br><span class="line">    &#125;</span><br></pre></td></tr></table></figure>
+<p>Time complexity: O(n^2); Space complexity: O(1)</p>
 ]]></content>
       <categories>
         <category>Algorithm</category>
@@ -84,7 +85,7 @@
   <entry>
     <title>Alg.6 Insertion Sort</title>
     <url>/panaceacode.github.io/2021/04/05/Alg-6-Insertion-Sort/</url>
-    <content><![CDATA[<p>_We apply Insertion Sort to sort the given arrays. For _<br></p>
+    <content><![CDATA[<p><em>We apply Insertion Sort to sort the given arrays. For</em><br></p>
 ]]></content>
       <categories>
         <category>Algorithm</category>
