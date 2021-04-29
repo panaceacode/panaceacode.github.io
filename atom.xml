@@ -6,7 +6,7 @@
   <link href="https://panaceacode.github.io/atom.xml" rel="self"/>
   
   <link href="https://panaceacode.github.io/"/>
-  <updated>2021-01-28T10:55:32.358Z</updated>
+  <updated>2021-04-29T13:29:22.007Z</updated>
   <id>https://panaceacode.github.io/</id>
   
   <author>
@@ -15,6 +15,31 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>Alg.4 Kadane&#39;s Algorithm</title>
+    <link href="https://panaceacode.github.io/2021/04/29/Alg-4-Kadane-s-Algorithm/"/>
+    <id>https://panaceacode.github.io/2021/04/29/Alg-4-Kadane-s-Algorithm/</id>
+    <published>2021-04-29T13:13:19.000Z</published>
+    <updated>2021-04-29T13:29:22.007Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;p&gt;&lt;em&gt;In this problem, we have to write a function to get a certain subarray’s maximum sum of a given non-empty array. So, in this case,</summary>
+        
+      
+    
+    
+    
+    
+    <category term="Algorithm" scheme="https://panaceacode.github.io/tags/Algorithm/"/>
+    
+    <category term="Arrays" scheme="https://panaceacode.github.io/tags/Arrays/"/>
+    
+  </entry>
   
   <entry>
     <title>SSH连接GitHub账号</title>
