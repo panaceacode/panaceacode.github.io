@@ -6,7 +6,7 @@
   <link href="https://panaceacode.github.io/atom.xml" rel="self"/>
   
   <link href="https://panaceacode.github.io/"/>
-  <updated>2021-04-29T15:17:10.692Z</updated>
+  <updated>2021-01-28T10:55:32.358Z</updated>
   <id>https://panaceacode.github.io/</id>
   
   <author>
@@ -15,33 +15,6 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
-  
-  <entry>
-    <title>Alg.6 Insertion Sort</title>
-    <link href="https://panaceacode.github.io/2021/04/05/Alg-6-Insertion-Sort/"/>
-    <id>https://panaceacode.github.io/2021/04/05/Alg-6-Insertion-Sort/</id>
-    <published>2021-04-05T14:49:29.000Z</published>
-    <updated>2021-04-29T15:17:10.692Z</updated>
-    
-    
-      
-      
-        
-        
-    <summary type="html">&lt;p&gt;&lt;em&gt;We apply Insertion Sort to sort the given arrays.</summary>
-        
-      
-    
-    
-    
-    <category term="Algorithm" scheme="https://panaceacode.github.io/categories/Algorithm/"/>
-    
-    
-    <category term="Algorithm" scheme="https://panaceacode.github.io/tags/Algorithm/"/>
-    
-    <category term="Sorting" scheme="https://panaceacode.github.io/tags/Sorting/"/>
-    
-  </entry>
   
   <entry>
     <title>SSH连接GitHub账号</title>
@@ -72,18 +45,45 @@
   </entry>
   
   <entry>
+    <title>Alg.6 Insertion Sort</title>
+    <link href="https://panaceacode.github.io/2020/04/05/Alg-6-Insertion-Sort/"/>
+    <id>https://panaceacode.github.io/2020/04/05/Alg-6-Insertion-Sort/</id>
+    <published>2020-04-05T14:49:29.000Z</published>
+    <updated>2021-04-30T05:04:53.887Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;p&gt;&lt;em&gt;From algoexpert.io&lt;/em&gt;&lt;br &gt;&lt;br&gt;&lt;em&gt;We apply Insertion Sort to sort the given arrays. For the Insertion Sort, we basically separate</summary>
+        
+      
+    
+    
+    
+    <category term="Algorithm" scheme="https://panaceacode.github.io/categories/Algorithm/"/>
+    
+    
+    <category term="Algorithm" scheme="https://panaceacode.github.io/tags/Algorithm/"/>
+    
+    <category term="Sorting" scheme="https://panaceacode.github.io/tags/Sorting/"/>
+    
+  </entry>
+  
+  <entry>
     <title>Alg.5 Bubble Sort</title>
     <link href="https://panaceacode.github.io/2020/04/05/Alg-5-Bubble-Sort/"/>
     <id>https://panaceacode.github.io/2020/04/05/Alg-5-Bubble-Sort/</id>
     <published>2020-04-05T14:27:56.000Z</published>
-    <updated>2021-04-29T15:17:30.381Z</updated>
+    <updated>2021-04-30T02:37:34.550Z</updated>
     
     
       
       
         
         
-    <summary type="html">&lt;p&gt;&lt;em&gt;Bubble Sort is probably the first sorting algorithm we learned when we study algorithm. In this problem, we will use Bubble Sort to</summary>
+    <summary type="html">&lt;p&gt;&lt;em&gt;From algoexpert.io&lt;/em&gt;&lt;br&gt;&lt;br&gt;&lt;em&gt;Bubble Sort is probably the first sorting algorithm we learned when we study algorithm. In this</summary>
         
       
     
@@ -103,14 +103,14 @@
     <link href="https://panaceacode.github.io/2020/04/05/Alg-4-Kadane-s-Algorithm/"/>
     <id>https://panaceacode.github.io/2020/04/05/Alg-4-Kadane-s-Algorithm/</id>
     <published>2020-04-05T13:13:19.000Z</published>
-    <updated>2021-04-29T13:38:42.338Z</updated>
+    <updated>2021-04-30T02:37:13.353Z</updated>
     
     
       
       
         
         
-    <summary type="html">&lt;p&gt;&lt;em&gt;In this problem, we have to write a function to get a given array’s maximum sum of its subarray. So, in this case, Kadane’s</summary>
+    <summary type="html">&lt;p&gt;&lt;em&gt;From algoexpert.io&lt;/em&gt;&lt;br&gt;&lt;br&gt;&lt;em&gt;In this problem, we have to write a function to get a given array’s maximum sum of its subarray.</summary>
         
       
     
@@ -130,14 +130,14 @@
     <link href="https://panaceacode.github.io/2020/04/04/Alg-3-Remove-Duplicates-From-Linked-List/"/>
     <id>https://panaceacode.github.io/2020/04/04/Alg-3-Remove-Duplicates-From-Linked-List/</id>
     <published>2020-04-04T10:20:51.000Z</published>
-    <updated>2021-04-28T14:54:32.547Z</updated>
+    <updated>2021-04-30T02:38:21.428Z</updated>
     
     
       
       
         
         
-    <summary type="html">&lt;p&gt;&lt;em&gt;GIven a singly linked list, their nodes are sorted with respect to their value. Write a function to remove the nodes with duplicate</summary>
+    <summary type="html">&lt;p&gt;&lt;em&gt;From algoexpert.io&lt;/em&gt;&lt;br&gt;&lt;br&gt;&lt;em&gt;GIven a singly linked list, their nodes are sorted with respect to their value. Write a function</summary>
         
       
     
@@ -157,14 +157,14 @@
     <link href="https://panaceacode.github.io/2020/04/04/Alg-2-Validate-Subsequence/"/>
     <id>https://panaceacode.github.io/2020/04/04/Alg-2-Validate-Subsequence/</id>
     <published>2020-04-04T10:06:57.000Z</published>
-    <updated>2021-04-28T13:57:27.832Z</updated>
+    <updated>2021-04-30T02:36:27.343Z</updated>
     
     
       
       
         
         
-    <summary type="html">&lt;p&gt;&lt;em&gt;Write a function that determines whether “sequence” array is a subsequence of “array” array. For example, [1, 6, -1, 10] is a</summary>
+    <summary type="html">&lt;p&gt;&lt;em&gt;From algoexpert.io&lt;/em&gt;&lt;br&gt;&lt;br&gt;&lt;em&gt;Write a function that determines whether “sequence” array is a subsequence of “array” array. For</summary>
         
       
     
@@ -184,7 +184,7 @@
     <link href="https://panaceacode.github.io/2020/04/04/Alg-1-Two-Sum/"/>
     <id>https://panaceacode.github.io/2020/04/04/Alg-1-Two-Sum/</id>
     <published>2020-04-04T09:16:22.000Z</published>
-    <updated>2021-04-29T13:34:35.747Z</updated>
+    <updated>2021-04-30T02:36:01.900Z</updated>
     
     
       

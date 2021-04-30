@@ -75,7 +75,7 @@
         <span class="post-meta-item-icon">
             <i class="ri-quill-pen-line"></i>
             <span class="post-meta-item-text"> Word count:</span>
-            <span class="post-count">81</span>
+            <span class="post-count">83</span>
         </span>
     </span>
 
@@ -97,7 +97,7 @@
   
     <div class="article-entry" itemprop="articleBody">
        
-  <p><em>GIven a singly linked list, their nodes are sorted with respect to their value. Write a function to remove the nodes with duplicate values.</em><br><br><em>This method is pretty straightforward</em><br></p>
+  <p><em>From algoexpert.io</em><br><br><em>GIven a singly linked list, their nodes are sorted with respect to their value. Write a function to remove the nodes with duplicate values.</em><br><br><em>This method is pretty straightforward</em><br></p>
 <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">public</span> LinkedList <span class="title">removeDuplicatesFromLinkedList</span><span class="params">(LinkedList linkedList)</span> </span>&#123;</span><br><span class="line">    <span class="comment">// Write your code here.</span></span><br><span class="line">        LinkedList current = linkedList;</span><br><span class="line">        <span class="keyword">while</span> (current != <span class="keyword">null</span>) &#123;</span><br><span class="line">            LinkedList next = current.next;</span><br><span class="line">            <span class="keyword">while</span> (next != <span class="keyword">null</span> &amp;&amp; current.value == next.value) &#123;</span><br><span class="line">                next = next.next;</span><br><span class="line">            &#125;</span><br><span class="line">            current.next = next;</span><br><span class="line">            current = next;</span><br><span class="line">        &#125;</span><br><span class="line">    <span class="keyword">return</span> linkedList;</span><br><span class="line">  &#125;</span><br></pre></td></tr></table></figure>
 <p>Time complexity: O(n); Space complexity: O(1)</p>
  

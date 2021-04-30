@@ -75,7 +75,7 @@
         <span class="post-meta-item-icon">
             <i class="ri-quill-pen-line"></i>
             <span class="post-meta-item-text"> Word count:</span>
-            <span class="post-count">147</span>
+            <span class="post-count">149</span>
         </span>
     </span>
 
@@ -97,7 +97,7 @@
   
     <div class="article-entry" itemprop="articleBody">
        
-  <p><em>Write a function that determines whether “sequence” array is a subsequence of “array” array. For example, [1, 6, -1, 10] is a subsequence of [5, 1, 22, 25, 6, -1, 8, 10]</em><br><br><em>First, we iterate “array”, at the same time, we use a pointer to track the current position of “sequence”. If the value of “array” equals the value of current “sequence”, “sequence”‘s pointer will increment by 1. When we finish the iteration, we only need to compare the length of “sequence” and “sequence”‘s pointer.</em><br></p>
+  <p><em>From algoexpert.io</em><br><br><em>Write a function that determines whether “sequence” array is a subsequence of “array” array. For example, [1, 6, -1, 10] is a subsequence of [5, 1, 22, 25, 6, -1, 8, 10]</em><br><br><em>First, we iterate “array”, at the same time, we use a pointer to track the current position of “sequence”. If the value of “array” equals the value of current “sequence”, “sequence”‘s pointer will increment by 1. When we finish the iteration, we only need to compare the length of “sequence” and “sequence”‘s pointer.</em><br></p>
 <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">boolean</span> <span class="title">isValidSubsequence</span><span class="params">(List&lt;Integer&gt; array, List&lt;Integer&gt; sequence)</span> </span>&#123;</span><br><span class="line">    <span class="comment">// Write your code here.</span></span><br><span class="line">        <span class="keyword">int</span> j = <span class="number">0</span>;</span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; array.size(); i++) &#123;</span><br><span class="line">            <span class="keyword">if</span> (j == sequence.size()) <span class="keyword">return</span> <span class="keyword">true</span>;</span><br><span class="line">            <span class="keyword">if</span> (array.get(i) == sequence.get(j)) j++;</span><br><span class="line">        &#125;</span><br><span class="line">    <span class="keyword">return</span> j == sequence.size();</span><br><span class="line">  &#125;</span><br></pre></td></tr></table></figure>
 <p>Time complexity: O(n); Space complexity: O(1)</p>
  
