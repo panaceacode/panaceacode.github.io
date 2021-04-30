@@ -20,21 +20,6 @@
       </tags>
   </entry>
   <entry>
-    <title>Alg.2 Validate Subsequence</title>
-    <url>/panaceacode.github.io/2020/04/04/Alg-2-Validate-Subsequence/</url>
-    <content><![CDATA[<p><em>From algoexpert.io</em><br><br><em>Write a function that determines whether “sequence” array is a subsequence of “array” array. For example, [1, 6, -1, 10] is a subsequence of [5, 1, 22, 25, 6, -1, 8, 10]</em><br><br><em>First, we iterate “array”, at the same time, we use a pointer to track the current position of “sequence”. If the value of “array” equals the value of current “sequence”, “sequence”‘s pointer will increment by 1. When we finish the iteration, we only need to compare the length of “sequence” and “sequence”‘s pointer.</em><br></p>
-<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">boolean</span> <span class="title">isValidSubsequence</span><span class="params">(List&lt;Integer&gt; array, List&lt;Integer&gt; sequence)</span> </span>&#123;</span><br><span class="line">    <span class="comment">// Write your code here.</span></span><br><span class="line">        <span class="keyword">int</span> j = <span class="number">0</span>;</span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; array.size(); i++) &#123;</span><br><span class="line">            <span class="keyword">if</span> (j == sequence.size()) <span class="keyword">return</span> <span class="keyword">true</span>;</span><br><span class="line">            <span class="keyword">if</span> (array.get(i) == sequence.get(j)) j++;</span><br><span class="line">        &#125;</span><br><span class="line">    <span class="keyword">return</span> j == sequence.size();</span><br><span class="line">  &#125;</span><br></pre></td></tr></table></figure>
-<p>Time complexity: O(n); Space complexity: O(1)</p>
-]]></content>
-      <categories>
-        <category>Algorithm</category>
-      </categories>
-      <tags>
-        <tag>Algorithm</tag>
-        <tag>Arrays</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>Alg.3 Remove Duplicates From Linked List</title>
     <url>/panaceacode.github.io/2020/04/04/Alg-3-Remove-Duplicates-From-Linked-List/</url>
     <content><![CDATA[<p><em>From algoexpert.io</em><br><br><em>GIven a singly linked list, their nodes are sorted with respect to their value. Write a function to remove the nodes with duplicate values.</em><br><br><em>This method is pretty straightforward</em><br></p>
@@ -50,28 +35,25 @@
       </tags>
   </entry>
   <entry>
-    <title>Alg.5 Bubble Sort</title>
-    <url>/panaceacode.github.io/2020/04/05/Alg-5-Bubble-Sort/</url>
-    <content><![CDATA[<p><em>From algoexpert.io</em><br><br><em>Bubble Sort is probably the first sorting algorithm we learned when we study algorithm. In this problem, we will use Bubble Sort to sort the given arrays. What’s more, we will find potential method to make Bubble Sort more efficient.</em><br><br><em>First, in this problem and future problems which are related to sorting algorithm, we may need to swap elements.</em><br></p>
-<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="keyword">private</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">swap</span><span class="params">(<span class="keyword">int</span>[] array, <span class="keyword">int</span> i, <span class="keyword">int</span> j)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">int</span> temp = array[i];</span><br><span class="line">        array[i] = array[j];</span><br><span class="line">        array[j] = temp;</span><br><span class="line">    &#125;</span><br></pre></td></tr></table></figure>
-
-<p><em>Then, we will apply Bubble Sort to solve this problem. Basically, in Bubble Sort, we need to iterate the original array n times which is its length to determine each element’s position. Here, we will use a little trick to end some unnecessary iterations. In a certain iteration, if there is no swap, it means all the elements are in the expecting positions.</em><br></p>
-<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">int</span>[] bubbleSort(<span class="keyword">int</span>[] array) &#123;</span><br><span class="line">    <span class="comment">// Write your code here.</span></span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; array.length - <span class="number">1</span>; i++) &#123;</span><br><span class="line">            <span class="keyword">boolean</span> flag = <span class="keyword">true</span>;</span><br><span class="line">            <span class="keyword">for</span> (<span class="keyword">int</span> j = <span class="number">0</span>; j &lt; array.length - <span class="number">1</span> - i; j++) &#123;</span><br><span class="line">                <span class="keyword">if</span> (array[j] &gt; array[j + <span class="number">1</span>]) &#123;</span><br><span class="line">                    swap(array, j, j + <span class="number">1</span>);</span><br><span class="line">                    flag = <span class="keyword">false</span>;</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;</span><br><span class="line">            <span class="keyword">if</span> (flag) <span class="keyword">return</span> array;</span><br><span class="line">      &#125;</span><br><span class="line">    <span class="keyword">return</span> array;</span><br><span class="line">    &#125;</span><br></pre></td></tr></table></figure>
-<p>Time complexity: O(n^2); Space complexity: O(1)</p>
+    <title>Alg.4 Kadane&#39;s Algorithm</title>
+    <url>/panaceacode.github.io/2020/04/05/Alg-4-Kadane-s-Algorithm/</url>
+    <content><![CDATA[<p><em>From algoexpert.io</em><br><br><em>In this problem, we have to write a function to get a given array’s maximum sum of its subarray. So, in this case, Kadane’s Algorithm would be an efficient option for this one.</em><br><br><em>Assume we have an non-empty array, “array”, first, we need to iterate this array,  use a variable “currentSum” to record the current maximum sum. Obviouly, the maximum sum would be either the current element array[i] or ans + array[i]. We almost finish this problrm here, the last thing we need to do is to find the biggest “currentSum” while we iterate this array.</em><br></p>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">int</span> <span class="title">kadanesAlgorithm</span><span class="params">(<span class="keyword">int</span>[] array)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">if</span> (array.length == <span class="number">1</span>) <span class="keyword">return</span> array[<span class="number">0</span>];</span><br><span class="line">        <span class="keyword">int</span> ans = array[<span class="number">0</span>];</span><br><span class="line">        <span class="keyword">int</span> currentSum = array[<span class="number">0</span>];</span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">1</span>; i &lt; array.length; i++) &#123;</span><br><span class="line">            currentSum = Math.max(array[i], currentSum + array[i]);</span><br><span class="line">            ans = Math.max(currentSum, ans);</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> ans;</span><br><span class="line">  &#125;</span><br></pre></td></tr></table></figure>
+<p>Time complexity: O(n); Space complexity: O(1)</p>
 ]]></content>
       <categories>
         <category>Algorithm</category>
       </categories>
       <tags>
         <tag>Algorithm</tag>
-        <tag>Sorting</tag>
+        <tag>Arrays</tag>
       </tags>
   </entry>
   <entry>
-    <title>Alg.4 Kadane&#39;s Algorithm</title>
-    <url>/panaceacode.github.io/2020/04/05/Alg-4-Kadane-s-Algorithm/</url>
-    <content><![CDATA[<p><em>From algoexpert.io</em><br><br><em>In this problem, we have to write a function to get a given array’s maximum sum of its subarray. So, in this case, Kadane’s Algorithm would be an efficient option for this one.</em><br><br><em>Assume we have an non-empty array, “array”, first, we need to iterate this array,  use a variable “currentSum” to record the current maximum sum. Obviouly, the maximum sum would be either the current element array[i] or ans + array[i]. We almost finish this problrm here, the last thing we need to do is to find the biggest “currentSum” while we iterate this array.</em><br></p>
-<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">int</span> <span class="title">kadanesAlgorithm</span><span class="params">(<span class="keyword">int</span>[] array)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">if</span> (array.length == <span class="number">1</span>) <span class="keyword">return</span> array[<span class="number">0</span>];</span><br><span class="line">        <span class="keyword">int</span> ans = array[<span class="number">0</span>];</span><br><span class="line">        <span class="keyword">int</span> currentSum = array[<span class="number">0</span>];</span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">1</span>; i &lt; array.length; i++) &#123;</span><br><span class="line">            currentSum = Math.max(array[i], currentSum + array[i]);</span><br><span class="line">            ans = Math.max(currentSum, ans);</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> ans;</span><br><span class="line">  &#125;</span><br></pre></td></tr></table></figure>
+    <title>Alg.2 Validate Subsequence</title>
+    <url>/panaceacode.github.io/2020/04/04/Alg-2-Validate-Subsequence/</url>
+    <content><![CDATA[<p><em>From algoexpert.io</em><br><br><em>Write a function that determines whether “sequence” array is a subsequence of “array” array. For example, [1, 6, -1, 10] is a subsequence of [5, 1, 22, 25, 6, -1, 8, 10]</em><br><br><em>First, we iterate “array”, at the same time, we use a pointer to track the current position of “sequence”. If the value of “array” equals the value of current “sequence”, “sequence”‘s pointer will increment by 1. When we finish the iteration, we only need to compare the length of “sequence” and “sequence”‘s pointer.</em><br></p>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">boolean</span> <span class="title">isValidSubsequence</span><span class="params">(List&lt;Integer&gt; array, List&lt;Integer&gt; sequence)</span> </span>&#123;</span><br><span class="line">    <span class="comment">// Write your code here.</span></span><br><span class="line">        <span class="keyword">int</span> j = <span class="number">0</span>;</span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; array.size(); i++) &#123;</span><br><span class="line">            <span class="keyword">if</span> (j == sequence.size()) <span class="keyword">return</span> <span class="keyword">true</span>;</span><br><span class="line">            <span class="keyword">if</span> (array.get(i) == sequence.get(j)) j++;</span><br><span class="line">        &#125;</span><br><span class="line">    <span class="keyword">return</span> j == sequence.size();</span><br><span class="line">  &#125;</span><br></pre></td></tr></table></figure>
 <p>Time complexity: O(n); Space complexity: O(1)</p>
 ]]></content>
       <categories>
@@ -113,6 +95,55 @@
       <tags>
         <tag>Travel</tag>
         <tag>Belfast</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>Alg.7 Selection Sort</title>
+    <url>/panaceacode.github.io/2020/04/06/Alg-7-Selection-Sort/</url>
+    <content><![CDATA[<p><em>From algoexpert.io</em><br><br><em>Selection Sort is pretty much like the Insertion Sort. We divide the original array into two parts, “ordered” and “disordered”. But for Selection Sort, we will find the smallest number in the “disordered” part, and insert that number into “ordered” one. That’s why we called it Selection Sort.</em><br></p>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">int</span>[] selectionSort(<span class="keyword">int</span>[] array) &#123;</span><br><span class="line">    <span class="comment">// Write your code here.</span></span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; array.length - <span class="number">1</span>; i++)&#123;</span><br><span class="line">            <span class="keyword">int</span> minIndex = i;</span><br><span class="line">            <span class="keyword">for</span> (<span class="keyword">int</span> j = i; j &lt; array.length; j++) &#123;</span><br><span class="line">                <span class="keyword">if</span> (array[j] &lt; array[minIndex]) minIndex = j;</span><br><span class="line">            &#125;</span><br><span class="line">            swap(array, i, minIndex);</span><br><span class="line">        &#125;</span><br><span class="line">    <span class="keyword">return</span> array;</span><br><span class="line">  &#125;</span><br></pre></td></tr></table></figure>
+<p>Time complexity: O(n^2); Space complexity: O(1)</p>
+]]></content>
+      <categories>
+        <category>Algorithm</category>
+      </categories>
+      <tags>
+        <tag>Algorithm</tag>
+        <tag>Sorting</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>Edinburgh</title>
+    <url>/panaceacode.github.io/2019/12/18/Edinburgh/</url>
+    <content><![CDATA[<h1 id="2019-12-17"><a href="#2019-12-17" class="headerlink" title="2019/12/17"></a><em>2019/12/17</em></h1><p><em>出发去英国</em><br><img src="https://blog-lzr.oss-cn-shanghai.aliyuncs.com/Edinburgh/ticket.jpg" width="50%" height="35%" align="middle" /><br></p>
+<p><em>落地伦敦，提前复习了一遍哈利波特，特意到King’s Cross转车</em><br><img src="https://blog-lzr.oss-cn-shanghai.aliyuncs.com/Edinburgh/kingscross.jpg" width="50%" height="50%" align="middle" /><br><img src="https://blog-lzr.oss-cn-shanghai.aliyuncs.com/Edinburgh/kingscross1.jpg" width="50%" height="50%" align="middle" /><br></p>
+<p><em>出发去爱丁堡，开心！</em><br><img src="https://blog-lzr.oss-cn-shanghai.aliyuncs.com/Edinburgh/trainTicket.jpg" width="50%" height="35%" align="middle" /><br></p>
+<h1 id="2019-12-18"><a href="#2019-12-18" class="headerlink" title="2019/12/18"></a><em>2019/12/18</em></h1><p><em>在爱丁堡的第一天</em><br><img src="https://blog-lzr.oss-cn-shanghai.aliyuncs.com/Edinburgh/edinburgh.jpg" width="50%" height="50%" align="middle" /></p>
+]]></content>
+      <categories>
+        <category>Travel</category>
+      </categories>
+      <tags>
+        <tag>Travel</tag>
+        <tag>Edinburgh</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>Alg.5 Bubble Sort</title>
+    <url>/panaceacode.github.io/2020/04/05/Alg-5-Bubble-Sort/</url>
+    <content><![CDATA[<p><em>From algoexpert.io</em><br><br><em>Bubble Sort is probably the first sorting algorithm we learned when we study algorithm. In this problem, we will use Bubble Sort to sort the given arrays. What’s more, we will find potential method to make Bubble Sort more efficient.</em><br><br><em>First, in this problem and future problems which are related to sorting algorithm, we may need to swap elements.</em><br></p>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="keyword">private</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">swap</span><span class="params">(<span class="keyword">int</span>[] array, <span class="keyword">int</span> i, <span class="keyword">int</span> j)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">int</span> temp = array[i];</span><br><span class="line">        array[i] = array[j];</span><br><span class="line">        array[j] = temp;</span><br><span class="line">    &#125;</span><br></pre></td></tr></table></figure>
+
+<p><em>Then, we will apply Bubble Sort to solve this problem. Basically, in Bubble Sort, we need to iterate the original array n times which is its length to determine each element’s position. Here, we will use a little trick to end some unnecessary iterations. In a certain iteration, if there is no swap, it means all the elements are in the expecting positions.</em><br></p>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">int</span>[] bubbleSort(<span class="keyword">int</span>[] array) &#123;</span><br><span class="line">    <span class="comment">// Write your code here.</span></span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; array.length - <span class="number">1</span>; i++) &#123;</span><br><span class="line">            <span class="keyword">boolean</span> flag = <span class="keyword">true</span>;</span><br><span class="line">            <span class="keyword">for</span> (<span class="keyword">int</span> j = <span class="number">0</span>; j &lt; array.length - <span class="number">1</span> - i; j++) &#123;</span><br><span class="line">                <span class="keyword">if</span> (array[j] &gt; array[j + <span class="number">1</span>]) &#123;</span><br><span class="line">                    swap(array, j, j + <span class="number">1</span>);</span><br><span class="line">                    flag = <span class="keyword">false</span>;</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;</span><br><span class="line">            <span class="keyword">if</span> (flag) <span class="keyword">return</span> array;</span><br><span class="line">      &#125;</span><br><span class="line">    <span class="keyword">return</span> array;</span><br><span class="line">    &#125;</span><br></pre></td></tr></table></figure>
+<p>Time complexity: O(n^2); Space complexity: O(1)</p>
+]]></content>
+      <categories>
+        <category>Algorithm</category>
+      </categories>
+      <tags>
+        <tag>Algorithm</tag>
+        <tag>Sorting</tag>
       </tags>
   </entry>
   <entry>
@@ -162,22 +193,6 @@
       <tags>
         <tag>GitHub</tag>
         <tag>技术随笔</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>Edinburgh</title>
-    <url>/panaceacode.github.io/2019/12/18/Edinburgh/</url>
-    <content><![CDATA[<h1 id="2019-12-17"><a href="#2019-12-17" class="headerlink" title="2019/12/17"></a><em>2019/12/17</em></h1><p><em>出发去英国</em><br><img src="https://blog-lzr.oss-cn-shanghai.aliyuncs.com/Edinburgh/ticket.jpg" width="50%" height="35%" align="middle" /><br></p>
-<p><em>落地伦敦，提前复习了一遍哈利波特，特意到King’s Cross转车</em><br><img src="https://blog-lzr.oss-cn-shanghai.aliyuncs.com/Edinburgh/kingscross.jpg" width="50%" height="50%" align="middle" /><br><img src="https://blog-lzr.oss-cn-shanghai.aliyuncs.com/Edinburgh/kingscross1.jpg" width="50%" height="50%" align="middle" /><br></p>
-<p><em>出发去爱丁堡，开心！</em><br><img src="https://blog-lzr.oss-cn-shanghai.aliyuncs.com/Edinburgh/trainTicket.jpg" width="50%" height="35%" align="middle" /><br></p>
-<h1 id="2019-12-18"><a href="#2019-12-18" class="headerlink" title="2019/12/18"></a><em>2019/12/18</em></h1><p><em>在爱丁堡的第一天</em><br><img src="https://blog-lzr.oss-cn-shanghai.aliyuncs.com/Edinburgh/edinburgh.jpg" width="50%" height="50%" align="middle" /></p>
-]]></content>
-      <categories>
-        <category>Travel</category>
-      </categories>
-      <tags>
-        <tag>Travel</tag>
-        <tag>Edinburgh</tag>
       </tags>
   </entry>
 </search>
