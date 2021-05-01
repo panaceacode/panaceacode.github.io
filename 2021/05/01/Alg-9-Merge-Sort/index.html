@@ -9,7 +9,7 @@
     
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
   <title>
-    Archives: 2021 |  Hi
+    Alg.9 Merge Sort |  Hi
   </title>
   <meta name="generator" content="hexo-theme-ayer">
   
@@ -44,73 +44,207 @@
       
     <main class="content on">
       <section class="outer">
-  
-  
-  <article class="articles">
+  <article
+  id="post-Alg-9-Merge-Sort"
+  class="article article-type-post"
+  itemscope
+  itemprop="blogPost"
+  data-scroll-reveal
+>
+  <div class="article-inner">
     
-    
-    <h1 class="page-type-title">2021</h1>
-    
-    
-  
-  
-  
-  
-  
-  
-  <div class="archives-wrap">
-    <div class="archive-year-wrap">
-      <a href="/panaceacode.github.io/archives/2021" class="archive-year">2021</a>
-    </div>
-    <div class="archives">
-      
-      <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      <a href="/panaceacode.github.io/2021/05/01/Alg-9-Merge-Sort/" class="archive-article-date">
-  <time datetime="2021-05-01T02:13:24.000Z" itemprop="datePublished">05/01</time>
-</a>
+    <header class="article-header">
        
-<h2 itemprop="name">
-  <a class="archive-article-title" href="/panaceacode.github.io/2021/05/01/Alg-9-Merge-Sort/"
-    >Alg.9 Merge Sort</a> 
-</h2>
+<h1 class="article-title sea-center" style="border-left:0" itemprop="name">
+  Alg.9 Merge Sort
+</h1>
  
 
     </header>
-    
-    
+     
+    <div class="article-meta">
+      <a href="/panaceacode.github.io/2021/05/01/Alg-9-Merge-Sort/" class="article-date">
+  <time datetime="2021-05-01T02:13:24.000Z" itemprop="datePublished">2021-05-01</time>
+</a> 
+  <div class="article-category">
+    <a class="article-category-link" href="/panaceacode.github.io/categories/Algorithm/">Algorithm</a>
   </div>
-</article>
-      
   
-  
-      <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      <a href="/panaceacode.github.io/2021/01/19/SSH%E8%BF%9E%E6%8E%A5GitHub%E8%B4%A6%E5%8F%B7/" class="archive-article-date">
-  <time datetime="2021-01-19T11:37:37.000Z" itemprop="datePublished">01/19</time>
-</a>
-       
-<h2 itemprop="name">
-  <a class="archive-article-title" href="/panaceacode.github.io/2021/01/19/SSH%E8%BF%9E%E6%8E%A5GitHub%E8%B4%A6%E5%8F%B7/"
-    >SSH连接GitHub账号</a> 
-</h2>
- 
+<div class="word_count">
+    <span class="post-time">
+        <span class="post-meta-item-icon">
+            <i class="ri-quill-pen-line"></i>
+            <span class="post-meta-item-text"> Word count:</span>
+            <span class="post-count">164</span>
+        </span>
+    </span>
 
-    </header>
-    
-    
-  </div>
-</article>
+    <span class="post-time">
+        &nbsp; | &nbsp;
+        <span class="post-meta-item-icon">
+            <i class="ri-book-open-line"></i>
+            <span class="post-meta-item-text"> Reading time≈</span>
+            <span class="post-count">1 min</span>
+        </span>
+    </span>
+</div>
+ 
+    </div>
       
+
+
+
+  
+    <div class="article-entry" itemprop="articleBody">
+       
+  <p><em>From algoexpert.io</em><br><br><em>For the Merge Sort, it also uses the conception “Divide and Conquer”. We simply divide the original arrays evenly recursively, then merge them. So, in Merge Sort algorithm, the time and space complexity are pretty stable.</em><br><br><em>Here is the code implementation:</em><br></p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">int</span>[] mergeSort(<span class="keyword">int</span>[] array) &#123;</span><br><span class="line">    </span><br><span class="line">        <span class="keyword">if</span> (array.length &lt;= <span class="number">1</span>) <span class="keyword">return</span> array;</span><br><span class="line">        </span><br><span class="line">        <span class="keyword">int</span>[] leftSubArray = Arrays.copyOfRange(array, <span class="number">0</span>, array.length / <span class="number">2</span>);</span><br><span class="line">        <span class="keyword">int</span>[] rightSubArray = Arrays.copyOfRange(array, array.length / <span class="number">2</span>, array.length);</span><br><span class="line">        </span><br><span class="line">    <span class="keyword">return</span> mergeTwoArrays(mergeSort(leftSubArray), mergeSort(rightSubArray));</span><br><span class="line">  &#125;</span><br><span class="line">    </span><br><span class="line">    <span class="keyword">private</span> <span class="keyword">static</span> <span class="keyword">int</span>[] mergeTwoArrays(<span class="keyword">int</span>[] arr1, <span class="keyword">int</span>[] arr2) &#123;</span><br><span class="line">        <span class="keyword">int</span>[] ans = <span class="keyword">new</span> <span class="keyword">int</span>[arr1.length + arr2.length];</span><br><span class="line">        <span class="keyword">int</span> i = <span class="number">0</span>, j = <span class="number">0</span>, k = <span class="number">0</span>;</span><br><span class="line">        <span class="keyword">while</span> (i &lt; arr1.length &amp;&amp; j &lt; arr2.length) &#123;</span><br><span class="line">            <span class="keyword">if</span> (arr1[i] &lt;= arr2[j]) ans[k++] = arr1[i++];</span><br><span class="line">            <span class="keyword">else</span> ans[k++] = arr2[j++];</span><br><span class="line">        &#125;</span><br><span class="line">    </span><br><span class="line">        <span class="keyword">while</span> (i &lt; arr1.length) ans[k++] = arr1[i++];</span><br><span class="line">        </span><br><span class="line">        <span class="keyword">while</span> (j &lt; arr2.length) ans[k++] = arr2[j++];</span><br><span class="line">        </span><br><span class="line">        <span class="keyword">return</span> ans;</span><br><span class="line">    &#125;</span><br></pre></td></tr></table></figure>
+
+<p>Time complexity: O(logn); Space complexity: O(logn)</p>
+ 
+      <!-- reward -->
+      
+      <div id="reword-out">
+        <div id="reward-btn">
+          Donate
+        </div>
+      </div>
       
     </div>
-  </div>
-  
-  
+    
 
-  
+    <!-- copyright -->
+    
+    <div class="declare">
+      <ul class="post-copyright">
+        <li>
+          <i class="ri-copyright-line"></i>
+          <strong>Copyright： </strong>
+          
+          Copyright is owned by the author. For commercial reprints, please contact the author for authorization. For non-commercial reprints, please indicate the source.
+          
+        </li>
+      </ul>
+    </div>
+    
+    <footer class="article-footer">
+       
+<div class="share-btn">
+      <span class="share-sns share-outer">
+        <i class="ri-share-forward-line"></i>
+        Share
+      </span>
+      <div class="share-wrap">
+        <i class="arrow"></i>
+        <div class="share-icons">
+          
+          <a class="weibo share-sns" href="javascript:;" data-type="weibo">
+            <i class="ri-weibo-fill"></i>
+          </a>
+          <a class="weixin share-sns wxFab" href="javascript:;" data-type="weixin">
+            <i class="ri-wechat-fill"></i>
+          </a>
+          <a class="qq share-sns" href="javascript:;" data-type="qq">
+            <i class="ri-qq-fill"></i>
+          </a>
+          <a class="douban share-sns" href="javascript:;" data-type="douban">
+            <i class="ri-douban-line"></i>
+          </a>
+          <!-- <a class="qzone share-sns" href="javascript:;" data-type="qzone">
+            <i class="icon icon-qzone"></i>
+          </a> -->
+          
+          <a class="facebook share-sns" href="javascript:;" data-type="facebook">
+            <i class="ri-facebook-circle-fill"></i>
+          </a>
+          <a class="twitter share-sns" href="javascript:;" data-type="twitter">
+            <i class="ri-twitter-fill"></i>
+          </a>
+          <a class="google share-sns" href="javascript:;" data-type="google">
+            <i class="ri-google-fill"></i>
+          </a>
+        </div>
+      </div>
+</div>
+
+<div class="wx-share-modal">
+    <a class="modal-close" href="javascript:;"><i class="ri-close-circle-line"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <div class="wx-qrcode">
+      <img src="//api.qrserver.com/v1/create-qr-code/?size=150x150&data=https://panaceacode.github.io/2021/05/01/Alg-9-Merge-Sort/" alt="微信分享二维码">
+    </div>
+</div>
+
+<div id="share-mask"></div>  
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/panaceacode.github.io/tags/Algorithm/" rel="tag">Algorithm</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/panaceacode.github.io/tags/Sorting/" rel="tag">Sorting</a></li></ul>
+
+    </footer>
+  </div>
+
+   
+  <nav class="article-nav">
+    
+    
+      <a href="/panaceacode.github.io/2021/01/19/SSH%E8%BF%9E%E6%8E%A5GitHub%E8%B4%A6%E5%8F%B7/" class="article-nav-link">
+        <strong class="article-nav-caption">Next</strong>
+        <div class="article-nav-title">SSH连接GitHub账号</div>
+      </a>
+    
+  </nav>
+
+   
+<!-- valine评论 -->
+<div id="vcomments-box">
+  <div id="vcomments"></div>
+</div>
+<script src="//cdn1.lncld.net/static/js/3.0.4/av-min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/valine@1.4.14/dist/Valine.min.js"></script>
+<script>
+  new Valine({
+    el: "#vcomments",
+    app_id: "",
+    app_key: "",
+    path: window.location.pathname,
+    avatar: "monsterid",
+    placeholder: "Comment...",
+    recordIP: true,
+  });
+  const infoEle = document.querySelector("#vcomments .info");
+  if (infoEle && infoEle.childNodes && infoEle.childNodes.length > 0) {
+    infoEle.childNodes.forEach(function (item) {
+      item.parentNode.removeChild(item);
+    });
+  }
+</script>
+<style>
+  #vcomments-box {
+    padding: 5px 30px;
+  }
+
+  @media screen and (max-width: 800px) {
+    #vcomments-box {
+      padding: 5px 0px;
+    }
+  }
+
+  #vcomments-box #vcomments {
+    background-color: #fff;
+  }
+
+  .v .vlist .vcard .vh {
+    padding-right: 20px;
+  }
+
+  .v .vlist .vcard {
+    padding-left: 10px;
+  }
+</style>
+
+ 
+   
+     
+</article>
+
 </section>
       <footer class="footer">
   <div class="outer">
@@ -251,6 +385,23 @@
 <script src="/panaceacode.github.io/js/lazyload.min.js"></script>
 
 <!-- Tocbot -->
+
+
+<script src="/panaceacode.github.io/js/tocbot.min.js"></script>
+
+<script>
+  tocbot.init({
+    tocSelector: '.tocbot',
+    contentSelector: '.article-entry',
+    headingSelector: 'h1, h2, h3, h4, h5, h6',
+    hasInnerContainers: true,
+    scrollSmooth: true,
+    scrollContainer: 'main',
+    positionFixedSelector: '.tocbot',
+    positionFixedClass: 'is-position-fixed',
+    fixedSidebarOffset: 'auto'
+  });
+</script>
 
 <script src="https://cdn.jsdelivr.net/npm/jquery-modal@0.9.2/jquery.modal.min.js"></script>
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/jquery-modal@0.9.2/jquery.modal.min.css">
