@@ -6,7 +6,7 @@
   <link href="https://panaceacode.github.io/atom.xml" rel="self"/>
   
   <link href="https://panaceacode.github.io/"/>
-  <updated>2021-05-01T04:59:14.013Z</updated>
+  <updated>2021-05-01T05:17:45.358Z</updated>
   <id>https://panaceacode.github.io/</id>
   
   <author>
@@ -15,6 +15,33 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>Alg.12 Run-Length Encoding</title>
+    <link href="https://panaceacode.github.io/2020/04/08/Alg-12-Run-Length-Encoding/"/>
+    <id>https://panaceacode.github.io/2020/04/08/Alg-12-Run-Length-Encoding/</id>
+    <published>2020-04-08T05:09:18.000Z</published>
+    <updated>2021-05-01T05:17:45.358Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;p&gt;&lt;em&gt;From algoexpert.io&lt;/em&gt;&lt;br&gt;&lt;br&gt;&lt;em&gt;Here is the introduction of Run_Length Encoding: &lt;a</summary>
+        
+      
+    
+    
+    
+    <category term="Algorithm" scheme="https://panaceacode.github.io/categories/Algorithm/"/>
+    
+    
+    <category term="Algorithm" scheme="https://panaceacode.github.io/tags/Algorithm/"/>
+    
+    <category term="Strings" scheme="https://panaceacode.github.io/tags/Strings/"/>
+    
+  </entry>
   
   <entry>
     <title>Alg.11 Caesar Cipher Encryptor</title>
