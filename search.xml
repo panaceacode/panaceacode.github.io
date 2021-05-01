@@ -1,6 +1,20 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title>Alg.10 Palindrome Check</title>
+    <url>/panaceacode.github.io/2020/04/07/Alg-10-Palindrome-Check/</url>
+    <content><![CDATA[<p><em>From algoexpert.io</em><br><br><em>A palindrome is a string that’s written the same forward and backward. For this problem, we need to write a function to determine whether a string is palindrome</em><br><br><em>The code implementation is pretty straightforward, we use two pointers, they point to the start and end of the string. Then, we check if the characters are the same until we reach the midpoint of the string.</em><br><br><em>Here is the code implementation</em><br></p>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">boolean</span> <span class="title">isPalindrome</span><span class="params">(String str)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">int</span> left = <span class="number">0</span>;</span><br><span class="line">        <span class="keyword">int</span> right = str.length() - <span class="number">1</span>;</span><br><span class="line">        <span class="keyword">while</span> (left &lt;= right) &#123;</span><br><span class="line">            <span class="keyword">if</span> (str.charAt(left) != str.charAt(right)) <span class="keyword">return</span> <span class="keyword">false</span>;</span><br><span class="line">            left++;</span><br><span class="line">            right--;</span><br><span class="line">        &#125;</span><br><span class="line">    <span class="keyword">return</span> <span class="keyword">true</span>;</span><br><span class="line">  &#125;</span><br></pre></td></tr></table></figure>
+]]></content>
+      <categories>
+        <category>Algorithm</category>
+      </categories>
+      <tags>
+        <tag>Algorithm</tag>
+        <tag>Strings</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>Alg.1 Two Sum</title>
     <url>/panaceacode.github.io/2020/04/04/Alg-1-Two-Sum/</url>
     <content><![CDATA[<p><em>AlgoExpert is a cool place to practice your algorithm skill, and you can visit <a href="https://www.algoexpert.io/product">https://www.algoexpert.io/product</a> to find what you can get.</em><br><br><em>Two Sum from algoexpert.io, basically 3 ways to solve this problem：</em><br><br><em>1. Brute Force</em><br></p>
@@ -35,18 +49,9 @@
       </tags>
   </entry>
   <entry>
-    <title>Alg.10 Palindrome Check</title>
-    <url>/panaceacode.github.io/2021/04/07/Alg-10-Palindrome-Check/</url>
-    <content><![CDATA[<p><em>From algoexpert.io</em><br><br><em>A palindrome is a string that’s written the same forward and backward. For this problem, we need to write a function to determine whether a string is palindrome</em><br><br><em>The code implementation is pretty straightforward, we use two pointers, they point to the start and end of the string. Then, we check if the characters are the same until we reach the midpoint of the string.</em><br><br><em>Here is the code implementation</em><br></p>
-<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">boolean</span> <span class="title">isPalindrome</span><span class="params">(String str)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">int</span> left = <span class="number">0</span>;</span><br><span class="line">        <span class="keyword">int</span> right = str.length() - <span class="number">1</span>;</span><br><span class="line">        <span class="keyword">while</span> (left &lt;= right) &#123;</span><br><span class="line">            <span class="keyword">if</span> (str.charAt(left) != str.charAt(right)) <span class="keyword">return</span> <span class="keyword">false</span>;</span><br><span class="line">            left++;</span><br><span class="line">            right--;</span><br><span class="line">        &#125;</span><br><span class="line">    <span class="keyword">return</span> <span class="keyword">true</span>;</span><br><span class="line">  &#125;</span><br></pre></td></tr></table></figure>
-]]></content>
-      <categories>
-        <category>Algorithm</category>
-      </categories>
-      <tags>
-        <tag>Algorithm</tag>
-        <tag>Strings</tag>
-      </tags>
+    <title>Alg.11 Caesar Cipher Encryptor</title>
+    <url>/panaceacode.github.io/2021/05/01/Alg-11-Caesar-Cipher-Encryptor/</url>
+    <content><![CDATA[]]></content>
   </entry>
   <entry>
     <title>Alg.3 Remove Duplicates From Linked List</title>
@@ -97,39 +102,6 @@
       </tags>
   </entry>
   <entry>
-    <title>Alg.6 Insertion Sort</title>
-    <url>/panaceacode.github.io/2020/04/05/Alg-6-Insertion-Sort/</url>
-    <content><![CDATA[<p><em>From algoexpert.io</em><br ><br><em>We apply Insertion Sort to sort the given arrays. For the Insertion Sort, we basically separate the original array into 2 parts, “ordered” one and “disordered” one. First, we iterate the array from the second element if the length of the original array is no less than 2. Tha idea is we pick a element from the “disordered” collection, find the expecting position in the “ordered” one, then insert the element into the “ordered” one.</em><br><br><em>Here are the code implementations, two ways are basically apply the same conception.</em><br></p>
-<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">int</span>[] insertionSort(<span class="keyword">int</span>[] array) &#123;</span><br><span class="line">    <span class="comment">// Write your code here.</span></span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">1</span>; i &lt; array.length; i++)&#123;</span><br><span class="line">            <span class="keyword">int</span> value = array[i];</span><br><span class="line">            <span class="keyword">int</span> j = i - <span class="number">1</span>;</span><br><span class="line">            <span class="keyword">for</span> (; j &gt;= <span class="number">0</span>; j--) &#123;</span><br><span class="line">                <span class="keyword">if</span> (array[j] &gt; value) array[j + <span class="number">1</span>] = array[j];</span><br><span class="line">                <span class="keyword">else</span> <span class="keyword">break</span>;</span><br><span class="line">            &#125;</span><br><span class="line">            array[j + <span class="number">1</span>] = value;</span><br><span class="line">        &#125;</span><br><span class="line">    <span class="keyword">return</span> array;</span><br><span class="line">  &#125;</span><br></pre></td></tr></table></figure>
-<p>Time complexity: O(n^2); Space complexity: O(1)</p>
-<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">int</span>[] insertionSort(<span class="keyword">int</span>[] array) &#123;</span><br><span class="line">    <span class="comment">// Write your code here.</span></span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">1</span>; i &lt; array.length; i++) &#123;</span><br><span class="line">            <span class="keyword">while</span> (i &gt; <span class="number">0</span>) &#123;</span><br><span class="line">                <span class="keyword">if</span> (array[i - <span class="number">1</span>] &gt; array[i]) &#123;</span><br><span class="line">                    swap(array, i, i - <span class="number">1</span>);</span><br><span class="line">                    i--;</span><br><span class="line">                &#125; <span class="keyword">else</span> <span class="keyword">break</span>;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">    <span class="keyword">return</span> array;</span><br><span class="line">  &#125;</span><br></pre></td></tr></table></figure>
-<p>Time complexity: O(n^2); Space complexity: O(1)</p>
-]]></content>
-      <categories>
-        <category>Algorithm</category>
-      </categories>
-      <tags>
-        <tag>Algorithm</tag>
-        <tag>Sorting</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>Belfast</title>
-    <url>/panaceacode.github.io/2019/12/21/Belfast/</url>
-    <content><![CDATA[<h1 id="2019-12-19"><a href="#2019-12-19" class="headerlink" title="2019/12/19"></a><em>2019/12/19</em></h1><p><em>第一天计划去贝尔法斯特玩，我垚坚持要买早班飞机，结果早上起不来，于是就有了两张机票</em> <br><br><img src="https://blog-lzr.oss-cn-shanghai.aliyuncs.com/Belfast/ticket.jpg" width="50%" height="35%" align="bottom" /><br></p>
-<p><em>在贝法第一天去了泰坦尼克博物馆，晚上去吃了一个很不错的汉堡。当天晚上有个圣诞集市，贝法的景色还是很不错的</em> <br><br><img src="https://blog-lzr.oss-cn-shanghai.aliyuncs.com/Belfast/titanic.jpg" width="50%" height="50%" align="bottom" /><br><br><img src="https://blog-lzr.oss-cn-shanghai.aliyuncs.com/Belfast/titanic1.jpg" width="50%" height="50%" align="bottom" /><br><br><img src="https://blog-lzr.oss-cn-shanghai.aliyuncs.com/Belfast/19.jpg" width="50%" height="50%" align="bottom" /><br></p>
-<h1 id="2019-12-20"><a href="#2019-12-20" class="headerlink" title="2019/12/20"></a><em>2019/12/20</em></h1><p><em>今天是权游主题观光！！！吃到个超棒的chowder！！！</em> <br><br><img src="https://blog-lzr.oss-cn-shanghai.aliyuncs.com/Belfast/got1.JPG" width="50%" height="50%" align="bottom" /><br><br><img src="https://blog-lzr.oss-cn-shanghai.aliyuncs.com/Belfast/got2.JPG" width="50%" height="50%" align="bottom" /><br><br><img src="https://blog-lzr.oss-cn-shanghai.aliyuncs.com/Belfast/got3.JPG" width="50%" height="50%" align="bottom" /><br><br><img src="https://blog-lzr.oss-cn-shanghai.aliyuncs.com/Belfast/got4.JPG" width="50%" height="50%" align="bottom" /><br><br><img src="https://blog-lzr.oss-cn-shanghai.aliyuncs.com/Belfast/got5.JPG" width="50%" height="50%" align="bottom" /><br><br><img src="https://blog-lzr.oss-cn-shanghai.aliyuncs.com/Belfast/got6.JPG" width="50%" height="50%" align="bottom" /><br><br><img src="https://blog-lzr.oss-cn-shanghai.aliyuncs.com/Belfast/got7.JPG" width="50%" height="50%" align="bottom" /><br><br><img src="https://blog-lzr.oss-cn-shanghai.aliyuncs.com/Belfast/got8.JPG" width="50%" height="50%" align="bottom" /><br></p>
-<h1 id="2019-12-21"><a href="#2019-12-21" class="headerlink" title="2019/12/21"></a><em>2019/12/21</em></h1><p><em>最后一天简单逛了一下贝法的女王大学和市政厅，打道回府～</em> <br><br><img src="https://blog-lzr.oss-cn-shanghai.aliyuncs.com/Belfast/belfast.JPG" width="50%" height="50%" align="bottom" /><br></p>
-]]></content>
-      <categories>
-        <category>Travel</category>
-      </categories>
-      <tags>
-        <tag>Travel</tag>
-        <tag>Belfast</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>Alg.7 Selection Sort</title>
     <url>/panaceacode.github.io/2020/04/06/Alg-7-Selection-Sort/</url>
     <content><![CDATA[<p><em>From algoexpert.io</em><br><br><em>Selection Sort is pretty much like the Insertion Sort. We divide the original array into two parts, “ordered” and “disordered”. But for Selection Sort, we will find the smallest number in the “disordered” part, and insert that number into “ordered” one. That’s why we called it Selection Sort.</em><br></p>
@@ -159,6 +131,23 @@
       </tags>
   </entry>
   <entry>
+    <title>Alg.6 Insertion Sort</title>
+    <url>/panaceacode.github.io/2020/04/05/Alg-6-Insertion-Sort/</url>
+    <content><![CDATA[<p><em>From algoexpert.io</em><br ><br><em>We apply Insertion Sort to sort the given arrays. For the Insertion Sort, we basically separate the original array into 2 parts, “ordered” one and “disordered” one. First, we iterate the array from the second element if the length of the original array is no less than 2. Tha idea is we pick a element from the “disordered” collection, find the expecting position in the “ordered” one, then insert the element into the “ordered” one.</em><br><br><em>Here are the code implementations, two ways are basically apply the same conception.</em><br></p>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">int</span>[] insertionSort(<span class="keyword">int</span>[] array) &#123;</span><br><span class="line">    <span class="comment">// Write your code here.</span></span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">1</span>; i &lt; array.length; i++)&#123;</span><br><span class="line">            <span class="keyword">int</span> value = array[i];</span><br><span class="line">            <span class="keyword">int</span> j = i - <span class="number">1</span>;</span><br><span class="line">            <span class="keyword">for</span> (; j &gt;= <span class="number">0</span>; j--) &#123;</span><br><span class="line">                <span class="keyword">if</span> (array[j] &gt; value) array[j + <span class="number">1</span>] = array[j];</span><br><span class="line">                <span class="keyword">else</span> <span class="keyword">break</span>;</span><br><span class="line">            &#125;</span><br><span class="line">            array[j + <span class="number">1</span>] = value;</span><br><span class="line">        &#125;</span><br><span class="line">    <span class="keyword">return</span> array;</span><br><span class="line">  &#125;</span><br></pre></td></tr></table></figure>
+<p>Time complexity: O(n^2); Space complexity: O(1)</p>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">int</span>[] insertionSort(<span class="keyword">int</span>[] array) &#123;</span><br><span class="line">    <span class="comment">// Write your code here.</span></span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">1</span>; i &lt; array.length; i++) &#123;</span><br><span class="line">            <span class="keyword">while</span> (i &gt; <span class="number">0</span>) &#123;</span><br><span class="line">                <span class="keyword">if</span> (array[i - <span class="number">1</span>] &gt; array[i]) &#123;</span><br><span class="line">                    swap(array, i, i - <span class="number">1</span>);</span><br><span class="line">                    i--;</span><br><span class="line">                &#125; <span class="keyword">else</span> <span class="keyword">break</span>;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">    <span class="keyword">return</span> array;</span><br><span class="line">  &#125;</span><br></pre></td></tr></table></figure>
+<p>Time complexity: O(n^2); Space complexity: O(1)</p>
+]]></content>
+      <categories>
+        <category>Algorithm</category>
+      </categories>
+      <tags>
+        <tag>Algorithm</tag>
+        <tag>Sorting</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>Alg.9 Merge Sort</title>
     <url>/panaceacode.github.io/2020/04/07/Alg-9-Merge-Sort/</url>
     <content><![CDATA[<p><em>From algoexpert.io</em><br><br><em>For the Merge Sort, it also uses the conception “Divide and Conquer”. We simply divide the original arrays evenly recursively, then merge them. So, in Merge Sort algorithm, the time and space complexity are pretty stable.</em><br><br><em>Here is the code implementation:</em><br></p>
@@ -172,6 +161,22 @@
       <tags>
         <tag>Algorithm</tag>
         <tag>Sorting</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>Belfast</title>
+    <url>/panaceacode.github.io/2019/12/21/Belfast/</url>
+    <content><![CDATA[<h1 id="2019-12-19"><a href="#2019-12-19" class="headerlink" title="2019/12/19"></a><em>2019/12/19</em></h1><p><em>第一天计划去贝尔法斯特玩，我垚坚持要买早班飞机，结果早上起不来，于是就有了两张机票</em> <br><br><img src="https://blog-lzr.oss-cn-shanghai.aliyuncs.com/Belfast/ticket.jpg" width="50%" height="35%" align="bottom" /><br></p>
+<p><em>在贝法第一天去了泰坦尼克博物馆，晚上去吃了一个很不错的汉堡。当天晚上有个圣诞集市，贝法的景色还是很不错的</em> <br><br><img src="https://blog-lzr.oss-cn-shanghai.aliyuncs.com/Belfast/titanic.jpg" width="50%" height="50%" align="bottom" /><br><br><img src="https://blog-lzr.oss-cn-shanghai.aliyuncs.com/Belfast/titanic1.jpg" width="50%" height="50%" align="bottom" /><br><br><img src="https://blog-lzr.oss-cn-shanghai.aliyuncs.com/Belfast/19.jpg" width="50%" height="50%" align="bottom" /><br></p>
+<h1 id="2019-12-20"><a href="#2019-12-20" class="headerlink" title="2019/12/20"></a><em>2019/12/20</em></h1><p><em>今天是权游主题观光！！！吃到个超棒的chowder！！！</em> <br><br><img src="https://blog-lzr.oss-cn-shanghai.aliyuncs.com/Belfast/got1.JPG" width="50%" height="50%" align="bottom" /><br><br><img src="https://blog-lzr.oss-cn-shanghai.aliyuncs.com/Belfast/got2.JPG" width="50%" height="50%" align="bottom" /><br><br><img src="https://blog-lzr.oss-cn-shanghai.aliyuncs.com/Belfast/got3.JPG" width="50%" height="50%" align="bottom" /><br><br><img src="https://blog-lzr.oss-cn-shanghai.aliyuncs.com/Belfast/got4.JPG" width="50%" height="50%" align="bottom" /><br><br><img src="https://blog-lzr.oss-cn-shanghai.aliyuncs.com/Belfast/got5.JPG" width="50%" height="50%" align="bottom" /><br><br><img src="https://blog-lzr.oss-cn-shanghai.aliyuncs.com/Belfast/got6.JPG" width="50%" height="50%" align="bottom" /><br><br><img src="https://blog-lzr.oss-cn-shanghai.aliyuncs.com/Belfast/got7.JPG" width="50%" height="50%" align="bottom" /><br><br><img src="https://blog-lzr.oss-cn-shanghai.aliyuncs.com/Belfast/got8.JPG" width="50%" height="50%" align="bottom" /><br></p>
+<h1 id="2019-12-21"><a href="#2019-12-21" class="headerlink" title="2019/12/21"></a><em>2019/12/21</em></h1><p><em>最后一天简单逛了一下贝法的女王大学和市政厅，打道回府～</em> <br><br><img src="https://blog-lzr.oss-cn-shanghai.aliyuncs.com/Belfast/belfast.JPG" width="50%" height="50%" align="bottom" /><br></p>
+]]></content>
+      <categories>
+        <category>Travel</category>
+      </categories>
+      <tags>
+        <tag>Travel</tag>
+        <tag>Belfast</tag>
       </tags>
   </entry>
   <entry>
