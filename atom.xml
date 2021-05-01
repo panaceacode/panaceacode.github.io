@@ -6,7 +6,7 @@
   <link href="https://panaceacode.github.io/atom.xml" rel="self"/>
   
   <link href="https://panaceacode.github.io/"/>
-  <updated>2021-05-01T12:22:48.624Z</updated>
+  <updated>2021-05-01T14:00:22.750Z</updated>
   <id>https://panaceacode.github.io/</id>
   
   <author>
@@ -15,6 +15,33 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>Alg.15 Valid IP Addresses</title>
+    <link href="https://panaceacode.github.io/2020/04/09/Alg-15-Valid-IP-Addresses/"/>
+    <id>https://panaceacode.github.io/2020/04/09/Alg-15-Valid-IP-Addresses/</id>
+    <published>2020-04-09T13:44:35.000Z</published>
+    <updated>2021-05-01T14:00:22.750Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;p&gt;&lt;em&gt;From algoexpert.io&lt;/em&gt;&lt;br&gt;&lt;br&gt;&lt;em&gt;Given a string of length 12 or smaller, consists of only digits. We need to write a function to</summary>
+        
+      
+    
+    
+    
+    <category term="Algorithm" scheme="https://panaceacode.github.io/categories/Algorithm/"/>
+    
+    
+    <category term="Algorithm" scheme="https://panaceacode.github.io/tags/Algorithm/"/>
+    
+    <category term="Strings" scheme="https://panaceacode.github.io/tags/Strings/"/>
+    
+  </entry>
   
   <entry>
     <title>Alg.14 Group Anagrams</title>
