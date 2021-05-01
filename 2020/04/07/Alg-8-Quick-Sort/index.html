@@ -9,7 +9,7 @@
     
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
   <title>
-    Alg.7 Selection Sort |  Hi
+    Alg.8 Quick Sort |  Hi
   </title>
   <meta name="generator" content="hexo-theme-ayer">
   
@@ -45,7 +45,7 @@
     <main class="content on">
       <section class="outer">
   <article
-  id="post-Alg-7-Selection-Sort"
+  id="post-Alg-8-Quick-Sort"
   class="article article-type-post"
   itemscope
   itemprop="blogPost"
@@ -56,26 +56,22 @@
     <header class="article-header">
        
 <h1 class="article-title sea-center" style="border-left:0" itemprop="name">
-  Alg.7 Selection Sort
+  Alg.8 Quick Sort
 </h1>
  
 
     </header>
      
     <div class="article-meta">
-      <a href="/panaceacode.github.io/2020/04/06/Alg-7-Selection-Sort/" class="article-date">
-  <time datetime="2020-04-06T08:13:20.000Z" itemprop="datePublished">2020-04-06</time>
-</a> 
-  <div class="article-category">
-    <a class="article-category-link" href="/panaceacode.github.io/categories/Algorithm/">Algorithm</a>
-  </div>
-  
+      <a href="/panaceacode.github.io/2020/04/07/Alg-8-Quick-Sort/" class="article-date">
+  <time datetime="2020-04-07T01:22:04.000Z" itemprop="datePublished">2020-04-07</time>
+</a>   
 <div class="word_count">
     <span class="post-time">
         <span class="post-meta-item-icon">
             <i class="ri-quill-pen-line"></i>
             <span class="post-meta-item-text"> Word count:</span>
-            <span class="post-count">112</span>
+            <span class="post-count">305</span>
         </span>
     </span>
 
@@ -97,9 +93,11 @@
   
     <div class="article-entry" itemprop="articleBody">
        
-  <p><em>From algoexpert.io</em><br><br><em>Selection Sort is pretty much like the Insertion Sort. We divide the original array into two parts, “ordered” and “disordered”. But for Selection Sort, we will find the smallest number in the “disordered” part, and insert that number into “ordered” one. That’s why we called it Selection Sort.</em><br></p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">int</span>[] selectionSort(<span class="keyword">int</span>[] array) &#123;</span><br><span class="line">    <span class="comment">// Write your code here.</span></span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; array.length - <span class="number">1</span>; i++)&#123;</span><br><span class="line">            <span class="keyword">int</span> minIndex = i;</span><br><span class="line">            <span class="keyword">for</span> (<span class="keyword">int</span> j = i; j &lt; array.length; j++) &#123;</span><br><span class="line">                <span class="keyword">if</span> (array[j] &lt; array[minIndex]) minIndex = j;</span><br><span class="line">            &#125;</span><br><span class="line">            swap(array, i, minIndex);</span><br><span class="line">        &#125;</span><br><span class="line">    <span class="keyword">return</span> array;</span><br><span class="line">  &#125;</span><br></pre></td></tr></table></figure>
-<p>Time complexity: O(n^2); Space complexity: O(1)</p>
+  <p><em>From algoexpert.io</em><br><br><em>Quick Sort is a widely-used sorting algorithm, it borrows the strategy, “Divide and Conquer”, to divide the original array into 2 parts and do the sorting recursively. Here are the steps of Quick Sort:</em><br><br><em>1. Select a pivot, there are a lot of strategies to pick a pivot in order to make sure we can seperate the original array evenly. But here, we simply pick the first elements as pivots</em><br><br><em>2. Divide the original array into 2 parts, each element of the first one is less than or equals pivot, each element in the second one is greater than pivot</em><br><br><em>3. Repeat 1 and 2 on the subarrays</em><br></p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">private</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">quickSortHelper</span><span class="params">(<span class="keyword">int</span>[] array, <span class="keyword">int</span> startIndex, <span class="keyword">int</span> endIndex)</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">        <span class="keyword">if</span> (startIndex &gt;= endIndex) <span class="keyword">return</span>;</span><br><span class="line">        </span><br><span class="line">        <span class="keyword">int</span> pivot = array[startIndex];</span><br><span class="line">        <span class="keyword">int</span> left = startIndex + <span class="number">1</span>;</span><br><span class="line">        <span class="keyword">int</span> right = endIndex;</span><br><span class="line">        <span class="keyword">while</span> (right &gt;= left) &#123;</span><br><span class="line">            <span class="keyword">if</span> (array[left] &gt; pivot &amp;&amp; array[right] &lt; pivot) &#123;</span><br><span class="line">                swap(array, left, right);</span><br><span class="line">                left++;</span><br><span class="line">                right--;</span><br><span class="line">            &#125;</span><br><span class="line">            </span><br><span class="line">            <span class="keyword">if</span> (array[left] &lt;= pivot) left++;</span><br><span class="line">            </span><br><span class="line">            <span class="keyword">if</span> (array[right] &gt;= pivot) right--;</span><br><span class="line">        &#125;</span><br><span class="line">        swap(array, right, startIndex);</span><br><span class="line">        </span><br><span class="line">        <span class="comment">// Here&#x27;s a optimization: In order to run faster, we always want run the subarray</span></span><br><span class="line">        <span class="comment">// with shorter length, therefore, the memory of call stack will be released.</span></span><br><span class="line">        <span class="keyword">if</span> (right - <span class="number">1</span> - startIndex &lt; endIndex - right - <span class="number">1</span>) &#123;</span><br><span class="line">            quickSortHelper(array, startIndex, right - <span class="number">1</span>);</span><br><span class="line">            quickSortHelper(array, right + <span class="number">1</span>, endIndex);</span><br><span class="line">        &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">            quickSortHelper(array, right + <span class="number">1</span>, endIndex);</span><br><span class="line">            quickSortHelper(array, startIndex, right - <span class="number">1</span>);</span><br><span class="line">        &#125;</span><br><span class="line">        </span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">int</span>[] quickSort(<span class="keyword">int</span>[] array) &#123;</span><br><span class="line">        quickSortHelper(array, <span class="number">0</span>, array.length - <span class="number">1</span>);</span><br><span class="line">        <span class="keyword">return</span> array;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>Since we do the sorting recursively, the space complexity is O(logn)<br><br>For the time complexity, if we can’t seperate the arrays evenly, under its worst condition, the time complexity will be O(n^2). However, under its best and average conditions, the time complexity will be O(logn).</p>
  
       <!-- reward -->
       
@@ -170,7 +168,7 @@
     <a class="modal-close" href="javascript:;"><i class="ri-close-circle-line"></i></a>
     <p>扫一扫，分享到微信</p>
     <div class="wx-qrcode">
-      <img src="//api.qrserver.com/v1/create-qr-code/?size=150x150&data=https://panaceacode.github.io/2020/04/06/Alg-7-Selection-Sort/" alt="微信分享二维码">
+      <img src="//api.qrserver.com/v1/create-qr-code/?size=150x150&data=https://panaceacode.github.io/2020/04/07/Alg-8-Quick-Sort/" alt="微信分享二维码">
     </div>
 </div>
 
@@ -183,19 +181,19 @@
    
   <nav class="article-nav">
     
-      <a href="/panaceacode.github.io/2020/04/07/Alg-8-Quick-Sort/" class="article-nav-link">
+      <a href="/panaceacode.github.io/2021/01/19/SSH%E8%BF%9E%E6%8E%A5GitHub%E8%B4%A6%E5%8F%B7/" class="article-nav-link">
         <strong class="article-nav-caption">Prev</strong>
         <div class="article-nav-title">
           
-            Alg.8 Quick Sort
+            SSH连接GitHub账号
           
         </div>
       </a>
     
     
-      <a href="/panaceacode.github.io/2020/04/05/Alg-6-Insertion-Sort/" class="article-nav-link">
+      <a href="/panaceacode.github.io/2020/04/06/Alg-7-Selection-Sort/" class="article-nav-link">
         <strong class="article-nav-caption">Next</strong>
-        <div class="article-nav-title">Alg.6 Insertion Sort</div>
+        <div class="article-nav-title">Alg.7 Selection Sort</div>
       </a>
     
   </nav>

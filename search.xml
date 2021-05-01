@@ -20,10 +20,10 @@
       </tags>
   </entry>
   <entry>
-    <title>Alg.3 Remove Duplicates From Linked List</title>
-    <url>/panaceacode.github.io/2020/04/04/Alg-3-Remove-Duplicates-From-Linked-List/</url>
-    <content><![CDATA[<p><em>From algoexpert.io</em><br><br><em>GIven a singly linked list, their nodes are sorted with respect to their value. Write a function to remove the nodes with duplicate values.</em><br><br><em>This method is pretty straightforward</em><br></p>
-<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="keyword">public</span> LinkedList <span class="title">removeDuplicatesFromLinkedList</span><span class="params">(LinkedList linkedList)</span> </span>&#123;</span><br><span class="line">    <span class="comment">// Write your code here.</span></span><br><span class="line">        LinkedList current = linkedList;</span><br><span class="line">        <span class="keyword">while</span> (current != <span class="keyword">null</span>) &#123;</span><br><span class="line">            LinkedList next = current.next;</span><br><span class="line">            <span class="keyword">while</span> (next != <span class="keyword">null</span> &amp;&amp; current.value == next.value) &#123;</span><br><span class="line">                next = next.next;</span><br><span class="line">            &#125;</span><br><span class="line">            current.next = next;</span><br><span class="line">            current = next;</span><br><span class="line">        &#125;</span><br><span class="line">    <span class="keyword">return</span> linkedList;</span><br><span class="line">  &#125;</span><br></pre></td></tr></table></figure>
+    <title>Alg.2 Validate Subsequence</title>
+    <url>/panaceacode.github.io/2020/04/04/Alg-2-Validate-Subsequence/</url>
+    <content><![CDATA[<p><em>From algoexpert.io</em><br><br><em>Write a function that determines whether “sequence” array is a subsequence of “array” array. For example, [1, 6, -1, 10] is a subsequence of [5, 1, 22, 25, 6, -1, 8, 10]</em><br><br><em>First, we iterate “array”, at the same time, we use a pointer to track the current position of “sequence”. If the value of “array” equals the value of current “sequence”, “sequence”‘s pointer will increment by 1. When we finish the iteration, we only need to compare the length of “sequence” and “sequence”‘s pointer.</em><br></p>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">boolean</span> <span class="title">isValidSubsequence</span><span class="params">(List&lt;Integer&gt; array, List&lt;Integer&gt; sequence)</span> </span>&#123;</span><br><span class="line">    <span class="comment">// Write your code here.</span></span><br><span class="line">        <span class="keyword">int</span> j = <span class="number">0</span>;</span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; array.size(); i++) &#123;</span><br><span class="line">            <span class="keyword">if</span> (j == sequence.size()) <span class="keyword">return</span> <span class="keyword">true</span>;</span><br><span class="line">            <span class="keyword">if</span> (array.get(i) == sequence.get(j)) j++;</span><br><span class="line">        &#125;</span><br><span class="line">    <span class="keyword">return</span> j == sequence.size();</span><br><span class="line">  &#125;</span><br></pre></td></tr></table></figure>
 <p>Time complexity: O(n); Space complexity: O(1)</p>
 ]]></content>
       <categories>
@@ -31,7 +31,7 @@
       </categories>
       <tags>
         <tag>Algorithm</tag>
-        <tag>Linked Lists</tag>
+        <tag>Arrays</tag>
       </tags>
   </entry>
   <entry>
@@ -50,10 +50,10 @@
       </tags>
   </entry>
   <entry>
-    <title>Alg.2 Validate Subsequence</title>
-    <url>/panaceacode.github.io/2020/04/04/Alg-2-Validate-Subsequence/</url>
-    <content><![CDATA[<p><em>From algoexpert.io</em><br><br><em>Write a function that determines whether “sequence” array is a subsequence of “array” array. For example, [1, 6, -1, 10] is a subsequence of [5, 1, 22, 25, 6, -1, 8, 10]</em><br><br><em>First, we iterate “array”, at the same time, we use a pointer to track the current position of “sequence”. If the value of “array” equals the value of current “sequence”, “sequence”‘s pointer will increment by 1. When we finish the iteration, we only need to compare the length of “sequence” and “sequence”‘s pointer.</em><br></p>
-<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">boolean</span> <span class="title">isValidSubsequence</span><span class="params">(List&lt;Integer&gt; array, List&lt;Integer&gt; sequence)</span> </span>&#123;</span><br><span class="line">    <span class="comment">// Write your code here.</span></span><br><span class="line">        <span class="keyword">int</span> j = <span class="number">0</span>;</span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; array.size(); i++) &#123;</span><br><span class="line">            <span class="keyword">if</span> (j == sequence.size()) <span class="keyword">return</span> <span class="keyword">true</span>;</span><br><span class="line">            <span class="keyword">if</span> (array.get(i) == sequence.get(j)) j++;</span><br><span class="line">        &#125;</span><br><span class="line">    <span class="keyword">return</span> j == sequence.size();</span><br><span class="line">  &#125;</span><br></pre></td></tr></table></figure>
+    <title>Alg.3 Remove Duplicates From Linked List</title>
+    <url>/panaceacode.github.io/2020/04/04/Alg-3-Remove-Duplicates-From-Linked-List/</url>
+    <content><![CDATA[<p><em>From algoexpert.io</em><br><br><em>GIven a singly linked list, their nodes are sorted with respect to their value. Write a function to remove the nodes with duplicate values.</em><br><br><em>This method is pretty straightforward</em><br></p>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="keyword">public</span> LinkedList <span class="title">removeDuplicatesFromLinkedList</span><span class="params">(LinkedList linkedList)</span> </span>&#123;</span><br><span class="line">    <span class="comment">// Write your code here.</span></span><br><span class="line">        LinkedList current = linkedList;</span><br><span class="line">        <span class="keyword">while</span> (current != <span class="keyword">null</span>) &#123;</span><br><span class="line">            LinkedList next = current.next;</span><br><span class="line">            <span class="keyword">while</span> (next != <span class="keyword">null</span> &amp;&amp; current.value == next.value) &#123;</span><br><span class="line">                next = next.next;</span><br><span class="line">            &#125;</span><br><span class="line">            current.next = next;</span><br><span class="line">            current = next;</span><br><span class="line">        &#125;</span><br><span class="line">    <span class="keyword">return</span> linkedList;</span><br><span class="line">  &#125;</span><br></pre></td></tr></table></figure>
 <p>Time complexity: O(n); Space complexity: O(1)</p>
 ]]></content>
       <categories>
@@ -61,7 +61,25 @@
       </categories>
       <tags>
         <tag>Algorithm</tag>
-        <tag>Arrays</tag>
+        <tag>Linked Lists</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>Alg.5 Bubble Sort</title>
+    <url>/panaceacode.github.io/2020/04/05/Alg-5-Bubble-Sort/</url>
+    <content><![CDATA[<p><em>From algoexpert.io</em><br><br><em>Bubble Sort is probably the first sorting algorithm we learned when we study algorithm. In this problem, we will use Bubble Sort to sort the given arrays. What’s more, we will find potential method to make Bubble Sort more efficient.</em><br><br><em>First, in this problem and future problems which are related to sorting algorithm, we may need to swap elements.</em><br></p>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="keyword">private</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">swap</span><span class="params">(<span class="keyword">int</span>[] array, <span class="keyword">int</span> i, <span class="keyword">int</span> j)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">int</span> temp = array[i];</span><br><span class="line">        array[i] = array[j];</span><br><span class="line">        array[j] = temp;</span><br><span class="line">    &#125;</span><br></pre></td></tr></table></figure>
+
+<p><em>Then, we will apply Bubble Sort to solve this problem. Basically, in Bubble Sort, we need to iterate the original array n times which is its length to determine each element’s position. Here, we will use a little trick to end some unnecessary iterations. In a certain iteration, if there is no swap, it means all the elements are in the expecting positions.</em><br></p>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">int</span>[] bubbleSort(<span class="keyword">int</span>[] array) &#123;</span><br><span class="line">    <span class="comment">// Write your code here.</span></span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; array.length - <span class="number">1</span>; i++) &#123;</span><br><span class="line">            <span class="keyword">boolean</span> flag = <span class="keyword">true</span>;</span><br><span class="line">            <span class="keyword">for</span> (<span class="keyword">int</span> j = <span class="number">0</span>; j &lt; array.length - <span class="number">1</span> - i; j++) &#123;</span><br><span class="line">                <span class="keyword">if</span> (array[j] &gt; array[j + <span class="number">1</span>]) &#123;</span><br><span class="line">                    swap(array, j, j + <span class="number">1</span>);</span><br><span class="line">                    flag = <span class="keyword">false</span>;</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;</span><br><span class="line">            <span class="keyword">if</span> (flag) <span class="keyword">return</span> array;</span><br><span class="line">      &#125;</span><br><span class="line">    <span class="keyword">return</span> array;</span><br><span class="line">    &#125;</span><br></pre></td></tr></table></figure>
+<p>Time complexity: O(n^2); Space complexity: O(1)</p>
+]]></content>
+      <categories>
+        <category>Algorithm</category>
+      </categories>
+      <tags>
+        <tag>Algorithm</tag>
+        <tag>Sorting</tag>
       </tags>
   </entry>
   <entry>
@@ -76,6 +94,35 @@
       <categories>
         <category>Algorithm</category>
       </categories>
+      <tags>
+        <tag>Algorithm</tag>
+        <tag>Sorting</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>Alg.7 Selection Sort</title>
+    <url>/panaceacode.github.io/2020/04/06/Alg-7-Selection-Sort/</url>
+    <content><![CDATA[<p><em>From algoexpert.io</em><br><br><em>Selection Sort is pretty much like the Insertion Sort. We divide the original array into two parts, “ordered” and “disordered”. But for Selection Sort, we will find the smallest number in the “disordered” part, and insert that number into “ordered” one. That’s why we called it Selection Sort.</em><br></p>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">int</span>[] selectionSort(<span class="keyword">int</span>[] array) &#123;</span><br><span class="line">    <span class="comment">// Write your code here.</span></span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; array.length - <span class="number">1</span>; i++)&#123;</span><br><span class="line">            <span class="keyword">int</span> minIndex = i;</span><br><span class="line">            <span class="keyword">for</span> (<span class="keyword">int</span> j = i; j &lt; array.length; j++) &#123;</span><br><span class="line">                <span class="keyword">if</span> (array[j] &lt; array[minIndex]) minIndex = j;</span><br><span class="line">            &#125;</span><br><span class="line">            swap(array, i, minIndex);</span><br><span class="line">        &#125;</span><br><span class="line">    <span class="keyword">return</span> array;</span><br><span class="line">  &#125;</span><br></pre></td></tr></table></figure>
+<p>Time complexity: O(n^2); Space complexity: O(1)</p>
+]]></content>
+      <categories>
+        <category>Algorithm</category>
+      </categories>
+      <tags>
+        <tag>Algorithm</tag>
+        <tag>Sorting</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>Alg.8 Quick Sort</title>
+    <url>/panaceacode.github.io/2020/04/07/Alg-8-Quick-Sort/</url>
+    <content><![CDATA[<p><em>From algoexpert.io</em><br><br><em>Quick Sort is a widely-used sorting algorithm, it borrows the strategy, “Divide and Conquer”, to divide the original array into 2 parts and do the sorting recursively. Here are the steps of Quick Sort:</em><br><br><em>1. Select a pivot, there are a lot of strategies to pick a pivot in order to make sure we can seperate the original array evenly. But here, we simply pick the first elements as pivots</em><br><br><em>2. Divide the original array into 2 parts, each element of the first one is less than or equals pivot, each element in the second one is greater than pivot</em><br><br><em>3. Repeat 1 and 2 on the subarrays</em><br></p>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">private</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">quickSortHelper</span><span class="params">(<span class="keyword">int</span>[] array, <span class="keyword">int</span> startIndex, <span class="keyword">int</span> endIndex)</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">        <span class="keyword">if</span> (startIndex &gt;= endIndex) <span class="keyword">return</span>;</span><br><span class="line">        </span><br><span class="line">        <span class="keyword">int</span> pivot = array[startIndex];</span><br><span class="line">        <span class="keyword">int</span> left = startIndex + <span class="number">1</span>;</span><br><span class="line">        <span class="keyword">int</span> right = endIndex;</span><br><span class="line">        <span class="keyword">while</span> (right &gt;= left) &#123;</span><br><span class="line">            <span class="keyword">if</span> (array[left] &gt; pivot &amp;&amp; array[right] &lt; pivot) &#123;</span><br><span class="line">                swap(array, left, right);</span><br><span class="line">                left++;</span><br><span class="line">                right--;</span><br><span class="line">            &#125;</span><br><span class="line">            </span><br><span class="line">            <span class="keyword">if</span> (array[left] &lt;= pivot) left++;</span><br><span class="line">            </span><br><span class="line">            <span class="keyword">if</span> (array[right] &gt;= pivot) right--;</span><br><span class="line">        &#125;</span><br><span class="line">        swap(array, right, startIndex);</span><br><span class="line">        </span><br><span class="line">        <span class="comment">// Here&#x27;s a optimization: In order to run faster, we always want run the subarray</span></span><br><span class="line">        <span class="comment">// with shorter length, therefore, the memory of call stack will be released.</span></span><br><span class="line">        <span class="keyword">if</span> (right - <span class="number">1</span> - startIndex &lt; endIndex - right - <span class="number">1</span>) &#123;</span><br><span class="line">            quickSortHelper(array, startIndex, right - <span class="number">1</span>);</span><br><span class="line">            quickSortHelper(array, right + <span class="number">1</span>, endIndex);</span><br><span class="line">        &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">            quickSortHelper(array, right + <span class="number">1</span>, endIndex);</span><br><span class="line">            quickSortHelper(array, startIndex, right - <span class="number">1</span>);</span><br><span class="line">        &#125;</span><br><span class="line">        </span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">int</span>[] quickSort(<span class="keyword">int</span>[] array) &#123;</span><br><span class="line">        quickSortHelper(array, <span class="number">0</span>, array.length - <span class="number">1</span>);</span><br><span class="line">        <span class="keyword">return</span> array;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>Since we do the sorting recursively, the space complexity is O(logn)<br><br>For the time complexity, if we can’t seperate the arrays evenly, under its worst condition, the time complexity will be O(n^2). However, under its best and average conditions, the time complexity will be O(logn).</p>
+]]></content>
       <tags>
         <tag>Algorithm</tag>
         <tag>Sorting</tag>
@@ -98,21 +145,6 @@
       </tags>
   </entry>
   <entry>
-    <title>Alg.7 Selection Sort</title>
-    <url>/panaceacode.github.io/2020/04/06/Alg-7-Selection-Sort/</url>
-    <content><![CDATA[<p><em>From algoexpert.io</em><br><br><em>Selection Sort is pretty much like the Insertion Sort. We divide the original array into two parts, “ordered” and “disordered”. But for Selection Sort, we will find the smallest number in the “disordered” part, and insert that number into “ordered” one. That’s why we called it Selection Sort.</em><br></p>
-<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">int</span>[] selectionSort(<span class="keyword">int</span>[] array) &#123;</span><br><span class="line">    <span class="comment">// Write your code here.</span></span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; array.length - <span class="number">1</span>; i++)&#123;</span><br><span class="line">            <span class="keyword">int</span> minIndex = i;</span><br><span class="line">            <span class="keyword">for</span> (<span class="keyword">int</span> j = i; j &lt; array.length; j++) &#123;</span><br><span class="line">                <span class="keyword">if</span> (array[j] &lt; array[minIndex]) minIndex = j;</span><br><span class="line">            &#125;</span><br><span class="line">            swap(array, i, minIndex);</span><br><span class="line">        &#125;</span><br><span class="line">    <span class="keyword">return</span> array;</span><br><span class="line">  &#125;</span><br></pre></td></tr></table></figure>
-<p>Time complexity: O(n^2); Space complexity: O(1)</p>
-]]></content>
-      <categories>
-        <category>Algorithm</category>
-      </categories>
-      <tags>
-        <tag>Algorithm</tag>
-        <tag>Sorting</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>Edinburgh</title>
     <url>/panaceacode.github.io/2019/12/18/Edinburgh/</url>
     <content><![CDATA[<h1 id="2019-12-17"><a href="#2019-12-17" class="headerlink" title="2019/12/17"></a><em>2019/12/17</em></h1><p><em>出发去英国</em><br><img src="https://blog-lzr.oss-cn-shanghai.aliyuncs.com/Edinburgh/ticket.jpg" width="50%" height="35%" align="middle" /><br></p>
@@ -126,24 +158,6 @@
       <tags>
         <tag>Travel</tag>
         <tag>Edinburgh</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>Alg.5 Bubble Sort</title>
-    <url>/panaceacode.github.io/2020/04/05/Alg-5-Bubble-Sort/</url>
-    <content><![CDATA[<p><em>From algoexpert.io</em><br><br><em>Bubble Sort is probably the first sorting algorithm we learned when we study algorithm. In this problem, we will use Bubble Sort to sort the given arrays. What’s more, we will find potential method to make Bubble Sort more efficient.</em><br><br><em>First, in this problem and future problems which are related to sorting algorithm, we may need to swap elements.</em><br></p>
-<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="keyword">private</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">swap</span><span class="params">(<span class="keyword">int</span>[] array, <span class="keyword">int</span> i, <span class="keyword">int</span> j)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">int</span> temp = array[i];</span><br><span class="line">        array[i] = array[j];</span><br><span class="line">        array[j] = temp;</span><br><span class="line">    &#125;</span><br></pre></td></tr></table></figure>
-
-<p><em>Then, we will apply Bubble Sort to solve this problem. Basically, in Bubble Sort, we need to iterate the original array n times which is its length to determine each element’s position. Here, we will use a little trick to end some unnecessary iterations. In a certain iteration, if there is no swap, it means all the elements are in the expecting positions.</em><br></p>
-<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">int</span>[] bubbleSort(<span class="keyword">int</span>[] array) &#123;</span><br><span class="line">    <span class="comment">// Write your code here.</span></span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; array.length - <span class="number">1</span>; i++) &#123;</span><br><span class="line">            <span class="keyword">boolean</span> flag = <span class="keyword">true</span>;</span><br><span class="line">            <span class="keyword">for</span> (<span class="keyword">int</span> j = <span class="number">0</span>; j &lt; array.length - <span class="number">1</span> - i; j++) &#123;</span><br><span class="line">                <span class="keyword">if</span> (array[j] &gt; array[j + <span class="number">1</span>]) &#123;</span><br><span class="line">                    swap(array, j, j + <span class="number">1</span>);</span><br><span class="line">                    flag = <span class="keyword">false</span>;</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;</span><br><span class="line">            <span class="keyword">if</span> (flag) <span class="keyword">return</span> array;</span><br><span class="line">      &#125;</span><br><span class="line">    <span class="keyword">return</span> array;</span><br><span class="line">    &#125;</span><br></pre></td></tr></table></figure>
-<p>Time complexity: O(n^2); Space complexity: O(1)</p>
-]]></content>
-      <categories>
-        <category>Algorithm</category>
-      </categories>
-      <tags>
-        <tag>Algorithm</tag>
-        <tag>Sorting</tag>
       </tags>
   </entry>
   <entry>
