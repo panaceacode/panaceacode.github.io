@@ -1,21 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
-    <title>Alg.10 Palindrome Check</title>
-    <url>/panaceacode.github.io/2020/04/07/Alg-10-Palindrome-Check/</url>
-    <content><![CDATA[<p><em>From algoexpert.io</em><br><br><em>A palindrome is a string that’s written the same forward and backward. For this problem, we need to write a function to determine whether a string is palindrome</em><br><br><em>The code implementation is pretty straightforward, we use two pointers, they point to the start and end of the string. Then, we check if the characters are the same until we reach the midpoint of the string.</em><br><br><em>Here is the code implementation</em><br></p>
-<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">boolean</span> <span class="title">isPalindrome</span><span class="params">(String str)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">int</span> left = <span class="number">0</span>;</span><br><span class="line">        <span class="keyword">int</span> right = str.length() - <span class="number">1</span>;</span><br><span class="line">        <span class="keyword">while</span> (left &lt;= right) &#123;</span><br><span class="line">            <span class="keyword">if</span> (str.charAt(left) != str.charAt(right)) <span class="keyword">return</span> <span class="keyword">false</span>;</span><br><span class="line">            left++;</span><br><span class="line">            right--;</span><br><span class="line">        &#125;</span><br><span class="line">    <span class="keyword">return</span> <span class="keyword">true</span>;</span><br><span class="line">  &#125;</span><br></pre></td></tr></table></figure>
-<p>Time complexity: O(n); Space complexity: O(1)</p>
-]]></content>
-      <categories>
-        <category>Algorithm</category>
-      </categories>
-      <tags>
-        <tag>Algorithm</tag>
-        <tag>Strings</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>Alg.1 Two Sum</title>
     <url>/panaceacode.github.io/2020/04/04/Alg-1-Two-Sum/</url>
     <content><![CDATA[<p><em>AlgoExpert is a cool place to practice your algorithm skill, and you can visit <a href="https://www.algoexpert.io/product">https://www.algoexpert.io/product</a> to find what you can get.</em><br><br><em>Two Sum from algoexpert.io, basically 3 ways to solve this problem：</em><br><br><em>1. Brute Force</em><br></p>
@@ -32,6 +17,21 @@
       <tags>
         <tag>Algorithm</tag>
         <tag>Arrays</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>Alg.10 Palindrome Check</title>
+    <url>/panaceacode.github.io/2020/04/07/Alg-10-Palindrome-Check/</url>
+    <content><![CDATA[<p><em>From algoexpert.io</em><br><br><em>A palindrome is a string that’s written the same forward and backward. For this problem, we need to write a function to determine whether a string is palindrome</em><br><br><em>The code implementation is pretty straightforward, we use two pointers, they point to the start and end of the string. Then, we check if the characters are the same until we reach the midpoint of the string.</em><br><br><em>Here is the code implementation</em><br></p>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">boolean</span> <span class="title">isPalindrome</span><span class="params">(String str)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">int</span> left = <span class="number">0</span>;</span><br><span class="line">        <span class="keyword">int</span> right = str.length() - <span class="number">1</span>;</span><br><span class="line">        <span class="keyword">while</span> (left &lt;= right) &#123;</span><br><span class="line">            <span class="keyword">if</span> (str.charAt(left) != str.charAt(right)) <span class="keyword">return</span> <span class="keyword">false</span>;</span><br><span class="line">            left++;</span><br><span class="line">            right--;</span><br><span class="line">        &#125;</span><br><span class="line">    <span class="keyword">return</span> <span class="keyword">true</span>;</span><br><span class="line">  &#125;</span><br></pre></td></tr></table></figure>
+<p>Time complexity: O(n); Space complexity: O(1)</p>
+]]></content>
+      <categories>
+        <category>Algorithm</category>
+      </categories>
+      <tags>
+        <tag>Algorithm</tag>
+        <tag>Strings</tag>
       </tags>
   </entry>
   <entry>
@@ -55,6 +55,23 @@
     <content><![CDATA[<p><em>From algoexpert.io</em><br><br><em>Here is the introduction of Run_Length Encoding: <a href="https://en.wikipedia.org/wiki/Run-length_encoding">https://en.wikipedia.org/wiki/Run-length_encoding</a></em><br><br><em>Code implementation</em><br></p>
 <figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="keyword">public</span> String <span class="title">runLengthEncoding</span><span class="params">(String string)</span> </span>&#123;</span><br><span class="line">        StringBuilder result = <span class="keyword">new</span> StringBuilder();</span><br><span class="line">        <span class="keyword">int</span> currentLength = <span class="number">1</span>;</span><br><span class="line">        </span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">1</span>; i &lt; string.length(); i++) &#123;</span><br><span class="line">            <span class="keyword">char</span> cur = string.charAt(i);</span><br><span class="line">            <span class="keyword">char</span> prev = string.charAt(i - <span class="number">1</span>);</span><br><span class="line">            <span class="keyword">if</span> (cur != prev || currentLength == <span class="number">9</span>) &#123;</span><br><span class="line">                result.append(Integer.toString(currentLength));</span><br><span class="line">                result.append(prev);</span><br><span class="line">                currentLength = <span class="number">0</span>;</span><br><span class="line">            &#125;</span><br><span class="line">            currentLength++;</span><br><span class="line">        &#125;</span><br><span class="line">        </span><br><span class="line">        result.append(Integer.toString(currentLength));</span><br><span class="line">        result.append(string.charAt(string.length() - <span class="number">1</span>));</span><br><span class="line">    <span class="keyword">return</span> result.toString();</span><br><span class="line">  &#125;</span><br></pre></td></tr></table></figure>
 <p><em>Pay attention to the edge condition, after we finish the iteration, there are two conditions: 1. the last character is different from its preceding character, or 2. the last character is the same as the previous one. We need to append another integer and character under both conditions.</em><br><br>Time complexity: O(n); Space complexity: O(n)</p>
+]]></content>
+      <categories>
+        <category>Algorithm</category>
+      </categories>
+      <tags>
+        <tag>Algorithm</tag>
+        <tag>Strings</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>Alg.13 Longest Palindromic Substring</title>
+    <url>/panaceacode.github.io/2020/04/08/Alg-13-Longest-Palindromic-Substring/</url>
+    <content><![CDATA[<p><em>From algoexpert.io</em><br><br><em>Previous problem explains what is a palindrome string, in this problem, we will write a function to find out the longest palindromic substring within a given string.</em><br><br><em>In the solution, we consider each character as a center of a potential palindrome, however, when a string contains even number elements, the center should contains 2 characters. So, we write a function to find longest palindrome given a center.</em><br></p>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">int</span>[] findLPS(String str, <span class="keyword">int</span> left, <span class="keyword">int</span> right) &#123;</span><br><span class="line">        <span class="keyword">while</span> (left &gt;= <span class="number">0</span> &amp;&amp; right &lt; str.length()) &#123;</span><br><span class="line">            <span class="keyword">if</span> (str.charAt(left) != str.charAt(right)) <span class="keyword">break</span>;</span><br><span class="line">            left--;</span><br><span class="line">            right++;</span><br><span class="line">        &#125;</span><br><span class="line">        </span><br><span class="line">        <span class="keyword">return</span> <span class="keyword">new</span> <span class="keyword">int</span>[]&#123;left + <span class="number">1</span>, right&#125;;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p><em>Now, we iterate the string, find its longest palindromic substring</em><br></p>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">static</span> String <span class="title">longestPalindromicSubstring</span><span class="params">(String str)</span> </span>&#123;</span><br><span class="line">    <span class="keyword">int</span>[] ans = &#123;<span class="number">0</span>, <span class="number">1</span>&#125;;</span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">1</span>; i &lt; str.length(); i++) &#123;</span><br><span class="line">            <span class="keyword">int</span>[] odd = findLPS(str, i - <span class="number">1</span>, i + <span class="number">1</span>);</span><br><span class="line">            <span class="keyword">int</span>[] even = findLPS(str, i - <span class="number">1</span>, i);</span><br><span class="line">            <span class="keyword">int</span>[] longest = (odd[<span class="number">1</span>] - odd[<span class="number">0</span>]) &gt; (even[<span class="number">1</span>] - even[<span class="number">0</span>]) ? odd : even;</span><br><span class="line">            ans = (longest[<span class="number">1</span>] - longest[<span class="number">0</span>]) &gt; (ans[<span class="number">1</span>] - ans[<span class="number">0</span>]) ? longest : ans;</span><br><span class="line">        &#125;</span><br><span class="line">    <span class="keyword">return</span> str.substring(ans[<span class="number">0</span>], ans[<span class="number">1</span>]);</span><br><span class="line">  &#125;</span><br></pre></td></tr></table></figure>
+<p>Time complexity: O(n^2); Space complexity: O(n)</p>
 ]]></content>
       <categories>
         <category>Algorithm</category>
@@ -110,6 +127,24 @@
       </tags>
   </entry>
   <entry>
+    <title>Alg.5 Bubble Sort</title>
+    <url>/panaceacode.github.io/2020/04/05/Alg-5-Bubble-Sort/</url>
+    <content><![CDATA[<p><em>From algoexpert.io</em><br><br><em>Bubble Sort is probably the first sorting algorithm we learned when we study algorithm. In this problem, we will use Bubble Sort to sort the given arrays. What’s more, we will find potential method to make Bubble Sort more efficient.</em><br><br><em>First, in this problem and future problems which are related to sorting algorithm, we may need to swap elements.</em><br></p>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="keyword">private</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">swap</span><span class="params">(<span class="keyword">int</span>[] array, <span class="keyword">int</span> i, <span class="keyword">int</span> j)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">int</span> temp = array[i];</span><br><span class="line">        array[i] = array[j];</span><br><span class="line">        array[j] = temp;</span><br><span class="line">    &#125;</span><br></pre></td></tr></table></figure>
+
+<p><em>Then, we will apply Bubble Sort to solve this problem. Basically, in Bubble Sort, we need to iterate the original array n times which is its length to determine each element’s position. Here, we will use a little trick to end some unnecessary iterations. In a certain iteration, if there is no swap, it means all the elements are in the expecting positions.</em><br></p>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">int</span>[] bubbleSort(<span class="keyword">int</span>[] array) &#123;</span><br><span class="line">    <span class="comment">// Write your code here.</span></span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; array.length - <span class="number">1</span>; i++) &#123;</span><br><span class="line">            <span class="keyword">boolean</span> flag = <span class="keyword">true</span>;</span><br><span class="line">            <span class="keyword">for</span> (<span class="keyword">int</span> j = <span class="number">0</span>; j &lt; array.length - <span class="number">1</span> - i; j++) &#123;</span><br><span class="line">                <span class="keyword">if</span> (array[j] &gt; array[j + <span class="number">1</span>]) &#123;</span><br><span class="line">                    swap(array, j, j + <span class="number">1</span>);</span><br><span class="line">                    flag = <span class="keyword">false</span>;</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;</span><br><span class="line">            <span class="keyword">if</span> (flag) <span class="keyword">return</span> array;</span><br><span class="line">      &#125;</span><br><span class="line">    <span class="keyword">return</span> array;</span><br><span class="line">    &#125;</span><br></pre></td></tr></table></figure>
+<p>Time complexity: O(n^2); Space complexity: O(1)</p>
+]]></content>
+      <categories>
+        <category>Algorithm</category>
+      </categories>
+      <tags>
+        <tag>Algorithm</tag>
+        <tag>Sorting</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>Alg.6 Insertion Sort</title>
     <url>/panaceacode.github.io/2020/04/05/Alg-6-Insertion-Sort/</url>
     <content><![CDATA[<p><em>From algoexpert.io</em><br ><br><em>We apply Insertion Sort to sort the given arrays. For the Insertion Sort, we basically separate the original array into 2 parts, “ordered” one and “disordered” one. First, we iterate the array from the second element if the length of the original array is no less than 2. Tha idea is we pick a element from the “disordered” collection, find the expecting position in the “ordered” one, then insert the element into the “ordered” one.</em><br><br><em>Here are the code implementations, two ways are basically apply the same conception.</em><br></p>
@@ -131,24 +166,6 @@
     <url>/panaceacode.github.io/2020/04/06/Alg-7-Selection-Sort/</url>
     <content><![CDATA[<p><em>From algoexpert.io</em><br><br><em>Selection Sort is pretty much like the Insertion Sort. We divide the original array into two parts, “ordered” and “disordered”. But for Selection Sort, we will find the smallest number in the “disordered” part, and insert that number into “ordered” one. That’s why we called it Selection Sort.</em><br></p>
 <figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">int</span>[] selectionSort(<span class="keyword">int</span>[] array) &#123;</span><br><span class="line">    <span class="comment">// Write your code here.</span></span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; array.length - <span class="number">1</span>; i++)&#123;</span><br><span class="line">            <span class="keyword">int</span> minIndex = i;</span><br><span class="line">            <span class="keyword">for</span> (<span class="keyword">int</span> j = i; j &lt; array.length; j++) &#123;</span><br><span class="line">                <span class="keyword">if</span> (array[j] &lt; array[minIndex]) minIndex = j;</span><br><span class="line">            &#125;</span><br><span class="line">            swap(array, i, minIndex);</span><br><span class="line">        &#125;</span><br><span class="line">    <span class="keyword">return</span> array;</span><br><span class="line">  &#125;</span><br></pre></td></tr></table></figure>
-<p>Time complexity: O(n^2); Space complexity: O(1)</p>
-]]></content>
-      <categories>
-        <category>Algorithm</category>
-      </categories>
-      <tags>
-        <tag>Algorithm</tag>
-        <tag>Sorting</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>Alg.5 Bubble Sort</title>
-    <url>/panaceacode.github.io/2020/04/05/Alg-5-Bubble-Sort/</url>
-    <content><![CDATA[<p><em>From algoexpert.io</em><br><br><em>Bubble Sort is probably the first sorting algorithm we learned when we study algorithm. In this problem, we will use Bubble Sort to sort the given arrays. What’s more, we will find potential method to make Bubble Sort more efficient.</em><br><br><em>First, in this problem and future problems which are related to sorting algorithm, we may need to swap elements.</em><br></p>
-<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="keyword">private</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">swap</span><span class="params">(<span class="keyword">int</span>[] array, <span class="keyword">int</span> i, <span class="keyword">int</span> j)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">int</span> temp = array[i];</span><br><span class="line">        array[i] = array[j];</span><br><span class="line">        array[j] = temp;</span><br><span class="line">    &#125;</span><br></pre></td></tr></table></figure>
-
-<p><em>Then, we will apply Bubble Sort to solve this problem. Basically, in Bubble Sort, we need to iterate the original array n times which is its length to determine each element’s position. Here, we will use a little trick to end some unnecessary iterations. In a certain iteration, if there is no swap, it means all the elements are in the expecting positions.</em><br></p>
-<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">int</span>[] bubbleSort(<span class="keyword">int</span>[] array) &#123;</span><br><span class="line">    <span class="comment">// Write your code here.</span></span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; array.length - <span class="number">1</span>; i++) &#123;</span><br><span class="line">            <span class="keyword">boolean</span> flag = <span class="keyword">true</span>;</span><br><span class="line">            <span class="keyword">for</span> (<span class="keyword">int</span> j = <span class="number">0</span>; j &lt; array.length - <span class="number">1</span> - i; j++) &#123;</span><br><span class="line">                <span class="keyword">if</span> (array[j] &gt; array[j + <span class="number">1</span>]) &#123;</span><br><span class="line">                    swap(array, j, j + <span class="number">1</span>);</span><br><span class="line">                    flag = <span class="keyword">false</span>;</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;</span><br><span class="line">            <span class="keyword">if</span> (flag) <span class="keyword">return</span> array;</span><br><span class="line">      &#125;</span><br><span class="line">    <span class="keyword">return</span> array;</span><br><span class="line">    &#125;</span><br></pre></td></tr></table></figure>
 <p>Time complexity: O(n^2); Space complexity: O(1)</p>
 ]]></content>
       <categories>
