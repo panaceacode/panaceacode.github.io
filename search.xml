@@ -82,6 +82,21 @@
       </tags>
   </entry>
   <entry>
+    <title>Alg.14 Group Anagrams</title>
+    <url>/panaceacode.github.io/2020/04/09/Alg-14-Group-Anagrams/</url>
+    <content><![CDATA[<p><em>From algoexpert.io</em><br><br><em>Anagrams are strings made up of exactly the same letters, in this problem, we need to write a function that takes in an array of strings and groups anagrams together. Here is an example:</em><br><br><img src="https://blog-lzr.oss-cn-shanghai.aliyuncs.com/Algorithm/Group%20Anagrams.png" width="73%" height="73%" align="middle" /><br><br><em>In the solution, we iterate the original string array, we use Arrays.sort() to sort each string, then store the sorted string and original string into a map. Here is the code implementation:</em><br></p>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="keyword">static</span> List&lt;List&lt;String&gt;&gt; groupAnagrams(List&lt;String&gt; words) &#123;</span><br><span class="line">    </span><br><span class="line">        Map&lt;String, List&lt;String&gt;&gt; anagrams = <span class="keyword">new</span> HashMap&lt;&gt;();</span><br><span class="line">        </span><br><span class="line">        <span class="keyword">for</span> (String word : words) &#123;</span><br><span class="line">            <span class="keyword">char</span>[] charArray = word.toCharArray();</span><br><span class="line">            Arrays.sort(charArray);</span><br><span class="line">            String sortedWord = <span class="keyword">new</span> String(charArray);</span><br><span class="line">            </span><br><span class="line">            <span class="keyword">if</span> (anagrams.containsKey(sortedWord)) anagrams.get(sortedWord).add(word);</span><br><span class="line">            <span class="keyword">else</span> anagrams.put(sortedWord, <span class="keyword">new</span> ArrayList&lt;String&gt;(Arrays.asList(word)));</span><br><span class="line">        &#125;</span><br><span class="line">        </span><br><span class="line">        List&lt;List&lt;String&gt;&gt; ans = <span class="keyword">new</span> ArrayList&lt;&gt;();</span><br><span class="line">        <span class="keyword">for</span> (List&lt;String&gt; value : anagrams.values()) &#123;</span><br><span class="line">            ans.add(value);</span><br><span class="line">        &#125;</span><br><span class="line">    <span class="keyword">return</span> ans;</span><br><span class="line">  &#125;</span><br></pre></td></tr></table></figure>
+<p>For time complexity: we need to sort each string, w<em>n</em>logn; Space complexity is pretty straightforward, wn. (w is the number of words, n is the length of the longest string)</p>
+]]></content>
+      <categories>
+        <category>Algorithm</category>
+      </categories>
+      <tags>
+        <tag>Algorithm</tag>
+        <tag>Strings</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>Alg.2 Validate Subsequence</title>
     <url>/panaceacode.github.io/2020/04/04/Alg-2-Validate-Subsequence/</url>
     <content><![CDATA[<p><em>From algoexpert.io</em><br><br><em>Write a function that determines whether “sequence” array is a subsequence of “array” array. For example, [1, 6, -1, 10] is a subsequence of [5, 1, 22, 25, 6, -1, 8, 10]</em><br><br><em>First, we iterate “array”, at the same time, we use a pointer to track the current position of “sequence”. If the value of “array” equals the value of current “sequence”, “sequence”‘s pointer will increment by 1. When we finish the iteration, we only need to compare the length of “sequence” and “sequence”‘s pointer.</em><br></p>
