@@ -6,7 +6,7 @@
   <link href="https://panaceacode.github.io/atom.xml" rel="self"/>
   
   <link href="https://panaceacode.github.io/"/>
-  <updated>2021-05-01T14:37:22.784Z</updated>
+  <updated>2021-05-02T16:53:33.432Z</updated>
   <id>https://panaceacode.github.io/</id>
   
   <author>
@@ -15,6 +15,33 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>Alg.17 Longest Substring Without Duplication</title>
+    <link href="https://panaceacode.github.io/2020/04/10/Alg-17-Longest-Substring-Without-Duplication/"/>
+    <id>https://panaceacode.github.io/2020/04/10/Alg-17-Longest-Substring-Without-Duplication/</id>
+    <published>2020-04-10T15:15:55.000Z</published>
+    <updated>2021-05-02T16:53:33.432Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;p&gt;&lt;em&gt;From algoexpert.io&lt;/em&gt;&lt;br&gt;&lt;br&gt;&lt;em&gt;In this problem, we need to write a function to find out the longest substring without any</summary>
+        
+      
+    
+    
+    
+    <category term="Algorithm" scheme="https://panaceacode.github.io/categories/Algorithm/"/>
+    
+    
+    <category term="Algorithm" scheme="https://panaceacode.github.io/tags/Algorithm/"/>
+    
+    <category term="Strings" scheme="https://panaceacode.github.io/tags/Strings/"/>
+    
+  </entry>
   
   <entry>
     <title>Alg.16 Reverse Words In String</title>
