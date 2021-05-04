@@ -9,7 +9,7 @@
     
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
   <title>
-    Alg.17 Longest Substring Without Duplication |  Hi
+    Alg.18 Underscorify Subtring |  Hi
   </title>
   <meta name="generator" content="hexo-theme-ayer">
   
@@ -45,7 +45,7 @@
     <main class="content on">
       <section class="outer">
   <article
-  id="post-Alg-17-Longest-Substring-Without-Duplication"
+  id="post-Alg-18-Underscorify-Subtring"
   class="article article-type-post"
   itemscope
   itemprop="blogPost"
@@ -56,15 +56,15 @@
     <header class="article-header">
        
 <h1 class="article-title sea-center" style="border-left:0" itemprop="name">
-  Alg.17 Longest Substring Without Duplication
+  Alg.18 Underscorify Subtring
 </h1>
  
 
     </header>
      
     <div class="article-meta">
-      <a href="/panaceacode.github.io/2020/04/10/Alg-17-Longest-Substring-Without-Duplication/" class="article-date">
-  <time datetime="2020-04-10T15:15:55.000Z" itemprop="datePublished">2020-04-10</time>
+      <a href="/panaceacode.github.io/2020/04/11/Alg-18-Underscorify-Subtring/" class="article-date">
+  <time datetime="2020-04-11T06:56:59.000Z" itemprop="datePublished">2020-04-11</time>
 </a> 
   <div class="article-category">
     <a class="article-category-link" href="/panaceacode.github.io/categories/Algorithm/">Algorithm</a>
@@ -75,7 +75,7 @@
         <span class="post-meta-item-icon">
             <i class="ri-quill-pen-line"></i>
             <span class="post-meta-item-text"> Word count:</span>
-            <span class="post-count">251</span>
+            <span class="post-count">371</span>
         </span>
     </span>
 
@@ -84,7 +84,7 @@
         <span class="post-meta-item-icon">
             <i class="ri-book-open-line"></i>
             <span class="post-meta-item-text"> Reading time≈</span>
-            <span class="post-count">1 min</span>
+            <span class="post-count">2 min</span>
         </span>
     </span>
 </div>
@@ -97,9 +97,13 @@
   
     <div class="article-entry" itemprop="articleBody">
        
-  <p><em>From algoexpert.io</em><br><br><em>In this problem, we need to write a function to find out the longest substring without any duplicate characters.</em><br><br><em>We iterate the original string and use a map to record the characters and their corresponding positions. Array “longest” stores the index of the current longest substring, “startIdx” is the current start point of a potential longest substring. When we get to a character, we determine whether we have met it before and if it appears after the current head, we can update the current “startIdx” according to this rule. Then we can update the “longest” by comparing the lengths of current potential longest substring and “longest”. Here is the code implementation:</em><br></p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">static</span> String <span class="title">longestSubstringWithoutDuplication</span><span class="params">(String str)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">int</span>[] longest = &#123;<span class="number">0</span>, <span class="number">1</span>&#125;;</span><br><span class="line">        <span class="keyword">int</span> startIdx = <span class="number">0</span>;</span><br><span class="line">        </span><br><span class="line">        <span class="comment">// Use a map to record the characters and its corresponding position</span></span><br><span class="line">        Map&lt;Character, Integer&gt; table = <span class="keyword">new</span> HashMap&lt;&gt;();</span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; str.length(); i++) &#123;</span><br><span class="line">            <span class="comment">// If the character we have Encountered before</span></span><br><span class="line">            <span class="keyword">if</span> (table.containsKey(str.charAt(i))) &#123;</span><br><span class="line">                <span class="comment">// If this character appears after the current head,</span></span><br><span class="line">                <span class="comment">// we update the head</span></span><br><span class="line">                <span class="keyword">if</span> (table.get(str.charAt(i)) + <span class="number">1</span> &gt;= startIdx) &#123;</span><br><span class="line">                    startIdx = table.get(str.charAt(i)) + <span class="number">1</span>;</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;</span><br><span class="line">            table.put(str.charAt(i), i);</span><br><span class="line">            </span><br><span class="line">            <span class="comment">// Update the current longest substring</span></span><br><span class="line">            <span class="keyword">if</span> (i - startIdx + <span class="number">1</span> &gt; longest[<span class="number">1</span>] - longest[<span class="number">0</span>]) &#123;</span><br><span class="line">                longest[<span class="number">0</span>] = startIdx;</span><br><span class="line">                longest[<span class="number">1</span>] = i + <span class="number">1</span>;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">    <span class="keyword">return</span> str.substring(longest[<span class="number">0</span>], longest[<span class="number">1</span>]);</span><br><span class="line">  &#125;</span><br></pre></td></tr></table></figure>
-<p>Time complexity: O(n); Space complexity:O(n)</p>
+  <p><em>For this problem, we need to write a function to wrap every potential substring with underscores in the main string. Here is an example:</em><br><br><img src="https://blog-lzr.oss-cn-shanghai.aliyuncs.com/Algorithm/Underscoring%20Substring.png" width="73%" height="73%" align="middle" /><br><br><em>First, we need to get every exsiting substring’s position.</em><br></p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="keyword">static</span> List&lt;Integer[]&gt; getLocation(String str, String substring) &#123;</span><br><span class="line">        <span class="keyword">int</span> substringLen = substring.length();</span><br><span class="line">        List&lt;Integer[]&gt; locations = <span class="keyword">new</span> ArrayList&lt;Integer[]&gt;();</span><br><span class="line">        <span class="keyword">int</span> Idx = <span class="number">0</span>;</span><br><span class="line">        <span class="keyword">while</span> (Idx &lt; str.length()) &#123;</span><br><span class="line">        <span class="comment">// Find the start point of one substring </span></span><br><span class="line">            <span class="keyword">int</span> curIdx = str.indexOf(substring, Idx);</span><br><span class="line">            <span class="keyword">if</span> (curIdx != -<span class="number">1</span>) &#123;</span><br><span class="line">            <span class="comment">// add this substring&#x27;s start and end positions to the result list</span></span><br><span class="line">                locations.add(<span class="keyword">new</span> Integer[] &#123;curIdx, curIdx + substringLen&#125;);</span><br><span class="line">                Idx = curIdx + <span class="number">1</span>;</span><br><span class="line">            &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">                <span class="keyword">break</span>;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> locations;</span><br><span class="line">    &#125;</span><br></pre></td></tr></table></figure>
+<p><em>Then, we need to collapse the substring’s position collection.</em><br></p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="keyword">static</span> List&lt;Integer[]&gt; collapse(List&lt;Integer[]&gt; locations) &#123;</span><br><span class="line">        <span class="keyword">if</span> (locations.size() == <span class="number">0</span>) &#123;</span><br><span class="line">            <span class="keyword">return</span> locations;</span><br><span class="line">        &#125;</span><br><span class="line">        List&lt;Integer[]&gt; transLocations = <span class="keyword">new</span> ArrayList&lt;Integer[]&gt;();</span><br><span class="line">        transLocations.add(locations.get(<span class="number">0</span>));</span><br><span class="line">        Integer[] prev = transLocations.get(<span class="number">0</span>);</span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">1</span>; i &lt; locations.size(); i++) &#123;</span><br><span class="line">            Integer[] cur = locations.get(i);</span><br><span class="line">            <span class="keyword">if</span> (cur[<span class="number">0</span>] &lt;= prev[<span class="number">1</span>]) &#123;</span><br><span class="line">                prev[<span class="number">1</span>] = cur[<span class="number">1</span>];</span><br><span class="line">            &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">                transLocations.add(cur);</span><br><span class="line">                prev = cur;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> transLocations;</span><br><span class="line">    &#125;</span><br></pre></td></tr></table></figure>
+<p><em>Now, we can use underscores to wrap each substrings.</em><br></p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">static</span> String <span class="title">underscorify</span><span class="params">(String str, List&lt;Integer[]&gt; locations)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">int</span> strIdx = <span class="number">0</span>;</span><br><span class="line">        <span class="keyword">int</span> locationsIdx = <span class="number">0</span>;</span><br><span class="line">        <span class="keyword">boolean</span> inBetween = <span class="keyword">false</span>;</span><br><span class="line">        List&lt;String&gt; finalString = <span class="keyword">new</span> ArrayList&lt;String&gt;();</span><br><span class="line">        <span class="keyword">int</span> i = <span class="number">0</span>;</span><br><span class="line">        <span class="keyword">while</span> (strIdx &lt; str.length() &amp;&amp; locationsIdx &lt; locations.size()) &#123;</span><br><span class="line">            <span class="keyword">if</span> (strIdx == locations.get(locationsIdx)[i]) &#123;</span><br><span class="line">                finalString.add(<span class="string">&quot;_&quot;</span>);</span><br><span class="line">                inBetween = !inBetween;</span><br><span class="line">                <span class="keyword">if</span> (!inBetween) &#123;</span><br><span class="line">                    locationsIdx++;</span><br><span class="line">                &#125;</span><br><span class="line">                i = i == <span class="number">1</span>? <span class="number">0</span> : <span class="number">1</span>;</span><br><span class="line">            &#125;</span><br><span class="line">            finalString.add(String.valueOf(str.charAt(strIdx)));</span><br><span class="line">            strIdx++;</span><br><span class="line">        &#125;</span><br><span class="line">        </span><br><span class="line">        <span class="keyword">if</span> (locationsIdx &lt; locations.size()) &#123;</span><br><span class="line">            finalString.add(<span class="string">&quot;_&quot;</span>);</span><br><span class="line">        &#125; <span class="keyword">else</span> <span class="keyword">if</span> (strIdx &lt; str.length()) &#123;</span><br><span class="line">            finalString.add(str.substring(strIdx));</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> String.join(<span class="string">&quot;&quot;</span>, finalString);</span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">static</span> String <span class="title">underscorifySubstring</span><span class="params">(String str, String substring)</span> </span>&#123;</span><br><span class="line">    List&lt;Integer[]&gt; finalString = collapse(getLocation(str, substring));</span><br><span class="line">    <span class="keyword">return</span> underscorify(str, finalString);</span><br><span class="line">  &#125;</span><br></pre></td></tr></table></figure>
+<p>Time complexity: O(n+m)(length of the main string and the substring); Space complexity: O(n)</p>
  
       <!-- reward -->
       
@@ -170,7 +174,7 @@
     <a class="modal-close" href="javascript:;"><i class="ri-close-circle-line"></i></a>
     <p>扫一扫，分享到微信</p>
     <div class="wx-qrcode">
-      <img src="//api.qrserver.com/v1/create-qr-code/?size=150x150&data=https://panaceacode.github.io/2020/04/10/Alg-17-Longest-Substring-Without-Duplication/" alt="微信分享二维码">
+      <img src="//api.qrserver.com/v1/create-qr-code/?size=150x150&data=https://panaceacode.github.io/2020/04/11/Alg-18-Underscorify-Subtring/" alt="微信分享二维码">
     </div>
 </div>
 
@@ -183,19 +187,10 @@
    
   <nav class="article-nav">
     
-      <a href="/panaceacode.github.io/2020/04/11/Alg-18-Underscorify-Subtring/" class="article-nav-link">
-        <strong class="article-nav-caption">Prev</strong>
-        <div class="article-nav-title">
-          
-            Alg.18 Underscorify Subtring
-          
-        </div>
-      </a>
     
-    
-      <a href="/panaceacode.github.io/2020/04/09/Alg-16-Reverse-Words-In-String/" class="article-nav-link">
+      <a href="/panaceacode.github.io/2020/04/10/Alg-17-Longest-Substring-Without-Duplication/" class="article-nav-link">
         <strong class="article-nav-caption">Next</strong>
-        <div class="article-nav-title">Alg.16 Reverse Words In String</div>
+        <div class="article-nav-title">Alg.17 Longest Substring Without Duplication</div>
       </a>
     
   </nav>
