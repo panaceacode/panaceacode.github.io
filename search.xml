@@ -1,25 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
-    <title>Alg.1 Two Sum</title>
-    <url>/panaceacode.github.io/2020/04/04/Alg-1-Two-Sum/</url>
-    <content><![CDATA[<p><em>AlgoExpert is a cool place to practice your algorithm skill, and you can visit <a href="https://www.algoexpert.io/product">https://www.algoexpert.io/product</a> to find what you can get.</em><br><br><em>Two Sum from algoexpert.io, basically 3 ways to solve this problem：</em><br><br><em>1. Brute Force</em><br></p>
-<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">int</span>[] twoNumberSum(<span class="keyword">int</span>[] array, <span class="keyword">int</span> targetSum) &#123;</span><br><span class="line">    <span class="comment">// Write your code here.</span></span><br><span class="line">        <span class="keyword">int</span>[] ans = <span class="keyword">new</span> <span class="keyword">int</span>[<span class="number">2</span>];</span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; array.length - <span class="number">1</span>; i++) &#123;</span><br><span class="line">            <span class="keyword">for</span> (<span class="keyword">int</span> j = i + <span class="number">1</span>; j &lt; array.length; j++) &#123;</span><br><span class="line">                <span class="keyword">if</span> (array[i] + array[j] == targetSum) &#123;</span><br><span class="line">                    ans[<span class="number">0</span>] = array[i];</span><br><span class="line">                    ans[<span class="number">1</span>] = array[j];</span><br><span class="line">                    <span class="keyword">return</span> ans;</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">    <span class="keyword">return</span> <span class="keyword">new</span> <span class="keyword">int</span>[<span class="number">0</span>];</span><br><span class="line">  &#125;</span><br></pre></td></tr></table></figure>
-<p>Time complexity: O(n^2); Space complexity: O(1)<br><em>2. Use a set, improve time complexity by adding extra space comlexcity.</em> <br></p>
-<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">int</span>[] twoNumberSum(<span class="keyword">int</span>[] array, <span class="keyword">int</span> targetSum) &#123;</span><br><span class="line">    <span class="comment">// Write your code here.</span></span><br><span class="line">        Set&lt;Integer&gt; set = <span class="keyword">new</span> HashSet&lt;&gt;();</span><br><span class="line">        <span class="keyword">int</span>[] ans = <span class="keyword">new</span> <span class="keyword">int</span>[<span class="number">2</span>];</span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; array.length; i++) &#123;</span><br><span class="line">            <span class="keyword">int</span> remain = targetSum - array[i];</span><br><span class="line">            <span class="keyword">if</span> (set.contains(remain)) &#123;</span><br><span class="line">                ans[<span class="number">0</span>] = array[i];</span><br><span class="line">                ans[<span class="number">1</span>] = targetSum - ans[<span class="number">0</span>];</span><br><span class="line">                <span class="keyword">return</span> ans;</span><br><span class="line">            &#125;</span><br><span class="line">            set.add(array[i]);</span><br><span class="line">        &#125;</span><br><span class="line">    <span class="keyword">return</span> <span class="keyword">new</span> <span class="keyword">int</span>[<span class="number">0</span>];</span><br><span class="line">  &#125;</span><br></pre></td></tr></table></figure>
-<p>Time complexity: O(n); Space complexity: O(n)<br><em>3. Two pointers, this method works only if the array is sorted. In this problem, we have to sort the array first.</em><br></p>
-<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">int</span>[] twoNumberSum(<span class="keyword">int</span>[] array, <span class="keyword">int</span> targetSum) &#123;</span><br><span class="line">    <span class="comment">// Write your code here.</span></span><br><span class="line">        Arrays.sort(array);</span><br><span class="line">        <span class="keyword">int</span> left = <span class="number">0</span>, right = array.length - <span class="number">1</span>;</span><br><span class="line">        <span class="keyword">while</span> (left &lt; right) &#123;</span><br><span class="line">            <span class="keyword">if</span> (array[left] + array[right] == targetSum) </span><br><span class="line">                <span class="keyword">return</span> <span class="keyword">new</span> <span class="keyword">int</span>[] &#123;array[left], array[right]&#125;;</span><br><span class="line">            <span class="keyword">else</span> <span class="keyword">if</span> (array[left] + array[right] &lt; targetSum) left++;</span><br><span class="line">            <span class="keyword">else</span> right--;</span><br><span class="line">        &#125;</span><br><span class="line">    <span class="keyword">return</span> <span class="keyword">new</span> <span class="keyword">int</span>[<span class="number">0</span>];</span><br><span class="line">  &#125;</span><br></pre></td></tr></table></figure>
-<p>Time complexity:O(nlogn)(since we need to sort this array first); Space complexity:O(1)</p>
-]]></content>
-      <categories>
-        <category>Algorithm</category>
-      </categories>
-      <tags>
-        <tag>Algorithm</tag>
-        <tag>Arrays</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>Alg.10 Palindrome Check</title>
     <url>/panaceacode.github.io/2020/04/07/Alg-10-Palindrome-Check/</url>
     <content><![CDATA[<p><em>From algoexpert.io</em><br><br><em>A palindrome is a string that’s written the same forward and backward. For this problem, we need to write a function to determine whether a string is palindrome</em><br><br><em>The code implementation is pretty straightforward, we use two pointers, they point to the start and end of the string. Then, we check if the characters are the same until we reach the midpoint of the string.</em><br><br><em>Here is the code implementation</em><br></p>
@@ -50,11 +31,45 @@
       </tags>
   </entry>
   <entry>
+    <title>Alg.1 Two Sum</title>
+    <url>/panaceacode.github.io/2020/04/04/Alg-1-Two-Sum/</url>
+    <content><![CDATA[<p><em>AlgoExpert is a cool place to practice your algorithm skill, and you can visit <a href="https://www.algoexpert.io/product">https://www.algoexpert.io/product</a> to find what you can get.</em><br><br><em>Two Sum from algoexpert.io, basically 3 ways to solve this problem：</em><br><br><em>1. Brute Force</em><br></p>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">int</span>[] twoNumberSum(<span class="keyword">int</span>[] array, <span class="keyword">int</span> targetSum) &#123;</span><br><span class="line">    <span class="comment">// Write your code here.</span></span><br><span class="line">        <span class="keyword">int</span>[] ans = <span class="keyword">new</span> <span class="keyword">int</span>[<span class="number">2</span>];</span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; array.length - <span class="number">1</span>; i++) &#123;</span><br><span class="line">            <span class="keyword">for</span> (<span class="keyword">int</span> j = i + <span class="number">1</span>; j &lt; array.length; j++) &#123;</span><br><span class="line">                <span class="keyword">if</span> (array[i] + array[j] == targetSum) &#123;</span><br><span class="line">                    ans[<span class="number">0</span>] = array[i];</span><br><span class="line">                    ans[<span class="number">1</span>] = array[j];</span><br><span class="line">                    <span class="keyword">return</span> ans;</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">    <span class="keyword">return</span> <span class="keyword">new</span> <span class="keyword">int</span>[<span class="number">0</span>];</span><br><span class="line">  &#125;</span><br></pre></td></tr></table></figure>
+<p>Time complexity: O(n^2); Space complexity: O(1)<br><em>2. Use a set, improve time complexity by adding extra space comlexcity.</em> <br></p>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">int</span>[] twoNumberSum(<span class="keyword">int</span>[] array, <span class="keyword">int</span> targetSum) &#123;</span><br><span class="line">    <span class="comment">// Write your code here.</span></span><br><span class="line">        Set&lt;Integer&gt; set = <span class="keyword">new</span> HashSet&lt;&gt;();</span><br><span class="line">        <span class="keyword">int</span>[] ans = <span class="keyword">new</span> <span class="keyword">int</span>[<span class="number">2</span>];</span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; array.length; i++) &#123;</span><br><span class="line">            <span class="keyword">int</span> remain = targetSum - array[i];</span><br><span class="line">            <span class="keyword">if</span> (set.contains(remain)) &#123;</span><br><span class="line">                ans[<span class="number">0</span>] = array[i];</span><br><span class="line">                ans[<span class="number">1</span>] = targetSum - ans[<span class="number">0</span>];</span><br><span class="line">                <span class="keyword">return</span> ans;</span><br><span class="line">            &#125;</span><br><span class="line">            set.add(array[i]);</span><br><span class="line">        &#125;</span><br><span class="line">    <span class="keyword">return</span> <span class="keyword">new</span> <span class="keyword">int</span>[<span class="number">0</span>];</span><br><span class="line">  &#125;</span><br></pre></td></tr></table></figure>
+<p>Time complexity: O(n); Space complexity: O(n)<br><em>3. Two pointers, this method works only if the array is sorted. In this problem, we have to sort the array first.</em><br></p>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">int</span>[] twoNumberSum(<span class="keyword">int</span>[] array, <span class="keyword">int</span> targetSum) &#123;</span><br><span class="line">    <span class="comment">// Write your code here.</span></span><br><span class="line">        Arrays.sort(array);</span><br><span class="line">        <span class="keyword">int</span> left = <span class="number">0</span>, right = array.length - <span class="number">1</span>;</span><br><span class="line">        <span class="keyword">while</span> (left &lt; right) &#123;</span><br><span class="line">            <span class="keyword">if</span> (array[left] + array[right] == targetSum) </span><br><span class="line">                <span class="keyword">return</span> <span class="keyword">new</span> <span class="keyword">int</span>[] &#123;array[left], array[right]&#125;;</span><br><span class="line">            <span class="keyword">else</span> <span class="keyword">if</span> (array[left] + array[right] &lt; targetSum) left++;</span><br><span class="line">            <span class="keyword">else</span> right--;</span><br><span class="line">        &#125;</span><br><span class="line">    <span class="keyword">return</span> <span class="keyword">new</span> <span class="keyword">int</span>[<span class="number">0</span>];</span><br><span class="line">  &#125;</span><br></pre></td></tr></table></figure>
+<p>Time complexity:O(nlogn)(since we need to sort this array first); Space complexity:O(1)</p>
+]]></content>
+      <categories>
+        <category>Algorithm</category>
+      </categories>
+      <tags>
+        <tag>Algorithm</tag>
+        <tag>Arrays</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>Alg.12 Run-Length Encoding</title>
     <url>/panaceacode.github.io/2020/04/08/Alg-12-Run-Length-Encoding/</url>
     <content><![CDATA[<p><em>From algoexpert.io</em><br><br><em>Here is the introduction of Run_Length Encoding: <a href="https://en.wikipedia.org/wiki/Run-length_encoding">https://en.wikipedia.org/wiki/Run-length_encoding</a></em><br><br><em>Code implementation</em><br></p>
 <figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="keyword">public</span> String <span class="title">runLengthEncoding</span><span class="params">(String string)</span> </span>&#123;</span><br><span class="line">        StringBuilder result = <span class="keyword">new</span> StringBuilder();</span><br><span class="line">        <span class="keyword">int</span> currentLength = <span class="number">1</span>;</span><br><span class="line">        </span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">1</span>; i &lt; string.length(); i++) &#123;</span><br><span class="line">            <span class="keyword">char</span> cur = string.charAt(i);</span><br><span class="line">            <span class="keyword">char</span> prev = string.charAt(i - <span class="number">1</span>);</span><br><span class="line">            <span class="keyword">if</span> (cur != prev || currentLength == <span class="number">9</span>) &#123;</span><br><span class="line">                result.append(Integer.toString(currentLength));</span><br><span class="line">                result.append(prev);</span><br><span class="line">                currentLength = <span class="number">0</span>;</span><br><span class="line">            &#125;</span><br><span class="line">            currentLength++;</span><br><span class="line">        &#125;</span><br><span class="line">        </span><br><span class="line">        result.append(Integer.toString(currentLength));</span><br><span class="line">        result.append(string.charAt(string.length() - <span class="number">1</span>));</span><br><span class="line">    <span class="keyword">return</span> result.toString();</span><br><span class="line">  &#125;</span><br></pre></td></tr></table></figure>
 <p><em>Pay attention to the edge condition, after we finish the iteration, there are two conditions: 1. the last character is different from its preceding character, or 2. the last character is the same as the previous one. We need to append another integer and character under both conditions.</em><br><br>Time complexity: O(n); Space complexity: O(n)</p>
+]]></content>
+      <categories>
+        <category>Algorithm</category>
+      </categories>
+      <tags>
+        <tag>Algorithm</tag>
+        <tag>Strings</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>Alg.14 Group Anagrams</title>
+    <url>/panaceacode.github.io/2020/04/09/Alg-14-Group-Anagrams/</url>
+    <content><![CDATA[<p><em>From algoexpert.io</em><br><br><em>Anagrams are strings made up of exactly the same letters, in this problem, we need to write a function that takes in an array of strings and groups anagrams together. Here is an example:</em><br><br><img src="https://blog-lzr.oss-cn-shanghai.aliyuncs.com/Algorithm/Group%20Anagrams.png" width="73%" height="73%" align="middle" /><br><br><em>In the solution, we iterate the original string array, we use Arrays.sort() to sort each string, then store the sorted string and original string into a map. Here is the code implementation:</em><br></p>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="keyword">static</span> List&lt;List&lt;String&gt;&gt; groupAnagrams(List&lt;String&gt; words) &#123;</span><br><span class="line">    </span><br><span class="line">        Map&lt;String, List&lt;String&gt;&gt; anagrams = <span class="keyword">new</span> HashMap&lt;&gt;();</span><br><span class="line">        </span><br><span class="line">        <span class="keyword">for</span> (String word : words) &#123;</span><br><span class="line">            <span class="keyword">char</span>[] charArray = word.toCharArray();</span><br><span class="line">            Arrays.sort(charArray);</span><br><span class="line">            String sortedWord = <span class="keyword">new</span> String(charArray);</span><br><span class="line">            </span><br><span class="line">            <span class="keyword">if</span> (anagrams.containsKey(sortedWord)) anagrams.get(sortedWord).add(word);</span><br><span class="line">            <span class="keyword">else</span> anagrams.put(sortedWord, <span class="keyword">new</span> ArrayList&lt;String&gt;(Arrays.asList(word)));</span><br><span class="line">        &#125;</span><br><span class="line">        </span><br><span class="line">        List&lt;List&lt;String&gt;&gt; ans = <span class="keyword">new</span> ArrayList&lt;&gt;();</span><br><span class="line">        <span class="keyword">for</span> (List&lt;String&gt; value : anagrams.values()) &#123;</span><br><span class="line">            ans.add(value);</span><br><span class="line">        &#125;</span><br><span class="line">    <span class="keyword">return</span> ans;</span><br><span class="line">  &#125;</span><br></pre></td></tr></table></figure>
+<p>For time complexity: we need to sort each string, w<em>n</em>logn; Space complexity is pretty straightforward, wn. (w is the number of words, n is the length of the longest string)</p>
 ]]></content>
       <categories>
         <category>Algorithm</category>
@@ -72,21 +87,6 @@
 <p><em>Now, we iterate the string, find its longest palindromic substring</em><br></p>
 <figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">static</span> String <span class="title">longestPalindromicSubstring</span><span class="params">(String str)</span> </span>&#123;</span><br><span class="line">    <span class="keyword">int</span>[] ans = &#123;<span class="number">0</span>, <span class="number">1</span>&#125;;</span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">1</span>; i &lt; str.length(); i++) &#123;</span><br><span class="line">            <span class="keyword">int</span>[] odd = findLPS(str, i - <span class="number">1</span>, i + <span class="number">1</span>);</span><br><span class="line">            <span class="keyword">int</span>[] even = findLPS(str, i - <span class="number">1</span>, i);</span><br><span class="line">            <span class="keyword">int</span>[] longest = (odd[<span class="number">1</span>] - odd[<span class="number">0</span>]) &gt; (even[<span class="number">1</span>] - even[<span class="number">0</span>]) ? odd : even;</span><br><span class="line">            ans = (longest[<span class="number">1</span>] - longest[<span class="number">0</span>]) &gt; (ans[<span class="number">1</span>] - ans[<span class="number">0</span>]) ? longest : ans;</span><br><span class="line">        &#125;</span><br><span class="line">    <span class="keyword">return</span> str.substring(ans[<span class="number">0</span>], ans[<span class="number">1</span>]);</span><br><span class="line">  &#125;</span><br></pre></td></tr></table></figure>
 <p>Time complexity: O(n^2); Space complexity: O(n)</p>
-]]></content>
-      <categories>
-        <category>Algorithm</category>
-      </categories>
-      <tags>
-        <tag>Algorithm</tag>
-        <tag>Strings</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>Alg.14 Group Anagrams</title>
-    <url>/panaceacode.github.io/2020/04/09/Alg-14-Group-Anagrams/</url>
-    <content><![CDATA[<p><em>From algoexpert.io</em><br><br><em>Anagrams are strings made up of exactly the same letters, in this problem, we need to write a function that takes in an array of strings and groups anagrams together. Here is an example:</em><br><br><img src="https://blog-lzr.oss-cn-shanghai.aliyuncs.com/Algorithm/Group%20Anagrams.png" width="73%" height="73%" align="middle" /><br><br><em>In the solution, we iterate the original string array, we use Arrays.sort() to sort each string, then store the sorted string and original string into a map. Here is the code implementation:</em><br></p>
-<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="keyword">static</span> List&lt;List&lt;String&gt;&gt; groupAnagrams(List&lt;String&gt; words) &#123;</span><br><span class="line">    </span><br><span class="line">        Map&lt;String, List&lt;String&gt;&gt; anagrams = <span class="keyword">new</span> HashMap&lt;&gt;();</span><br><span class="line">        </span><br><span class="line">        <span class="keyword">for</span> (String word : words) &#123;</span><br><span class="line">            <span class="keyword">char</span>[] charArray = word.toCharArray();</span><br><span class="line">            Arrays.sort(charArray);</span><br><span class="line">            String sortedWord = <span class="keyword">new</span> String(charArray);</span><br><span class="line">            </span><br><span class="line">            <span class="keyword">if</span> (anagrams.containsKey(sortedWord)) anagrams.get(sortedWord).add(word);</span><br><span class="line">            <span class="keyword">else</span> anagrams.put(sortedWord, <span class="keyword">new</span> ArrayList&lt;String&gt;(Arrays.asList(word)));</span><br><span class="line">        &#125;</span><br><span class="line">        </span><br><span class="line">        List&lt;List&lt;String&gt;&gt; ans = <span class="keyword">new</span> ArrayList&lt;&gt;();</span><br><span class="line">        <span class="keyword">for</span> (List&lt;String&gt; value : anagrams.values()) &#123;</span><br><span class="line">            ans.add(value);</span><br><span class="line">        &#125;</span><br><span class="line">    <span class="keyword">return</span> ans;</span><br><span class="line">  &#125;</span><br></pre></td></tr></table></figure>
-<p>For time complexity: we need to sort each string, w<em>n</em>logn; Space complexity is pretty straightforward, wn. (w is the number of words, n is the length of the longest string)</p>
 ]]></content>
       <categories>
         <category>Algorithm</category>
@@ -116,21 +116,6 @@
       </tags>
   </entry>
   <entry>
-    <title>Alg.17 Longest Substring Without Duplication</title>
-    <url>/panaceacode.github.io/2020/04/10/Alg-17-Longest-Substring-Without-Duplication/</url>
-    <content><![CDATA[<p><em>From algoexpert.io</em><br><br><em>In this problem, we need to write a function to find out the longest substring without any duplicate characters.</em><br><br><em>We iterate the original string and use a map to record the characters and their corresponding positions. Array “longest” stores the index of the current longest substring, “startIdx” is the current start point of a potential longest substring. When we get to a character, we determine whether we have met it before and if it appears after the current head, we can update the current “startIdx” according to this rule. Then we can update the “longest” by comparing the lengths of current potential longest substring and “longest”. Here is the code implementation:</em><br></p>
-<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">static</span> String <span class="title">longestSubstringWithoutDuplication</span><span class="params">(String str)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">int</span>[] longest = &#123;<span class="number">0</span>, <span class="number">1</span>&#125;;</span><br><span class="line">        <span class="keyword">int</span> startIdx = <span class="number">0</span>;</span><br><span class="line">        </span><br><span class="line">        <span class="comment">// Use a map to record the characters and its corresponding position</span></span><br><span class="line">        Map&lt;Character, Integer&gt; table = <span class="keyword">new</span> HashMap&lt;&gt;();</span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; str.length(); i++) &#123;</span><br><span class="line">            <span class="comment">// If the character we have Encountered before</span></span><br><span class="line">            <span class="keyword">if</span> (table.containsKey(str.charAt(i))) &#123;</span><br><span class="line">                <span class="comment">// If this character appears after the current head,</span></span><br><span class="line">                <span class="comment">// we update the head</span></span><br><span class="line">                <span class="keyword">if</span> (table.get(str.charAt(i)) + <span class="number">1</span> &gt;= startIdx) &#123;</span><br><span class="line">                    startIdx = table.get(str.charAt(i)) + <span class="number">1</span>;</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;</span><br><span class="line">            table.put(str.charAt(i), i);</span><br><span class="line">            </span><br><span class="line">            <span class="comment">// Update the current longest substring</span></span><br><span class="line">            <span class="keyword">if</span> (i - startIdx + <span class="number">1</span> &gt; longest[<span class="number">1</span>] - longest[<span class="number">0</span>]) &#123;</span><br><span class="line">                longest[<span class="number">0</span>] = startIdx;</span><br><span class="line">                longest[<span class="number">1</span>] = i + <span class="number">1</span>;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">    <span class="keyword">return</span> str.substring(longest[<span class="number">0</span>], longest[<span class="number">1</span>]);</span><br><span class="line">  &#125;</span><br></pre></td></tr></table></figure>
-<p>Time complexity: O(n); Space complexity:O(n)</p>
-]]></content>
-      <categories>
-        <category>Algorithm</category>
-      </categories>
-      <tags>
-        <tag>Algorithm</tag>
-        <tag>Strings</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>Alg.16 Reverse Words In String</title>
     <url>/panaceacode.github.io/2020/04/09/Alg-16-Reverse-Words-In-String/</url>
     <content><![CDATA[<p><em>From algoexpert.io</em><br><br><em>In this problem, given a string of words seperated by one or more whitespaces. We need to write a function reverse these words. Basically, the idea is seperate all the words by the whitespaces. Then, we simply reverse them. Here is the implementation:</em><br></p>
@@ -146,24 +131,11 @@
       </tags>
   </entry>
   <entry>
-    <title>Alg.2 Validate Subsequence</title>
-    <url>/panaceacode.github.io/2020/04/04/Alg-2-Validate-Subsequence/</url>
-    <content><![CDATA[<p><em>From algoexpert.io</em><br><br><em>Write a function that determines whether “sequence” array is a subsequence of “array” array. For example, [1, 6, -1, 10] is a subsequence of [5, 1, 22, 25, 6, -1, 8, 10]</em><br><br><em>First, we iterate “array”, at the same time, we use a pointer to track the current position of “sequence”. If the value of “array” equals the value of current “sequence”, “sequence”‘s pointer will increment by 1. When we finish the iteration, we only need to compare the length of “sequence” and “sequence”‘s pointer.</em><br></p>
-<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">boolean</span> <span class="title">isValidSubsequence</span><span class="params">(List&lt;Integer&gt; array, List&lt;Integer&gt; sequence)</span> </span>&#123;</span><br><span class="line">    <span class="comment">// Write your code here.</span></span><br><span class="line">        <span class="keyword">int</span> j = <span class="number">0</span>;</span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; array.size(); i++) &#123;</span><br><span class="line">            <span class="keyword">if</span> (j == sequence.size()) <span class="keyword">return</span> <span class="keyword">true</span>;</span><br><span class="line">            <span class="keyword">if</span> (array.get(i) == sequence.get(j)) j++;</span><br><span class="line">        &#125;</span><br><span class="line">    <span class="keyword">return</span> j == sequence.size();</span><br><span class="line">  &#125;</span><br></pre></td></tr></table></figure>
-<p>Time complexity: O(n); Space complexity: O(1)</p>
-]]></content>
-      <categories>
-        <category>Algorithm</category>
-      </categories>
-      <tags>
-        <tag>Algorithm</tag>
-        <tag>Arrays</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>Alg.19 Pattern Matcher</title>
-    <url>/panaceacode.github.io/2020/04/12/Alg-19-Pattern-Matcher/</url>
-    <content><![CDATA[<p><em>From algoexpert.io</em><br><br>__<br></p>
+    <title>Alg.17 Longest Substring Without Duplication</title>
+    <url>/panaceacode.github.io/2020/04/10/Alg-17-Longest-Substring-Without-Duplication/</url>
+    <content><![CDATA[<p><em>From algoexpert.io</em><br><br><em>In this problem, we need to write a function to find out the longest substring without any duplicate characters.</em><br><br><em>We iterate the original string and use a map to record the characters and their corresponding positions. Array “longest” stores the index of the current longest substring, “startIdx” is the current start point of a potential longest substring. When we get to a character, we determine whether we have met it before and if it appears after the current head, we can update the current “startIdx” according to this rule. Then we can update the “longest” by comparing the lengths of current potential longest substring and “longest”. Here is the code implementation:</em><br></p>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">static</span> String <span class="title">longestSubstringWithoutDuplication</span><span class="params">(String str)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">int</span>[] longest = &#123;<span class="number">0</span>, <span class="number">1</span>&#125;;</span><br><span class="line">        <span class="keyword">int</span> startIdx = <span class="number">0</span>;</span><br><span class="line">        </span><br><span class="line">        <span class="comment">// Use a map to record the characters and its corresponding position</span></span><br><span class="line">        Map&lt;Character, Integer&gt; table = <span class="keyword">new</span> HashMap&lt;&gt;();</span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; str.length(); i++) &#123;</span><br><span class="line">            <span class="comment">// If the character we have Encountered before</span></span><br><span class="line">            <span class="keyword">if</span> (table.containsKey(str.charAt(i))) &#123;</span><br><span class="line">                <span class="comment">// If this character appears after the current head,</span></span><br><span class="line">                <span class="comment">// we update the head</span></span><br><span class="line">                <span class="keyword">if</span> (table.get(str.charAt(i)) + <span class="number">1</span> &gt;= startIdx) &#123;</span><br><span class="line">                    startIdx = table.get(str.charAt(i)) + <span class="number">1</span>;</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;</span><br><span class="line">            table.put(str.charAt(i), i);</span><br><span class="line">            </span><br><span class="line">            <span class="comment">// Update the current longest substring</span></span><br><span class="line">            <span class="keyword">if</span> (i - startIdx + <span class="number">1</span> &gt; longest[<span class="number">1</span>] - longest[<span class="number">0</span>]) &#123;</span><br><span class="line">                longest[<span class="number">0</span>] = startIdx;</span><br><span class="line">                longest[<span class="number">1</span>] = i + <span class="number">1</span>;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">    <span class="keyword">return</span> str.substring(longest[<span class="number">0</span>], longest[<span class="number">1</span>]);</span><br><span class="line">  &#125;</span><br></pre></td></tr></table></figure>
+<p>Time complexity: O(n); Space complexity:O(n)</p>
 ]]></content>
       <categories>
         <category>Algorithm</category>
@@ -190,6 +162,49 @@
       <tags>
         <tag>Algorithm</tag>
         <tag>Strings</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>Alg.19 Pattern Matcher</title>
+    <url>/panaceacode.github.io/2020/04/12/Alg-19-Pattern-Matcher/</url>
+    <content><![CDATA[<p><em>From algoexpert.io</em><br><br>__<br></p>
+]]></content>
+      <categories>
+        <category>Algorithm</category>
+      </categories>
+      <tags>
+        <tag>Algorithm</tag>
+        <tag>Strings</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>Alg.2 Validate Subsequence</title>
+    <url>/panaceacode.github.io/2020/04/04/Alg-2-Validate-Subsequence/</url>
+    <content><![CDATA[<p><em>From algoexpert.io</em><br><br><em>Write a function that determines whether “sequence” array is a subsequence of “array” array. For example, [1, 6, -1, 10] is a subsequence of [5, 1, 22, 25, 6, -1, 8, 10]</em><br><br><em>First, we iterate “array”, at the same time, we use a pointer to track the current position of “sequence”. If the value of “array” equals the value of current “sequence”, “sequence”‘s pointer will increment by 1. When we finish the iteration, we only need to compare the length of “sequence” and “sequence”‘s pointer.</em><br></p>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">boolean</span> <span class="title">isValidSubsequence</span><span class="params">(List&lt;Integer&gt; array, List&lt;Integer&gt; sequence)</span> </span>&#123;</span><br><span class="line">    <span class="comment">// Write your code here.</span></span><br><span class="line">        <span class="keyword">int</span> j = <span class="number">0</span>;</span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; array.size(); i++) &#123;</span><br><span class="line">            <span class="keyword">if</span> (j == sequence.size()) <span class="keyword">return</span> <span class="keyword">true</span>;</span><br><span class="line">            <span class="keyword">if</span> (array.get(i) == sequence.get(j)) j++;</span><br><span class="line">        &#125;</span><br><span class="line">    <span class="keyword">return</span> j == sequence.size();</span><br><span class="line">  &#125;</span><br></pre></td></tr></table></figure>
+<p>Time complexity: O(n); Space complexity: O(1)</p>
+]]></content>
+      <categories>
+        <category>Algorithm</category>
+      </categories>
+      <tags>
+        <tag>Algorithm</tag>
+        <tag>Arrays</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>Alg.3 Remove Duplicates From Linked List</title>
+    <url>/panaceacode.github.io/2020/04/04/Alg-3-Remove-Duplicates-From-Linked-List/</url>
+    <content><![CDATA[<p><em>From algoexpert.io</em><br><br><em>GIven a singly linked list, their nodes are sorted with respect to their value. Write a function to remove the nodes with duplicate values.</em><br><br><em>This method is pretty straightforward</em><br></p>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="keyword">public</span> LinkedList <span class="title">removeDuplicatesFromLinkedList</span><span class="params">(LinkedList linkedList)</span> </span>&#123;</span><br><span class="line">    <span class="comment">// Write your code here.</span></span><br><span class="line">        LinkedList current = linkedList;</span><br><span class="line">        <span class="keyword">while</span> (current != <span class="keyword">null</span>) &#123;</span><br><span class="line">            LinkedList next = current.next;</span><br><span class="line">            <span class="keyword">while</span> (next != <span class="keyword">null</span> &amp;&amp; current.value == next.value) &#123;</span><br><span class="line">                next = next.next;</span><br><span class="line">            &#125;</span><br><span class="line">            current.next = next;</span><br><span class="line">            current = next;</span><br><span class="line">        &#125;</span><br><span class="line">    <span class="keyword">return</span> linkedList;</span><br><span class="line">  &#125;</span><br></pre></td></tr></table></figure>
+<p>Time complexity: O(n); Space complexity: O(1)</p>
+]]></content>
+      <categories>
+        <category>Algorithm</category>
+      </categories>
+      <tags>
+        <tag>Algorithm</tag>
+        <tag>Linked Lists</tag>
       </tags>
   </entry>
   <entry>
@@ -258,21 +273,6 @@
       </tags>
   </entry>
   <entry>
-    <title>Alg.3 Remove Duplicates From Linked List</title>
-    <url>/panaceacode.github.io/2020/04/04/Alg-3-Remove-Duplicates-From-Linked-List/</url>
-    <content><![CDATA[<p><em>From algoexpert.io</em><br><br><em>GIven a singly linked list, their nodes are sorted with respect to their value. Write a function to remove the nodes with duplicate values.</em><br><br><em>This method is pretty straightforward</em><br></p>
-<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="keyword">public</span> LinkedList <span class="title">removeDuplicatesFromLinkedList</span><span class="params">(LinkedList linkedList)</span> </span>&#123;</span><br><span class="line">    <span class="comment">// Write your code here.</span></span><br><span class="line">        LinkedList current = linkedList;</span><br><span class="line">        <span class="keyword">while</span> (current != <span class="keyword">null</span>) &#123;</span><br><span class="line">            LinkedList next = current.next;</span><br><span class="line">            <span class="keyword">while</span> (next != <span class="keyword">null</span> &amp;&amp; current.value == next.value) &#123;</span><br><span class="line">                next = next.next;</span><br><span class="line">            &#125;</span><br><span class="line">            current.next = next;</span><br><span class="line">            current = next;</span><br><span class="line">        &#125;</span><br><span class="line">    <span class="keyword">return</span> linkedList;</span><br><span class="line">  &#125;</span><br></pre></td></tr></table></figure>
-<p>Time complexity: O(n); Space complexity: O(1)</p>
-]]></content>
-      <categories>
-        <category>Algorithm</category>
-      </categories>
-      <tags>
-        <tag>Algorithm</tag>
-        <tag>Linked Lists</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>Alg.8 Quick Sort</title>
     <url>/panaceacode.github.io/2020/04/07/Alg-8-Quick-Sort/</url>
     <content><![CDATA[<p><em>From algoexpert.io</em><br><br><em>Quick Sort is a widely-used sorting algorithm, it borrows the strategy, “Divide and Conquer”, to divide the original array into 2 parts and do the sorting recursively. Here are the steps of Quick Sort:</em><br><br><em>1. Select a pivot, there are a lot of strategies to pick a pivot in order to make sure we can seperate the original array evenly. But here, we simply pick the first elements as pivots</em><br><br><em>2. Divide the original array into 2 parts, each element of the first one is less than or equals pivot, each element in the second one is greater than pivot</em><br><br><em>3. Repeat 1 and 2 on the subarrays</em><br></p>
@@ -306,19 +306,6 @@
       </tags>
   </entry>
   <entry>
-    <title>CPU Virtualization</title>
-    <url>/panaceacode.github.io/2021/05/05/CPU-Virtualization/</url>
-    <content><![CDATA[<p><em>Study notes of <strong>Operating System: Three Easy Pieces</strong>(available at <a href="http://www.ostep.org/">http://www.ostep.org</a>)</em><br></p>
-<h2 id="First-part-Virtualization"><a href="#First-part-Virtualization" class="headerlink" title="First part: Virtualization"></a><em>First part: Virtualization</em><br></h2><h3 id="1-The-Abstraction-the-Process"><a href="#1-The-Abstraction-the-Process" class="headerlink" title="1. The Abstraction: the Process"></a><em>1. The Abstraction: the Process</em></h3><p><em>This part is about one of the most fundamental abstractions: the process(Informally, it is a running program). Normally, we want to run more than one program at once. The OS provides the illusion of a nearly-endless supply of actual CPUs by virtualizing the CPU(one basic technique is time-sharing <strong>CPU的时分</strong>).</em><br><br><em>To implement virtualization of the CPU, the OS provides both low-level machinery <strong>mechanisms</strong> and high-level intelligence <strong>policies</strong>.</em><br><br><em><strong>Mechanisms</strong>: Implementation of the context switch which enables OS to stop running one program and start running another on a given CPU. These are pretty low-level things.</em><br><br><em><strong>Policies</strong>: Scheduling policy(which program should the OS run given a number of programs), we can use historical information/workload knowledge/performance metrics to make decision.</em><br></p>
-]]></content>
-      <categories>
-        <category>Operating System</category>
-      </categories>
-      <tags>
-        <tag>Operating System</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>Belfast</title>
     <url>/panaceacode.github.io/2019/12/21/Belfast/</url>
     <content><![CDATA[<h1 id="2019-12-19"><a href="#2019-12-19" class="headerlink" title="2019/12/19"></a><em>2019/12/19</em></h1><p><em>第一天计划去贝尔法斯特玩，我垚坚持要买早班飞机，结果早上起不来，于是就有了两张机票</em> <br><br><img src="https://blog-lzr.oss-cn-shanghai.aliyuncs.com/Belfast/ticket.jpg" width="50%" height="35%" align="bottom" /><br></p>
@@ -332,6 +319,19 @@
       <tags>
         <tag>Travel</tag>
         <tag>Belfast</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>CPU Virtualization</title>
+    <url>/panaceacode.github.io/2021/05/05/CPU-Virtualization/</url>
+    <content><![CDATA[<p><em>Study notes of <strong>Operating System: Three Easy Pieces</strong>(available at <a href="http://www.ostep.org/">http://www.ostep.org</a>)</em><br></p>
+<h2 id="First-part-Virtualization"><a href="#First-part-Virtualization" class="headerlink" title="First part: Virtualization"></a><em>First part: Virtualization</em><br></h2><h3 id="1-The-Abstraction-the-Process"><a href="#1-The-Abstraction-the-Process" class="headerlink" title="1. The Abstraction: the Process"></a><em>1. The Abstraction: the Process</em></h3><p><em>This part is about one of the most fundamental abstractions: the process(Informally, it is a running program). Normally, we want to run more than one program at once. The OS provides the illusion of a nearly-endless supply of actual CPUs by virtualizing the CPU(one basic technique is time-sharing <strong>CPU的时分</strong>).</em><br><br><em>To implement virtualization of the CPU, the OS provides both low-level machinery <strong>mechanisms</strong> and high-level intelligence <strong>policies</strong>.</em><br><br><em><strong>Mechanisms</strong>: For example, implementation of the context switch which enables OS to stop running one program and start running another on a given CPU. These are pretty low-level things.</em><br><br><em><strong>Policies</strong>: For example, scheduling policy(which program should the OS run given a number of programs), we can use historical information/workload knowledge/performance metrics to make decision.</em><br><br><em>What constitutes a process? We have to understand its <strong>machine state</strong>:</em><br><br><em>1. <strong>Memory</strong>: Instructions and the data that the running program reads and writes are all in the memory. Thus, the memory that the process can address is part of the process(address space);</em><br><br><em>2. <strong>Registers</strong>: Many instructions explicitly read or update registers. Some are special registers like <strong>program counter(PC)/instruction pointer(IP)</strong> tells us which instruction of the program will execute next. <strong>Stack pointer</strong> and associated <strong>frame pointer</strong> are used to manage the stack for function parameters, local variables and return addresses. _<br><br>_3. Programs often access persistent storage devices, I/O information might include a list of the files the process currently has open.</em><br></p>
+<h3 id="2-Process-API"><a href="#2-Process-API" class="headerlink" title="2. Process API"></a><em>2. Process API</em><br></h3>]]></content>
+      <categories>
+        <category>Operating System</category>
+      </categories>
+      <tags>
+        <tag>Operating System</tag>
       </tags>
   </entry>
   <entry>
