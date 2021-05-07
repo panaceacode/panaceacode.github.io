@@ -6,7 +6,7 @@
   <link href="https://panaceacode.github.io/atom.xml" rel="self"/>
   
   <link href="https://panaceacode.github.io/"/>
-  <updated>2021-05-07T11:34:04.531Z</updated>
+  <updated>2021-05-07T12:33:44.385Z</updated>
   <id>https://panaceacode.github.io/</id>
   
   <author>
@@ -17,11 +17,36 @@
   <generator uri="https://hexo.io/">Hexo</generator>
   
   <entry>
+    <title>CPU Virtualization-Process API</title>
+    <link href="https://panaceacode.github.io/2020/05/07/CPU-Virtualization-Process-API/"/>
+    <id>https://panaceacode.github.io/2020/05/07/CPU-Virtualization-Process-API/</id>
+    <published>2020-05-07T12:30:51.000Z</published>
+    <updated>2021-05-07T12:33:44.385Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;h3 id=&quot;1-fork-System-Call&quot;&gt;&lt;a href=&quot;#1-fork-System-Call&quot; class=&quot;headerlink&quot; title=&quot;1. fork() System Call&quot;&gt;&lt;/a&gt;&lt;em&gt;1. fork() System</summary>
+        
+      
+    
+    
+    
+    <category term="Operating System" scheme="https://panaceacode.github.io/categories/Operating-System/"/>
+    
+    
+    <category term="Operating System" scheme="https://panaceacode.github.io/tags/Operating-System/"/>
+    
+  </entry>
+  
+  <entry>
     <title>CPU Virtualization-Processes</title>
     <link href="https://panaceacode.github.io/2020/05/05/CPU-Virtualization-Processes/"/>
     <id>https://panaceacode.github.io/2020/05/05/CPU-Virtualization-Processes/</id>
     <published>2020-05-05T06:25:07.000Z</published>
-    <updated>2021-05-07T11:34:04.531Z</updated>
+    <updated>2021-05-07T12:33:12.956Z</updated>
     
     
       
@@ -513,33 +538,6 @@
         
         
     <summary type="html">&lt;p&gt;&lt;em&gt;From algoexpert.io&lt;/em&gt;&lt;br&gt;&lt;br&gt;&lt;em&gt;Write a function that determines whether “sequence” array is a subsequence of “array” array. For</summary>
-        
-      
-    
-    
-    
-    <category term="Algorithm" scheme="https://panaceacode.github.io/categories/Algorithm/"/>
-    
-    
-    <category term="Algorithm" scheme="https://panaceacode.github.io/tags/Algorithm/"/>
-    
-    <category term="Arrays" scheme="https://panaceacode.github.io/tags/Arrays/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>Alg.1 Two Sum</title>
-    <link href="https://panaceacode.github.io/2020/04/04/Alg-1-Two-Sum/"/>
-    <id>https://panaceacode.github.io/2020/04/04/Alg-1-Two-Sum/</id>
-    <published>2020-04-04T09:16:22.000Z</published>
-    <updated>2021-04-30T02:36:01.900Z</updated>
-    
-    
-      
-      
-        
-        
-    <summary type="html">&lt;p&gt;&lt;em&gt;AlgoExpert is a cool place to practice your algorithm skill, and you can visit &lt;a</summary>
         
       
     
