@@ -75,7 +75,7 @@
         <span class="post-meta-item-icon">
             <i class="ri-quill-pen-line"></i>
             <span class="post-meta-item-text"> Word count:</span>
-            <span class="post-count">4</span>
+            <span class="post-count">765</span>
         </span>
     </span>
 
@@ -84,7 +84,7 @@
         <span class="post-meta-item-icon">
             <i class="ri-book-open-line"></i>
             <span class="post-meta-item-text"> Reading time≈</span>
-            <span class="post-count">1 min</span>
+            <span class="post-count">4 min</span>
         </span>
     </span>
 </div>
@@ -99,7 +99,12 @@
   
     <div class="article-entry" itemprop="articleBody">
        
-  <h3 id="1-fork-System-Call"><a href="#1-fork-System-Call" class="headerlink" title="1. fork() System Call"></a><em>1. fork() System Call</em></h3><p>__<br></p>
+  <h3 id="1-fork-System-Call"><a href="#1-fork-System-Call" class="headerlink" title="1. fork() System Call"></a><em>1. fork() System Call</em></h3><p><em>fork() system call is used to create a new process. One process calls the fork() system call, the process that is created is an (almost) exact copy of the calling process and both are about to return from the fork() system call. The newly-created process doesn’t start running at main().</em><br><br><em>Although it now has its own copy of the address space (i.e., its own private memory), its own registers, its own PC, and so forth, the value it returns to the caller of fork() is different. Specifically, while the parent receives the PID of the newly-created child, the child receives a return code of zero. This differentiation is useful, because it is simple then to write the code that handles the two different cases. The output (of p1.c) is not deterministic. When the child process is created, there are now two active processes in the system that we care about: the parent and the child. Assuming we are running on a system with a single CPU (for simplicity), then either the child or the parent might run at that point.</em><br><br><em>fork()之后，操作系统会复制一个与父进程完全相同的子进程进程共享代码空间，但是数据空间是互相独立的，子进程数据空间中的内容是父进程的完整拷贝，指令指针也完全相同，子进程拥有父进程当前运行到的位置（两进程的程序计数器pc值相同，也就是说，子进程是从fork返回处开始执行的），但有一点不同，如果fork成功，子进程中fork的返回值是0，父进程中fork的返回值是子进程的进程号，如果fork不成功，父进程会返回错误。这两个进程的执行顺序也是不确定的，需要有OS的scheduler来决定。</em><br></p>
+<h3 id="2-wait-System-Call"><a href="#2-wait-System-Call" class="headerlink" title="2. wait() System Call"></a><em>2. wait() System Call</em></h3><p><em>It is quite useful for a parent to wait for a child process to finish what it has been doing. It returns the pid of the child process.</em><br></p>
+<h3 id="3-exec-System-Call"><a href="#3-exec-System-Call" class="headerlink" title="3. exec() System Call"></a><em>3. exec() System Call</em></h3><p><em>This system call is useful when you want to run a program that is different from the calling program. Given the name of an executable, and some arguments, it loads code (and static data) from that executable and overwrites its current code segment (and current static data) with it; the heap and stack and other parts of the memory space of the program are re-initialized. Thus, it does not create a new process; rather, it transforms the currently running program into a different running program.</em><br></p>
+<h3 id="4-Motivation"><a href="#4-Motivation" class="headerlink" title="4. Motivation"></a><em>4. Motivation</em></h3><p><em>The separation of fork() and exec() lets the shell run code after the call to fork() but before the call to exec(); this code can alter the environment of the about-to-be-run program. Here is the steps of using shell:</em><br><br><em>1. It shows you a prompt and then waits for you to type something into it. _<br><br>_2.  Then type a command (i.e., the name of an executable program, plus any arguments) into it; in most cases, the shell then figures out where in the file system the executable resides.</em><br><br><em>3. Calls fork() to create a new child process to run the command.</em><br><br><em>4. Calls some variant of exec() to run the command, and then waits for the command to complete by calling wait().</em><br><br><em>5. When the child completes, the shell returns from wait() and prints out a prompt again, ready for your next command.</em><br></p>
+<h3 id="5-Process-Control-And-Users"><a href="#5-Process-Control-And-Users" class="headerlink" title="5. Process Control And Users"></a><em>5. Process Control And Users</em></h3><p><em>There are other interfaces for interacting with processes in UNIX systems:</em><br><br><em><strong>kill()</strong>: kill() system call is used to send signals to a process, including di- rectives to pause, die, and other useful imperatives.</em><br><br><em><strong>signal()</strong>: signal() system call “catches” various signals, doing so ensures that when a particular signal is delivered to a process, it will suspend its normal execution and run a particular piece of code in response to the signal.</em><br></p>
+<h3 id="6-Other-tools"><a href="#6-Other-tools" class="headerlink" title="6. Other tools"></a><em>6. Other tools</em></h3><p><em>1. <strong>ps</strong>: allows you to see which processes are running.</em><br><br><em>2. <strong>top</strong>: displays the processes of the system and how much CPU and other resources they are eating up.</em><br><br><em>3. <strong>kill</strong>: sends arbitrary signals to processes.</em><br><br><em>…</em><br></p>
  
       <!-- reward -->
       
