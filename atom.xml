@@ -67,6 +67,33 @@
   </entry>
   
   <entry>
+    <title>Alg.20 Knutt-Morris-Pratt Algorithm</title>
+    <link href="https://panaceacode.github.io/2020/04/13/Alg-20-Knutt-Morris-Pratt-Algorithm/"/>
+    <id>https://panaceacode.github.io/2020/04/13/Alg-20-Knutt-Morris-Pratt-Algorithm/</id>
+    <published>2020-04-13T06:35:28.000Z</published>
+    <updated>2021-05-10T09:14:45.463Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;p&gt;&lt;em&gt;From algoexpert.io&lt;/em&gt;&lt;br&gt;&lt;br&gt;&lt;em&gt;Knutt-Morris-Pratt Algorithm, known as KMP, is a famous algorithm to solve substring problem.</summary>
+        
+      
+    
+    
+    
+    <category term="Algorithm" scheme="https://panaceacode.github.io/categories/Algorithm/"/>
+    
+    
+    <category term="Algorithm" scheme="https://panaceacode.github.io/tags/Algorithm/"/>
+    
+    <category term="String" scheme="https://panaceacode.github.io/tags/String/"/>
+    
+  </entry>
+  
+  <entry>
     <title>Alg.19 Pattern Matcher</title>
     <link href="https://panaceacode.github.io/2020/04/12/Alg-19-Pattern-Matcher/"/>
     <id>https://panaceacode.github.io/2020/04/12/Alg-19-Pattern-Matcher/</id>
@@ -522,33 +549,6 @@
     <category term="Algorithm" scheme="https://panaceacode.github.io/tags/Algorithm/"/>
     
     <category term="Linked Lists" scheme="https://panaceacode.github.io/tags/Linked-Lists/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>Alg.2 Validate Subsequence</title>
-    <link href="https://panaceacode.github.io/2020/04/04/Alg-2-Validate-Subsequence/"/>
-    <id>https://panaceacode.github.io/2020/04/04/Alg-2-Validate-Subsequence/</id>
-    <published>2020-04-04T10:06:57.000Z</published>
-    <updated>2021-04-30T02:36:27.343Z</updated>
-    
-    
-      
-      
-        
-        
-    <summary type="html">&lt;p&gt;&lt;em&gt;From algoexpert.io&lt;/em&gt;&lt;br&gt;&lt;br&gt;&lt;em&gt;Write a function that determines whether “sequence” array is a subsequence of “array” array. For</summary>
-        
-      
-    
-    
-    
-    <category term="Algorithm" scheme="https://panaceacode.github.io/categories/Algorithm/"/>
-    
-    
-    <category term="Algorithm" scheme="https://panaceacode.github.io/tags/Algorithm/"/>
-    
-    <category term="Arrays" scheme="https://panaceacode.github.io/tags/Arrays/"/>
     
   </entry>
   
