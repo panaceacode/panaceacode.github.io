@@ -6,7 +6,7 @@
   <link href="https://panaceacode.github.io/atom.xml" rel="self"/>
   
   <link href="https://panaceacode.github.io/"/>
-  <updated>2021-05-08T12:52:02.465Z</updated>
+  <updated>2021-05-12T03:34:14.815Z</updated>
   <id>https://panaceacode.github.io/</id>
   
   <author>
@@ -15,6 +15,32 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>CPU-Virtualization-Mechanism:Limited Direct Execution</title>
+    <link href="https://panaceacode.github.io/2020/05/08/CPU-Virtualization-Mechanism-Limited-Direct-Execution/"/>
+    <id>https://panaceacode.github.io/2020/05/08/CPU-Virtualization-Mechanism-Limited-Direct-Execution/</id>
+    <published>2020-05-08T09:16:56.000Z</published>
+    <updated>2021-05-12T03:34:14.815Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;p&gt;&lt;em&gt;该节关于底层的进程切换原理，为后面的schedule章节的底层逻辑&lt;/em&gt;&lt;br&gt;&lt;/p&gt;
+&lt;h3 id=&quot;1-Basic-technique-Limited-Direct-Execution&quot;&gt;&lt;a</summary>
+        
+      
+    
+    
+    
+    <category term="Operating System" scheme="https://panaceacode.github.io/categories/Operating-System/"/>
+    
+    
+    <category term="Operating System" scheme="https://panaceacode.github.io/tags/Operating-System/"/>
+    
+  </entry>
   
   <entry>
     <title>CPU Virtualization-Process API</title>
@@ -522,33 +548,6 @@
     <category term="Algorithm" scheme="https://panaceacode.github.io/tags/Algorithm/"/>
     
     <category term="Arrays" scheme="https://panaceacode.github.io/tags/Arrays/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>Alg.3 Remove Duplicates From Linked List</title>
-    <link href="https://panaceacode.github.io/2020/04/04/Alg-3-Remove-Duplicates-From-Linked-List/"/>
-    <id>https://panaceacode.github.io/2020/04/04/Alg-3-Remove-Duplicates-From-Linked-List/</id>
-    <published>2020-04-04T10:20:51.000Z</published>
-    <updated>2021-04-30T02:38:21.428Z</updated>
-    
-    
-      
-      
-        
-        
-    <summary type="html">&lt;p&gt;&lt;em&gt;From algoexpert.io&lt;/em&gt;&lt;br&gt;&lt;br&gt;&lt;em&gt;GIven a singly linked list, their nodes are sorted with respect to their value. Write a function</summary>
-        
-      
-    
-    
-    
-    <category term="Algorithm" scheme="https://panaceacode.github.io/categories/Algorithm/"/>
-    
-    
-    <category term="Algorithm" scheme="https://panaceacode.github.io/tags/Algorithm/"/>
-    
-    <category term="Linked Lists" scheme="https://panaceacode.github.io/tags/Linked-Lists/"/>
     
   </entry>
   
