@@ -9,7 +9,7 @@
     
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
   <title>
-    categories |  Hi
+    CPU-Virtualization-Mechanism:Limited Direct Execution |  Hi
   </title>
   <meta name="generator" content="hexo-theme-ayer">
   
@@ -44,12 +44,212 @@
       
     <main class="content on">
       <section class="outer">
+  <article
+  id="post-CPU-Virtualization-Mechanism-Limited-Direct-Execution"
+  class="article article-type-post"
+  itemscope
+  itemprop="blogPost"
+  data-scroll-reveal
+>
+  <div class="article-inner">
+    
+    <header class="article-header">
+       
+<h1 class="article-title sea-center" style="border-left:0" itemprop="name">
+  CPU-Virtualization-Mechanism:Limited Direct Execution
+</h1>
+ 
+
+    </header>
+     
+    <div class="article-meta">
+      <a href="/panaceacode.github.io/2020/05/08/CPU-Virtualization-Mechanism-Limited-Direct-Execution/" class="article-date">
+  <time datetime="2020-05-08T09:16:56.000Z" itemprop="datePublished">2020-05-08</time>
+</a> 
+  <div class="article-category">
+    <a class="article-category-link" href="/panaceacode.github.io/categories/Operating-System/">Operating System</a>
+  </div>
   
-    <h1 class="page-type-title">Categories</h1>
-    <div class="categories-box">
-      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/panaceacode.github.io/categories/Algorithm/">Algorithm</a><span class="category-list-count">20</span></li><li class="category-list-item"><a class="category-list-link" href="/panaceacode.github.io/categories/Operating-System/">Operating System</a><span class="category-list-count">3</span></li><li class="category-list-item"><a class="category-list-link" href="/panaceacode.github.io/categories/Travel/">Travel</a><span class="category-list-count">2</span></li><li class="category-list-item"><a class="category-list-link" href="/panaceacode.github.io/categories/%E6%8A%80%E6%9C%AF%E9%9A%8F%E7%AC%94/">技术随笔</a><span class="category-list-count">1</span></li></ul>
+<div class="word_count">
+    <span class="post-time">
+        <span class="post-meta-item-icon">
+            <i class="ri-quill-pen-line"></i>
+            <span class="post-meta-item-text"> Word count:</span>
+            <span class="post-count">466</span>
+        </span>
+    </span>
+
+    <span class="post-time">
+        &nbsp; | &nbsp;
+        <span class="post-meta-item-icon">
+            <i class="ri-book-open-line"></i>
+            <span class="post-meta-item-text"> Reading time≈</span>
+            <span class="post-count">2 min</span>
+        </span>
+    </span>
+</div>
+ 
     </div>
+      
+    <div class="tocbot"></div>
+
+
+
+
   
+    <div class="article-entry" itemprop="articleBody">
+       
+  <p><em>该节关于底层的进程切换原理，为后面的schedule章节的底层逻辑</em><br></p>
+<h3 id="1-Basic-technique-Limited-Direct-Execution"><a href="#1-Basic-technique-Limited-Direct-Execution" class="headerlink" title="1. Basic technique: Limited Direct Execution"></a><em>1. Basic technique: Limited Direct Execution</em></h3><p><em>Conception: run the program directly on the CPU</em><br><br><em>Steps: 1. creates a process entry for it in a process list;</em><br><br><em>2. allocates some memory for it;</em><br><br><em>3. loads the program code into memory (from disk);</em><br><br><em>4. locates its entry point (i.e., the main() routine or something similar), jumps to it, and starts running the user’s code.</em><br><br><img src="https://blog-lzr.oss-cn-shanghai.aliyuncs.com/Operating%20System/Direct%20Execution%20Protocol.png" width="73%" height="73%" align="middle" /><br><br><em>Here are 2 problems:</em><br><br><em>1.  If we just run a program, how can the OS make sure the program doesn’t do anything that we don’t want it to do, while still running it efficiently?(安全性/security)</em><br><br><em>2. When we are running a process, how does the operating system stop it from running and switch to another process, thus implementing the time sharing we require to virtualize the CPU?(进程切换)</em><br></p>
+<h3 id="2-Problem-1-Restricted-Operations"><a href="#2-Problem-1-Restricted-Operations" class="headerlink" title="2. Problem#1: Restricted Operations"></a><em>2. Problem#1: Restricted Operations</em></h3><p><em><strong>User Mode</strong>: code that runs in user mode is restricted in what it can do.</em><br><br><em><strong>Kernel Mode</strong>: code that runs can do what it likes, in- cluding privileged operations such as issuing I/O requests and executing all types of restricted instructions.</em><br><br><em>Modern hardware provides the ability for user programs to perform a <strong>system call</strong> which allows the kernel to carefully expose certain key pieces of functionality to user programs, such as accessing the file system, creating and destroying processes, communicating with other processes, and allocating more memory.</em><br><br><em>To execute a system call, a program must execute a special <strong>trap</strong> instruction. This instruction simultaneously:</em><br><br><em>1. jumps into the kernel and raises the privilege level to kernel mode; once in the kernel, the system can now perform whatever privileged operations are needed (if allowed), and thus do the required work for the calling process.</em><br><br><em>2. When finished, the OS calls a special <strong>return-from-trap</strong> instruction, which, as you might expect, returns into the calling user program while simultaneously reducing the privilege level back to user mode.</em><br></p>
+<blockquote>
+<p><em><strong>Alert</strong>: The hardware must make sure to save enough of the caller’s registers in order to be able to return correctly when the OS issues the return-from-trap instruction.</em><br></p>
+</blockquote>
+<p><em>How does the trap know which code to run inside the OS? Clearly, the calling process can’t specify an address to jump to (as you would when making a procedure call); doing so would allow programs to jump anywhere into the kernel.</em><br><br><em><strong>Trap Table</strong>: When the machine boots up, it does so in privileged (kernel) mode, and thus is free to configure machine hardware as need be. One of the first things the OS thus does is to tell the hardware what code to run when certain excep- tional events occur.</em><br></p>
+ 
+      <!-- reward -->
+      
+      <div id="reword-out">
+        <div id="reward-btn">
+          Donate
+        </div>
+      </div>
+      
+    </div>
+    
+
+    <!-- copyright -->
+    
+    <div class="declare">
+      <ul class="post-copyright">
+        <li>
+          <i class="ri-copyright-line"></i>
+          <strong>Copyright： </strong>
+          
+          Copyright is owned by the author. For commercial reprints, please contact the author for authorization. For non-commercial reprints, please indicate the source.
+          
+        </li>
+      </ul>
+    </div>
+    
+    <footer class="article-footer">
+       
+<div class="share-btn">
+      <span class="share-sns share-outer">
+        <i class="ri-share-forward-line"></i>
+        Share
+      </span>
+      <div class="share-wrap">
+        <i class="arrow"></i>
+        <div class="share-icons">
+          
+          <a class="weibo share-sns" href="javascript:;" data-type="weibo">
+            <i class="ri-weibo-fill"></i>
+          </a>
+          <a class="weixin share-sns wxFab" href="javascript:;" data-type="weixin">
+            <i class="ri-wechat-fill"></i>
+          </a>
+          <a class="qq share-sns" href="javascript:;" data-type="qq">
+            <i class="ri-qq-fill"></i>
+          </a>
+          <a class="douban share-sns" href="javascript:;" data-type="douban">
+            <i class="ri-douban-line"></i>
+          </a>
+          <!-- <a class="qzone share-sns" href="javascript:;" data-type="qzone">
+            <i class="icon icon-qzone"></i>
+          </a> -->
+          
+          <a class="facebook share-sns" href="javascript:;" data-type="facebook">
+            <i class="ri-facebook-circle-fill"></i>
+          </a>
+          <a class="twitter share-sns" href="javascript:;" data-type="twitter">
+            <i class="ri-twitter-fill"></i>
+          </a>
+          <a class="google share-sns" href="javascript:;" data-type="google">
+            <i class="ri-google-fill"></i>
+          </a>
+        </div>
+      </div>
+</div>
+
+<div class="wx-share-modal">
+    <a class="modal-close" href="javascript:;"><i class="ri-close-circle-line"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <div class="wx-qrcode">
+      <img src="//api.qrserver.com/v1/create-qr-code/?size=150x150&data=https://panaceacode.github.io/2020/05/08/CPU-Virtualization-Mechanism-Limited-Direct-Execution/" alt="微信分享二维码">
+    </div>
+</div>
+
+<div id="share-mask"></div>  
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/panaceacode.github.io/tags/Operating-System/" rel="tag">Operating System</a></li></ul>
+
+    </footer>
+  </div>
+
+   
+  <nav class="article-nav">
+    
+    
+      <a href="/panaceacode.github.io/2020/05/07/CPU-Virtualization-Process-API/" class="article-nav-link">
+        <strong class="article-nav-caption">Next</strong>
+        <div class="article-nav-title">CPU Virtualization-Process API</div>
+      </a>
+    
+  </nav>
+
+   
+<!-- valine评论 -->
+<div id="vcomments-box">
+  <div id="vcomments"></div>
+</div>
+<script src="//cdn1.lncld.net/static/js/3.0.4/av-min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/valine@1.4.14/dist/Valine.min.js"></script>
+<script>
+  new Valine({
+    el: "#vcomments",
+    app_id: "",
+    app_key: "",
+    path: window.location.pathname,
+    avatar: "monsterid",
+    placeholder: "Comment...",
+    recordIP: true,
+  });
+  const infoEle = document.querySelector("#vcomments .info");
+  if (infoEle && infoEle.childNodes && infoEle.childNodes.length > 0) {
+    infoEle.childNodes.forEach(function (item) {
+      item.parentNode.removeChild(item);
+    });
+  }
+</script>
+<style>
+  #vcomments-box {
+    padding: 5px 30px;
+  }
+
+  @media screen and (max-width: 800px) {
+    #vcomments-box {
+      padding: 5px 0px;
+    }
+  }
+
+  #vcomments-box #vcomments {
+    background-color: #fff;
+  }
+
+  .v .vlist .vcard .vh {
+    padding-right: 20px;
+  }
+
+  .v .vlist .vcard {
+    padding-left: 10px;
+  }
+</style>
+
+ 
+   
+     
+</article>
+
 </section>
       <footer class="footer">
   <div class="outer">
@@ -190,6 +390,23 @@
 <script src="/panaceacode.github.io/js/lazyload.min.js"></script>
 
 <!-- Tocbot -->
+
+
+<script src="/panaceacode.github.io/js/tocbot.min.js"></script>
+
+<script>
+  tocbot.init({
+    tocSelector: '.tocbot',
+    contentSelector: '.article-entry',
+    headingSelector: 'h1, h2, h3, h4, h5, h6',
+    hasInnerContainers: true,
+    scrollSmooth: true,
+    scrollContainer: 'main',
+    positionFixedSelector: '.tocbot',
+    positionFixedClass: 'is-position-fixed',
+    fixedSidebarOffset: 'auto'
+  });
+</script>
 
 <script src="https://cdn.jsdelivr.net/npm/jquery-modal@0.9.2/jquery.modal.min.js"></script>
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/jquery-modal@0.9.2/jquery.modal.min.css">
