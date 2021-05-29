@@ -75,7 +75,7 @@
         <span class="post-meta-item-icon">
             <i class="ri-quill-pen-line"></i>
             <span class="post-meta-item-text"> Word count:</span>
-            <span class="post-count">465</span>
+            <span class="post-count">915</span>
         </span>
     </span>
 
@@ -84,7 +84,7 @@
         <span class="post-meta-item-icon">
             <i class="ri-book-open-line"></i>
             <span class="post-meta-item-text"> Reading time≈</span>
-            <span class="post-count">2 min</span>
+            <span class="post-count">5 min</span>
         </span>
     </span>
 </div>
@@ -103,9 +103,24 @@
 <h3 id="1-Basic-technique-Limited-Direct-Execution"><a href="#1-Basic-technique-Limited-Direct-Execution" class="headerlink" title="1. Basic technique: Limited Direct Execution"></a><em>1. Basic technique: Limited Direct Execution</em></h3><p><em>Conception: run the program directly on the CPU</em><br><br><em>Steps: 1. creates a process entry for it in a process list;</em><br><br><em>2. allocates some memory for it;</em><br><br><em>3. loads the program code into memory (from disk);</em><br><br><em>4. locates its entry point (i.e., the main() routine or something similar), jumps to it, and starts running the user’s code.</em><br><br><img src="https://blog-lzr.oss-cn-shanghai.aliyuncs.com/Operating%20System/Direct%20Execution%20Protocol.png" width="73%" height="73%" align="middle" /><br><br><em>Here are 2 problems:</em><br><br><em>1.  If we just run a program, how can the OS make sure the program doesn’t do anything that we don’t want it to do, while still running it efficiently?(安全性/security)</em><br><br><em>2. When we are running a process, how does the operating system stop it from running and switch to another process, thus implementing the time sharing we require to virtualize the CPU?(进程切换)</em><br></p>
 <h3 id="2-Problem-1-Restricted-Operations"><a href="#2-Problem-1-Restricted-Operations" class="headerlink" title="2. Problem#1: Restricted Operations"></a><em>2. Problem#1: Restricted Operations</em></h3><p><em><strong>User Mode</strong>: code that runs in user mode is restricted in what it can do.</em><br><br><em><strong>Kernel Mode</strong>: code that runs can do what it likes, including privileged operations such as issuing I/O requests and executing all types of restricted instructions.</em><br><br><em>Modern hardware provides the ability for user programs to perform a <strong>system call</strong> which allows the kernel to carefully expose certain key pieces of functionality to user programs, such as accessing the file system, creating and destroying processes, communicating with other processes, and allocating more memory.</em><br><br><em>To execute a system call, a program must execute a special <strong>trap</strong> instruction. This instruction simultaneously:</em><br><br><em>1. jumps into the kernel and raises the privilege level to kernel mode; once in the kernel, the system can now perform whatever privileged operations are needed (if allowed), and thus do the required work for the calling process.</em><br><br><em>2. When finished, the OS calls a special <strong>return-from-trap</strong> instruction, which, as you might expect, returns into the calling user program while simultaneously reducing the privilege level back to user mode.</em><br></p>
 <blockquote>
-<p><em><strong>Alert</strong>: The hardware must make sure to save enough of the caller’s registers in order to be able to return correctly when the OS issues the return-from-trap instruction.</em><br></p>
+<p><strong>Alert</strong>: The hardware must make sure to save enough of the caller’s registers in order to be able to return correctly when the OS issues the return-from-trap instruction.<br></p>
 </blockquote>
-<p><em>How does the trap know which code to run inside the OS? Clearly, the calling process can’t specify an address to jump to (as you would when making a procedure call); doing so would allow programs to jump anywhere into the kernel.</em><br><br><em><strong>Trap Table</strong>: When the machine boots up, it does so in privileged (kernel) mode, and thus is free to configure machine hardware as need be. One of the first things the OS thus does is to tell the hardware what code to run when certain excep- tional events occur.</em><br></p>
+<p><img src="https://blog-lzr.oss-cn-shanghai.aliyuncs.com/Operating%20System/Limited%20Direct%20Execution%20Protocol.png" width="73%" height="73%" align="middle" /><br><br><em>How does the trap know which code to run inside the OS? Clearly, the calling process can’t specify an address to jump to (as you would when making a procedure call); doing so would allow programs to jump anywhere into the kernel.</em><br><br><em><strong>Trap Table</strong>: When the machine boots up, it does so in privileged (kernel) mode, and thus is free to configure machine hardware as need be. One of the first things the OS thus does is to tell the hardware what code to run when certain exceptional events occur. Being able to execute the instruction to tell the hardware where the trap tables are is a very powerful capability. Thus, it is also a privileged operation.</em><br></p>
+<h3 id="3-Problem-2-Switching-Between-Processes"><a href="#3-Problem-2-Switching-Between-Processes" class="headerlink" title="3. Problem#2: Switching Between Processes"></a><em>3. Problem#2: Switching Between Processes</em></h3><blockquote>
+<p>A Cooperative Approach: Wait For System Calls<br><br>In this style, the OS trusts the processes of the system to behave reasonably. Processes that run for too long are assumed to periodically give up the CPU so that the OS can decide to run some other task. 这种cooperative的方式需要等待一个系统调用（类似yield）或者一个非法操作将当前线程拉起，切换到kernel模式<br></p>
+</blockquote>
+<ol>
+<li>Most processes transfer control of the CPU to the OS quite frequently by making system calls, for example, to open a file and subsequently read it, or to send a message to another machine, or to create a new process. Systems like this often include an explicit <strong>yield</strong> system call, which does nothing except to transfer control to the OS so it can run other processes.</li>
+<li>Applications also transfer control to the OS when they do something illegal. For example, if an application divides by zero, or tries to access memory that it shouldn’t be able to access, it will generate a <strong>trap</strong> to the OS. The OS will then have control of the CPU again (and likely terminate the offending process).</li>
+</ol>
+<blockquote>
+<p>A Non-Cooperative Approach: The OS Tasks Control<br><br>前一种方法中，如果进程陷入一个无限循环当中，将无法进行线程切换，现在加入<strong>timer interrupt</strong>机制：<br><br>A timer device can be programmed to raise an interrupt every so many milliseconds; when the interrupt is raised, the currently running process is halted, and a pre-configured <strong>interrupt handler</strong> in the OS runs. At this point, the OS has regained control of the CPU, and thus can do what it pleases: stop the current process, and start a different one.<br><br>As we discussed before with system calls, the OS must inform the hardware of which code to run when the timer interrupt occurs; thus, at boot time, the OS does exactly that. Second, also during the boot sequence, the OS must start the timer, which is of course a privileged operation.<br><br>The hardware has some responsibility when an interrupt occurs, in particular to save enough of the state of the program that was running when the interrupt occurred such that a subsequent return-from-trap instruction will be able to resume the running program correctly.<br></p>
+</blockquote>
+<blockquote>
+<p>Saving and Restoring Context<br></p>
+</blockquote>
+<p><img src="https://blog-lzr.oss-cn-shanghai.aliyuncs.com/Operating%20System/Limited%20Direct%20Execution%20Protocol%20with%20Timer%20Interrupter.png" width="73%" height="73%" align="middle" /><br></p>
+<h3 id="4-Worried-About-Concurrency"><a href="#4-Worried-About-Concurrency" class="headerlink" title="4. Worried About Concurrency"></a><em>4. Worried About Concurrency</em></h3><p>__</p>
  
       <!-- reward -->
       
