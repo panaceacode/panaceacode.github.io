@@ -75,7 +75,7 @@
         <span class="post-meta-item-icon">
             <i class="ri-quill-pen-line"></i>
             <span class="post-meta-item-text"> Word count:</span>
-            <span class="post-count">915</span>
+            <span class="post-count">1.2k</span>
         </span>
     </span>
 
@@ -84,7 +84,7 @@
         <span class="post-meta-item-icon">
             <i class="ri-book-open-line"></i>
             <span class="post-meta-item-text"> Reading time≈</span>
-            <span class="post-count">5 min</span>
+            <span class="post-count">6 min</span>
         </span>
     </span>
 </div>
@@ -107,17 +107,13 @@
 </blockquote>
 <p><img src="https://blog-lzr.oss-cn-shanghai.aliyuncs.com/Operating%20System/Limited%20Direct%20Execution%20Protocol.png" width="73%" height="73%" align="middle" /><br><br><em>How does the trap know which code to run inside the OS? Clearly, the calling process can’t specify an address to jump to (as you would when making a procedure call); doing so would allow programs to jump anywhere into the kernel.</em><br><br><em><strong>Trap Table</strong>: When the machine boots up, it does so in privileged (kernel) mode, and thus is free to configure machine hardware as need be. One of the first things the OS thus does is to tell the hardware what code to run when certain exceptional events occur. Being able to execute the instruction to tell the hardware where the trap tables are is a very powerful capability. Thus, it is also a privileged operation.</em><br></p>
 <h3 id="3-Problem-2-Switching-Between-Processes"><a href="#3-Problem-2-Switching-Between-Processes" class="headerlink" title="3. Problem#2: Switching Between Processes"></a><em>3. Problem#2: Switching Between Processes</em></h3><blockquote>
-<p>A Cooperative Approach: Wait For System Calls<br><br>In this style, the OS trusts the processes of the system to behave reasonably. Processes that run for too long are assumed to periodically give up the CPU so that the OS can decide to run some other task. 这种cooperative的方式需要等待一个系统调用（类似yield）或者一个非法操作将当前线程拉起，切换到kernel模式<br></p>
+<p>A Cooperative Approach: Wait For System Calls<br><br>In this style, the OS trusts the processes of the system to behave reasonably. Processes that run for too long are assumed to periodically give up the CPU so that the OS can decide to run some other task. 这种cooperative的方式需要等待一个系统调用（类似yield）或者一个非法操作将当前线程拉起，切换到kernel模式<br><br><em>1. Most processes transfer control of the CPU to the OS quite frequently by making system calls, for example, to open a file and subsequently read it, or to send a message to another machine, or to create a new process. Systems like this often include an explicit <strong>yield</strong> system call, which does nothing except to transfer control to the OS so it can run other processes.</em><br><em>2. Applications also transfer control to the OS when they do something illegal. For example, if an application divides by zero, or tries to access memory that it shouldn’t be able to access, it will generate a <strong>trap</strong> to the OS. The OS will then have control of the CPU again (and likely terminate the offending process).</em><br></p>
 </blockquote>
-<ol>
-<li>Most processes transfer control of the CPU to the OS quite frequently by making system calls, for example, to open a file and subsequently read it, or to send a message to another machine, or to create a new process. Systems like this often include an explicit <strong>yield</strong> system call, which does nothing except to transfer control to the OS so it can run other processes.</li>
-<li>Applications also transfer control to the OS when they do something illegal. For example, if an application divides by zero, or tries to access memory that it shouldn’t be able to access, it will generate a <strong>trap</strong> to the OS. The OS will then have control of the CPU again (and likely terminate the offending process).</li>
-</ol>
 <blockquote>
 <p>A Non-Cooperative Approach: The OS Tasks Control<br><br>前一种方法中，如果进程陷入一个无限循环当中，将无法进行线程切换，现在加入<strong>timer interrupt</strong>机制：<br><br>A timer device can be programmed to raise an interrupt every so many milliseconds; when the interrupt is raised, the currently running process is halted, and a pre-configured <strong>interrupt handler</strong> in the OS runs. At this point, the OS has regained control of the CPU, and thus can do what it pleases: stop the current process, and start a different one.<br><br>As we discussed before with system calls, the OS must inform the hardware of which code to run when the timer interrupt occurs; thus, at boot time, the OS does exactly that. Second, also during the boot sequence, the OS must start the timer, which is of course a privileged operation.<br><br>The hardware has some responsibility when an interrupt occurs, in particular to save enough of the state of the program that was running when the interrupt occurred such that a subsequent return-from-trap instruction will be able to resume the running program correctly.<br></p>
 </blockquote>
 <blockquote>
-<p>Saving and Restoring Context<br></p>
+<p>Saving and Restoring Context<br><br><em>无论是cooperative还是non-cooperative的方式，当OS重新取得控制权时，我们需要决定是继续运行当前进程还是切换到另外一个，当我们决定切换到另一个进程时，就需要进行上下文切换(Context Switch)。Context switch: all the OS has to do is save a few register values for the currently-executing process (onto its kernel stack, for example) and restore a few for the soon-to-be-executing process (from its kernel stack). By doing so, the OS thus ensures that when the return-from-trap instruction is finally executed, instead of returning to the process that was running, the system resumes execution of another process. To save the context of the currently-running process, the OS will execute some low-level assembly code to save the general purpose registers, PC, and the kernel stack pointer of the currently-running process, and then restore said registers, PC, and switch to the kernel stack for the soon-to-be-executing process. By switching stacks, the kernel enters the call to the switch code in the context of one process (the one that was in- terrupted) and returns in the context of another (the soon-to-be-executing one). When the OS then finally executes a return-from-trap instruction, the soon-to-be-executing process becomes the currently-running process. And thus the context switch is complete.</em></p>
 </blockquote>
 <p><img src="https://blog-lzr.oss-cn-shanghai.aliyuncs.com/Operating%20System/Limited%20Direct%20Execution%20Protocol%20with%20Timer%20Interrupter.png" width="73%" height="73%" align="middle" /><br></p>
 <h3 id="4-Worried-About-Concurrency"><a href="#4-Worried-About-Concurrency" class="headerlink" title="4. Worried About Concurrency"></a><em>4. Worried About Concurrency</em></h3><p>__</p>
