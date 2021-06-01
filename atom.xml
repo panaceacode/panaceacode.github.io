@@ -6,7 +6,7 @@
   <link href="https://panaceacode.github.io/atom.xml" rel="self"/>
   
   <link href="https://panaceacode.github.io/"/>
-  <updated>2021-06-01T09:06:28.951Z</updated>
+  <updated>2021-06-01T11:32:19.641Z</updated>
   <id>https://panaceacode.github.io/</id>
   
   <author>
@@ -17,11 +17,37 @@
   <generator uri="https://hexo.io/">Hexo</generator>
   
   <entry>
-    <title>CPU-Virtualization-Mechanism(Limited Direct Execution)</title>
+    <title>CPU Virtualization-Scheduling(Introduction)</title>
+    <link href="https://panaceacode.github.io/2020/05/09/CPU-Virtualization-Scheduling-Introduction/"/>
+    <id>https://panaceacode.github.io/2020/05/09/CPU-Virtualization-Scheduling-Introduction/</id>
+    <published>2020-05-09T09:14:44.000Z</published>
+    <updated>2021-06-01T11:32:19.641Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;p&gt;&lt;em&gt;上节介绍的是low-level的mechanisms，比如线程如何切换。本节主要介绍的是Scheduling和一些scheduling policies，线程调度问题。这些是属于high-level policies。&lt;/em&gt;&lt;br&gt;&lt;/p&gt;
+&lt;h3</summary>
+        
+      
+    
+    
+    
+    <category term="Operating System" scheme="https://panaceacode.github.io/categories/Operating-System/"/>
+    
+    
+    <category term="Operating System" scheme="https://panaceacode.github.io/tags/Operating-System/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>CPU Virtualization-Mechanism(Limited Direct Execution)</title>
     <link href="https://panaceacode.github.io/2020/05/08/CPU-Virtualization-Mechanism-Limited-Direct-Execution/"/>
     <id>https://panaceacode.github.io/2020/05/08/CPU-Virtualization-Mechanism-Limited-Direct-Execution/</id>
     <published>2020-05-08T09:16:56.000Z</published>
-    <updated>2021-06-01T09:06:28.951Z</updated>
+    <updated>2021-06-01T09:14:15.661Z</updated>
     
     
       
@@ -521,33 +547,6 @@
     <category term="Algorithm" scheme="https://panaceacode.github.io/tags/Algorithm/"/>
     
     <category term="Sorting" scheme="https://panaceacode.github.io/tags/Sorting/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>Alg.4 Kadane&#39;s Algorithm</title>
-    <link href="https://panaceacode.github.io/2020/04/05/Alg-4-Kadane-s-Algorithm/"/>
-    <id>https://panaceacode.github.io/2020/04/05/Alg-4-Kadane-s-Algorithm/</id>
-    <published>2020-04-05T13:13:19.000Z</published>
-    <updated>2021-04-30T02:37:13.353Z</updated>
-    
-    
-      
-      
-        
-        
-    <summary type="html">&lt;p&gt;&lt;em&gt;From algoexpert.io&lt;/em&gt;&lt;br&gt;&lt;br&gt;&lt;em&gt;In this problem, we have to write a function to get a given array’s maximum sum of its subarray.</summary>
-        
-      
-    
-    
-    
-    <category term="Algorithm" scheme="https://panaceacode.github.io/categories/Algorithm/"/>
-    
-    
-    <category term="Algorithm" scheme="https://panaceacode.github.io/tags/Algorithm/"/>
-    
-    <category term="Arrays" scheme="https://panaceacode.github.io/tags/Arrays/"/>
     
   </entry>
   
