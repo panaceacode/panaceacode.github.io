@@ -6,7 +6,7 @@
   <link href="https://panaceacode.github.io/atom.xml" rel="self"/>
   
   <link href="https://panaceacode.github.io/"/>
-  <updated>2021-06-01T12:24:06.160Z</updated>
+  <updated>2021-06-02T11:33:41.166Z</updated>
   <id>https://panaceacode.github.io/</id>
   
   <author>
@@ -21,14 +21,14 @@
     <link href="https://panaceacode.github.io/2020/05/09/CPU-Virtualization-Scheduling-Introduction/"/>
     <id>https://panaceacode.github.io/2020/05/09/CPU-Virtualization-Scheduling-Introduction/</id>
     <published>2020-05-09T09:14:44.000Z</published>
-    <updated>2021-06-01T12:24:06.160Z</updated>
+    <updated>2021-06-02T11:33:41.166Z</updated>
     
     
       
       
         
         
-    <summary type="html">&lt;p&gt;&lt;em&gt;上节介绍的是low-level的mechanisms，比如线程如何切换。本节主要介绍的是Scheduling和一些scheduling policies，线程调度问题。这些是属于high-level policies。&lt;/em&gt;&lt;br&gt;&lt;/p&gt;
+    <summary type="html">&lt;p&gt;上节介绍的是low-level的mechanisms，比如线程如何切换。本节主要介绍的是Scheduling和一些scheduling policies，线程调度问题。这些是属于high-level policies。&lt;br&gt;&lt;/p&gt;
 &lt;h3</summary>
         
       

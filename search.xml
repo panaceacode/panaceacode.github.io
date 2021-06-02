@@ -116,11 +116,11 @@
       </tags>
   </entry>
   <entry>
-    <title>Alg.16 Reverse Words In String</title>
-    <url>/panaceacode.github.io/2020/04/09/Alg-16-Reverse-Words-In-String/</url>
-    <content><![CDATA[<p><em>From algoexpert.io</em><br><br><em>In this problem, given a string of words seperated by one or more whitespaces. We need to write a function reverse these words. Basically, the idea is seperate all the words by the whitespaces. Then, we simply reverse them. Here is the implementation:</em><br></p>
-<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="keyword">public</span> String <span class="title">reverseWordsInString</span><span class="params">(String string)</span> </span>&#123;</span><br><span class="line">    List&lt;String&gt; words = <span class="keyword">new</span> ArrayList&lt;&gt;();</span><br><span class="line">        <span class="keyword">int</span> curStart = <span class="number">0</span>;</span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; string.length(); i++) &#123;</span><br><span class="line">            <span class="keyword">char</span> c = string.charAt(i);</span><br><span class="line">            <span class="keyword">if</span> (c  == <span class="string">&#x27; &#x27;</span>) &#123;</span><br><span class="line">                words.add(string.substring(curStart, i));</span><br><span class="line">                words.add(<span class="string">&quot; &quot;</span>);</span><br><span class="line">                curStart = i + <span class="number">1</span>;</span><br><span class="line">            &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">                <span class="keyword">continue</span>;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        words.add(string.substring(curStart));</span><br><span class="line">        Collections.reverse(words);</span><br><span class="line">    <span class="keyword">return</span> String.join(<span class="string">&quot;&quot;</span>, words);</span><br><span class="line">  &#125;</span><br></pre></td></tr></table></figure>
-<p><em>Another way is to first reverse all the characters within this string, then we reverse each string back.</em><br><br>Time complexity: O(n); Space complexity: O(n)</p>
+    <title>Alg.17 Longest Substring Without Duplication</title>
+    <url>/panaceacode.github.io/2020/04/10/Alg-17-Longest-Substring-Without-Duplication/</url>
+    <content><![CDATA[<p><em>From algoexpert.io</em><br><br><em>In this problem, we need to write a function to find out the longest substring without any duplicate characters.</em><br><br><em>We iterate the original string and use a map to record the characters and their corresponding positions. Array “longest” stores the index of the current longest substring, “startIdx” is the current start point of a potential longest substring. When we get to a character, we determine whether we have met it before and if it appears after the current head, we can update the current “startIdx” according to this rule. Then we can update the “longest” by comparing the lengths of current potential longest substring and “longest”. Here is the code implementation:</em><br></p>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">static</span> String <span class="title">longestSubstringWithoutDuplication</span><span class="params">(String str)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">int</span>[] longest = &#123;<span class="number">0</span>, <span class="number">1</span>&#125;;</span><br><span class="line">        <span class="keyword">int</span> startIdx = <span class="number">0</span>;</span><br><span class="line">        </span><br><span class="line">        <span class="comment">// Use a map to record the characters and its corresponding position</span></span><br><span class="line">        Map&lt;Character, Integer&gt; table = <span class="keyword">new</span> HashMap&lt;&gt;();</span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; str.length(); i++) &#123;</span><br><span class="line">            <span class="comment">// If the character we have Encountered before</span></span><br><span class="line">            <span class="keyword">if</span> (table.containsKey(str.charAt(i))) &#123;</span><br><span class="line">                <span class="comment">// If this character appears after the current head,</span></span><br><span class="line">                <span class="comment">// we update the head</span></span><br><span class="line">                <span class="keyword">if</span> (table.get(str.charAt(i)) + <span class="number">1</span> &gt;= startIdx) &#123;</span><br><span class="line">                    startIdx = table.get(str.charAt(i)) + <span class="number">1</span>;</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;</span><br><span class="line">            table.put(str.charAt(i), i);</span><br><span class="line">            </span><br><span class="line">            <span class="comment">// Update the current longest substring</span></span><br><span class="line">            <span class="keyword">if</span> (i - startIdx + <span class="number">1</span> &gt; longest[<span class="number">1</span>] - longest[<span class="number">0</span>]) &#123;</span><br><span class="line">                longest[<span class="number">0</span>] = startIdx;</span><br><span class="line">                longest[<span class="number">1</span>] = i + <span class="number">1</span>;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">    <span class="keyword">return</span> str.substring(longest[<span class="number">0</span>], longest[<span class="number">1</span>]);</span><br><span class="line">  &#125;</span><br></pre></td></tr></table></figure>
+<p>Time complexity: O(n); Space complexity:O(n)</p>
 ]]></content>
       <categories>
         <category>Algorithm</category>
@@ -131,11 +131,11 @@
       </tags>
   </entry>
   <entry>
-    <title>Alg.17 Longest Substring Without Duplication</title>
-    <url>/panaceacode.github.io/2020/04/10/Alg-17-Longest-Substring-Without-Duplication/</url>
-    <content><![CDATA[<p><em>From algoexpert.io</em><br><br><em>In this problem, we need to write a function to find out the longest substring without any duplicate characters.</em><br><br><em>We iterate the original string and use a map to record the characters and their corresponding positions. Array “longest” stores the index of the current longest substring, “startIdx” is the current start point of a potential longest substring. When we get to a character, we determine whether we have met it before and if it appears after the current head, we can update the current “startIdx” according to this rule. Then we can update the “longest” by comparing the lengths of current potential longest substring and “longest”. Here is the code implementation:</em><br></p>
-<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">static</span> String <span class="title">longestSubstringWithoutDuplication</span><span class="params">(String str)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">int</span>[] longest = &#123;<span class="number">0</span>, <span class="number">1</span>&#125;;</span><br><span class="line">        <span class="keyword">int</span> startIdx = <span class="number">0</span>;</span><br><span class="line">        </span><br><span class="line">        <span class="comment">// Use a map to record the characters and its corresponding position</span></span><br><span class="line">        Map&lt;Character, Integer&gt; table = <span class="keyword">new</span> HashMap&lt;&gt;();</span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; str.length(); i++) &#123;</span><br><span class="line">            <span class="comment">// If the character we have Encountered before</span></span><br><span class="line">            <span class="keyword">if</span> (table.containsKey(str.charAt(i))) &#123;</span><br><span class="line">                <span class="comment">// If this character appears after the current head,</span></span><br><span class="line">                <span class="comment">// we update the head</span></span><br><span class="line">                <span class="keyword">if</span> (table.get(str.charAt(i)) + <span class="number">1</span> &gt;= startIdx) &#123;</span><br><span class="line">                    startIdx = table.get(str.charAt(i)) + <span class="number">1</span>;</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;</span><br><span class="line">            table.put(str.charAt(i), i);</span><br><span class="line">            </span><br><span class="line">            <span class="comment">// Update the current longest substring</span></span><br><span class="line">            <span class="keyword">if</span> (i - startIdx + <span class="number">1</span> &gt; longest[<span class="number">1</span>] - longest[<span class="number">0</span>]) &#123;</span><br><span class="line">                longest[<span class="number">0</span>] = startIdx;</span><br><span class="line">                longest[<span class="number">1</span>] = i + <span class="number">1</span>;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">    <span class="keyword">return</span> str.substring(longest[<span class="number">0</span>], longest[<span class="number">1</span>]);</span><br><span class="line">  &#125;</span><br></pre></td></tr></table></figure>
-<p>Time complexity: O(n); Space complexity:O(n)</p>
+    <title>Alg.16 Reverse Words In String</title>
+    <url>/panaceacode.github.io/2020/04/09/Alg-16-Reverse-Words-In-String/</url>
+    <content><![CDATA[<p><em>From algoexpert.io</em><br><br><em>In this problem, given a string of words seperated by one or more whitespaces. We need to write a function reverse these words. Basically, the idea is seperate all the words by the whitespaces. Then, we simply reverse them. Here is the implementation:</em><br></p>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="keyword">public</span> String <span class="title">reverseWordsInString</span><span class="params">(String string)</span> </span>&#123;</span><br><span class="line">    List&lt;String&gt; words = <span class="keyword">new</span> ArrayList&lt;&gt;();</span><br><span class="line">        <span class="keyword">int</span> curStart = <span class="number">0</span>;</span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; string.length(); i++) &#123;</span><br><span class="line">            <span class="keyword">char</span> c = string.charAt(i);</span><br><span class="line">            <span class="keyword">if</span> (c  == <span class="string">&#x27; &#x27;</span>) &#123;</span><br><span class="line">                words.add(string.substring(curStart, i));</span><br><span class="line">                words.add(<span class="string">&quot; &quot;</span>);</span><br><span class="line">                curStart = i + <span class="number">1</span>;</span><br><span class="line">            &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">                <span class="keyword">continue</span>;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        words.add(string.substring(curStart));</span><br><span class="line">        Collections.reverse(words);</span><br><span class="line">    <span class="keyword">return</span> String.join(<span class="string">&quot;&quot;</span>, words);</span><br><span class="line">  &#125;</span><br></pre></td></tr></table></figure>
+<p><em>Another way is to first reverse all the characters within this string, then we reverse each string back.</em><br><br>Time complexity: O(n); Space complexity: O(n)</p>
 ]]></content>
       <categories>
         <category>Algorithm</category>
@@ -412,8 +412,8 @@
   <entry>
     <title>CPU Virtualization-Scheduling(Introduction)</title>
     <url>/panaceacode.github.io/2020/05/09/CPU-Virtualization-Scheduling-Introduction/</url>
-    <content><![CDATA[<p><em>上节介绍的是low-level的mechanisms，比如线程如何切换。本节主要介绍的是Scheduling和一些scheduling policies，线程调度问题。这些是属于high-level policies。</em><br></p>
-<h3 id="1-Workload-Assumption"><a href="#1-Workload-Assumption" class="headerlink" title="1. Workload Assumption"></a><em>1. Workload Assumption</em></h3><p><em>在讨论本节内容之前，我们先对进程做一些简化与假设：</em><br></p>
+    <content><![CDATA[<p>上节介绍的是low-level的mechanisms，比如线程如何切换。本节主要介绍的是Scheduling和一些scheduling policies，线程调度问题。这些是属于high-level policies。<br></p>
+<h3 id="1-Workload-Assumption"><a href="#1-Workload-Assumption" class="headerlink" title="1. Workload Assumption"></a><em>1. Workload Assumption</em></h3><p>在讨论本节内容之前，我们先对进程做一些简化与假设：<br></p>
 <ol>
 <li>每个进程运行相同的时间</li>
 <li>所有任务在同一时间到达</li>
@@ -422,29 +422,13 @@
 <li>每个任务的运行时间是已知的</li>
 </ol>
 <h3 id="2-Scheduling-Metrics"><a href="#2-Scheduling-Metrics" class="headerlink" title="2. Scheduling Metrics"></a><em>2. Scheduling Metrics</em></h3><p>我们需要定义一个衡量调度策略的方法，在这里，我们只定义一个方法，$T_{turnaround}$，用任务完成的时间减去任务到达的时间：$$T_{turnaround}=T_{completion}-T_{arrival}$$<br><br>因为现在假设所有任务在同一时间到达，所以$T_{turnaround} = T_{completion}$。需要注意的是，$T_{turnaround}$是用来衡量performance，另一个需要关注的点是fairness公平性，实际上，这两个指标往往是相斥的。<br></p>
-<h3 id="3-FIFO-FCFS"><a href="#3-FIFO-FCFS" class="headerlink" title="3. FIFO/FCFS"></a><em>3. FIFO/FCFS</em></h3><p><em>First In, First Out或者First Come, First Serve. 先到先处理原则，简单易于实现。下面的例子，任务A，B，C依次进入，但是根据假设，它们的到达时间可以认为是相同的</em><br><img src="https://blog-lzr.oss-cn-shanghai.aliyuncs.com/Operating%20System/Limited%20Direct%20Execution%20Protocol%20with%20Timer%20Interrupter.png" width="73%" height="73%" align="middle" /><br></p>
+<h3 id="3-FIFO-FCFS"><a href="#3-FIFO-FCFS" class="headerlink" title="3. FIFO/FCFS"></a><em>3. FIFO/FCFS</em></h3><p>First In, First Out或者First Come, First Serve. 先到先处理原则，简单易于实现。下面的例子，任务A，B，C依次进入，但是根据假设，它们的到达时间可以认为是相同的。所以在这里，平均$T_{turnaround}=/frac{(10-0)(20-0)(30-0)}{3}=20$<br><img src="https://blog-lzr.oss-cn-shanghai.aliyuncs.com/Operating%20System/Limited%20Direct%20Execution%20Protocol%20with%20Timer%20Interrupter.png" width="73%" height="73%" align="middle" /><br></p>
 ]]></content>
       <categories>
         <category>Operating System</category>
       </categories>
       <tags>
         <tag>Operating System</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>Edinburgh</title>
-    <url>/panaceacode.github.io/2019/12/18/Edinburgh/</url>
-    <content><![CDATA[<h1 id="2019-12-17"><a href="#2019-12-17" class="headerlink" title="2019/12/17"></a><em>2019/12/17</em></h1><p><em>出发去英国</em><br><img src="https://blog-lzr.oss-cn-shanghai.aliyuncs.com/Edinburgh/ticket.jpg" width="50%" height="35%" align="middle" /><br></p>
-<p><em>落地伦敦，提前复习了一遍哈利波特，特意到King’s Cross转车</em><br><img src="https://blog-lzr.oss-cn-shanghai.aliyuncs.com/Edinburgh/kingscross.jpg" width="50%" height="50%" align="middle" /><br><img src="https://blog-lzr.oss-cn-shanghai.aliyuncs.com/Edinburgh/kingscross1.jpg" width="50%" height="50%" align="middle" /><br></p>
-<p><em>出发去爱丁堡，开心！</em><br><img src="https://blog-lzr.oss-cn-shanghai.aliyuncs.com/Edinburgh/trainTicket.jpg" width="50%" height="35%" align="middle" /><br></p>
-<h1 id="2019-12-18"><a href="#2019-12-18" class="headerlink" title="2019/12/18"></a><em>2019/12/18</em></h1><p><em>在爱丁堡的第一天</em><br><img src="https://blog-lzr.oss-cn-shanghai.aliyuncs.com/Edinburgh/edinburgh.jpg" width="50%" height="50%" align="middle" /></p>
-]]></content>
-      <categories>
-        <category>Travel</category>
-      </categories>
-      <tags>
-        <tag>Travel</tag>
-        <tag>Edinburgh</tag>
       </tags>
   </entry>
   <entry>
@@ -494,6 +478,22 @@
       <tags>
         <tag>GitHub</tag>
         <tag>技术随笔</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>Edinburgh</title>
+    <url>/panaceacode.github.io/2019/12/18/Edinburgh/</url>
+    <content><![CDATA[<h1 id="2019-12-17"><a href="#2019-12-17" class="headerlink" title="2019/12/17"></a><em>2019/12/17</em></h1><p><em>出发去英国</em><br><img src="https://blog-lzr.oss-cn-shanghai.aliyuncs.com/Edinburgh/ticket.jpg" width="50%" height="35%" align="middle" /><br></p>
+<p><em>落地伦敦，提前复习了一遍哈利波特，特意到King’s Cross转车</em><br><img src="https://blog-lzr.oss-cn-shanghai.aliyuncs.com/Edinburgh/kingscross.jpg" width="50%" height="50%" align="middle" /><br><img src="https://blog-lzr.oss-cn-shanghai.aliyuncs.com/Edinburgh/kingscross1.jpg" width="50%" height="50%" align="middle" /><br></p>
+<p><em>出发去爱丁堡，开心！</em><br><img src="https://blog-lzr.oss-cn-shanghai.aliyuncs.com/Edinburgh/trainTicket.jpg" width="50%" height="35%" align="middle" /><br></p>
+<h1 id="2019-12-18"><a href="#2019-12-18" class="headerlink" title="2019/12/18"></a><em>2019/12/18</em></h1><p><em>在爱丁堡的第一天</em><br><img src="https://blog-lzr.oss-cn-shanghai.aliyuncs.com/Edinburgh/edinburgh.jpg" width="50%" height="50%" align="middle" /></p>
+]]></content>
+      <categories>
+        <category>Travel</category>
+      </categories>
+      <tags>
+        <tag>Travel</tag>
+        <tag>Edinburgh</tag>
       </tags>
   </entry>
 </search>
