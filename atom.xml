@@ -6,7 +6,7 @@
   <link href="https://panaceacode.github.io/atom.xml" rel="self"/>
   
   <link href="https://panaceacode.github.io/"/>
-  <updated>2021-06-06T17:19:07.286Z</updated>
+  <updated>2021-06-16T15:43:25.378Z</updated>
   <id>https://panaceacode.github.io/</id>
   
   <author>
@@ -17,11 +17,36 @@
   <generator uri="https://hexo.io/">Hexo</generator>
   
   <entry>
+    <title>CPU Virtualization-Scheduling(The Multi-Level Feedback Queue)</title>
+    <link href="https://panaceacode.github.io/2020/05/10/CPU-Virtualization-Scheduling-The-Multi-Level-Feedback-Queue/"/>
+    <id>https://panaceacode.github.io/2020/05/10/CPU-Virtualization-Scheduling-The-Multi-Level-Feedback-Queue/</id>
+    <published>2020-05-09T19:52:52.000Z</published>
+    <updated>2021-06-16T15:43:25.378Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;p&gt;上一节我们介绍了一些进程调度方法，它们在优化&lt;strong&gt;turnaround time&lt;/strong&gt;和&lt;strong&gt;response time&lt;/strong&gt;上有不同的思路。这一节要介绍Multi-Level Feedback</summary>
+        
+      
+    
+    
+    
+    <category term="Operating System" scheme="https://panaceacode.github.io/categories/Operating-System/"/>
+    
+    
+    <category term="Operating System" scheme="https://panaceacode.github.io/tags/Operating-System/"/>
+    
+  </entry>
+  
+  <entry>
     <title>CPU Virtualization-Scheduling(Introduction)</title>
     <link href="https://panaceacode.github.io/2020/05/09/CPU-Virtualization-Scheduling-Introduction/"/>
     <id>https://panaceacode.github.io/2020/05/09/CPU-Virtualization-Scheduling-Introduction/</id>
     <published>2020-05-09T09:14:44.000Z</published>
-    <updated>2021-06-06T17:19:07.286Z</updated>
+    <updated>2021-06-15T12:42:12.019Z</updated>
     
     
       
@@ -509,33 +534,6 @@
         
         
     <summary type="html">&lt;p&gt;&lt;em&gt;From algoexpert.io&lt;/em&gt;&lt;br &gt;&lt;br&gt;&lt;em&gt;We apply Insertion Sort to sort the given arrays. For the Insertion Sort, we basically separate</summary>
-        
-      
-    
-    
-    
-    <category term="Algorithm" scheme="https://panaceacode.github.io/categories/Algorithm/"/>
-    
-    
-    <category term="Algorithm" scheme="https://panaceacode.github.io/tags/Algorithm/"/>
-    
-    <category term="Sorting" scheme="https://panaceacode.github.io/tags/Sorting/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>Alg.5 Bubble Sort</title>
-    <link href="https://panaceacode.github.io/2020/04/05/Alg-5-Bubble-Sort/"/>
-    <id>https://panaceacode.github.io/2020/04/05/Alg-5-Bubble-Sort/</id>
-    <published>2020-04-05T14:27:56.000Z</published>
-    <updated>2021-04-30T02:37:34.550Z</updated>
-    
-    
-      
-      
-        
-        
-    <summary type="html">&lt;p&gt;&lt;em&gt;From algoexpert.io&lt;/em&gt;&lt;br&gt;&lt;br&gt;&lt;em&gt;Bubble Sort is probably the first sorting algorithm we learned when we study algorithm. In this</summary>
         
       
     

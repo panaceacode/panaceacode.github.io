@@ -20,11 +20,11 @@
       </tags>
   </entry>
   <entry>
-    <title>Alg.10 Palindrome Check</title>
-    <url>/panaceacode.github.io/2020/04/07/Alg-10-Palindrome-Check/</url>
-    <content><![CDATA[<p><em>From algoexpert.io</em><br><br><em>A palindrome is a string that’s written the same forward and backward. For this problem, we need to write a function to determine whether a string is palindrome</em><br><br><em>The code implementation is pretty straightforward, we use two pointers, they point to the start and end of the string. Then, we check if the characters are the same until we reach the midpoint of the string.</em><br><br><em>Here is the code implementation</em><br></p>
-<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">boolean</span> <span class="title">isPalindrome</span><span class="params">(String str)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">int</span> left = <span class="number">0</span>;</span><br><span class="line">        <span class="keyword">int</span> right = str.length() - <span class="number">1</span>;</span><br><span class="line">        <span class="keyword">while</span> (left &lt;= right) &#123;</span><br><span class="line">            <span class="keyword">if</span> (str.charAt(left) != str.charAt(right)) <span class="keyword">return</span> <span class="keyword">false</span>;</span><br><span class="line">            left++;</span><br><span class="line">            right--;</span><br><span class="line">        &#125;</span><br><span class="line">    <span class="keyword">return</span> <span class="keyword">true</span>;</span><br><span class="line">  &#125;</span><br></pre></td></tr></table></figure>
-<p>Time complexity: O(n); Space complexity: O(1)</p>
+    <title>Alg.11 Caesar Cipher Encryptor</title>
+    <url>/panaceacode.github.io/2020/04/08/Alg-11-Caesar-Cipher-Encryptor/</url>
+    <content><![CDATA[<p><em>From algoexpert.io</em><br><br><em>This is a easy string-related problem, given a string and a number k, we need to shift every character in the string k positions in the alphabet list.</em><br><br><em>Basically, we iterate this string, get each expecting character after we shift k positions. According to the ASCII code, assume current character’s ASCII is c, the transformed ASCII is c - ‘a’ + k, then we get the remainder, answer will be ‘a’ + (c - ‘a’ + k) % (‘z’ - ‘a’ + 1).</em><br><br><em>Here is the code implementation:</em><br></p>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">static</span> String <span class="title">caesarCypherEncryptor</span><span class="params">(String str, <span class="keyword">int</span> key)</span> </span>&#123;</span><br><span class="line">        StringBuilder ans = <span class="keyword">new</span> StringBuilder();</span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; str.length(); i++) &#123;</span><br><span class="line">            <span class="keyword">int</span> diff = str.charAt(i) - <span class="string">&#x27;a&#x27;</span> + key;</span><br><span class="line">            <span class="keyword">int</span> trans = diff % (<span class="string">&#x27;z&#x27;</span> - <span class="string">&#x27;a&#x27;</span> + <span class="number">1</span>);</span><br><span class="line">            <span class="keyword">char</span> c = (<span class="keyword">char</span>)(trans + <span class="string">&#x27;a&#x27;</span>);</span><br><span class="line">            ans.append(c);</span><br><span class="line">        &#125;</span><br><span class="line">    <span class="keyword">return</span> ans.toString();</span><br><span class="line">  &#125;</span><br></pre></td></tr></table></figure>
+<p>Time complexity: O(n); Space complexity: O(n)</p>
 ]]></content>
       <categories>
         <category>Algorithm</category>
@@ -35,11 +35,11 @@
       </tags>
   </entry>
   <entry>
-    <title>Alg.11 Caesar Cipher Encryptor</title>
-    <url>/panaceacode.github.io/2020/04/08/Alg-11-Caesar-Cipher-Encryptor/</url>
-    <content><![CDATA[<p><em>From algoexpert.io</em><br><br><em>This is a easy string-related problem, given a string and a number k, we need to shift every character in the string k positions in the alphabet list.</em><br><br><em>Basically, we iterate this string, get each expecting character after we shift k positions. According to the ASCII code, assume current character’s ASCII is c, the transformed ASCII is c - ‘a’ + k, then we get the remainder, answer will be ‘a’ + (c - ‘a’ + k) % (‘z’ - ‘a’ + 1).</em><br><br><em>Here is the code implementation:</em><br></p>
-<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">static</span> String <span class="title">caesarCypherEncryptor</span><span class="params">(String str, <span class="keyword">int</span> key)</span> </span>&#123;</span><br><span class="line">        StringBuilder ans = <span class="keyword">new</span> StringBuilder();</span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; str.length(); i++) &#123;</span><br><span class="line">            <span class="keyword">int</span> diff = str.charAt(i) - <span class="string">&#x27;a&#x27;</span> + key;</span><br><span class="line">            <span class="keyword">int</span> trans = diff % (<span class="string">&#x27;z&#x27;</span> - <span class="string">&#x27;a&#x27;</span> + <span class="number">1</span>);</span><br><span class="line">            <span class="keyword">char</span> c = (<span class="keyword">char</span>)(trans + <span class="string">&#x27;a&#x27;</span>);</span><br><span class="line">            ans.append(c);</span><br><span class="line">        &#125;</span><br><span class="line">    <span class="keyword">return</span> ans.toString();</span><br><span class="line">  &#125;</span><br></pre></td></tr></table></figure>
-<p>Time complexity: O(n); Space complexity: O(n)</p>
+    <title>Alg.10 Palindrome Check</title>
+    <url>/panaceacode.github.io/2020/04/07/Alg-10-Palindrome-Check/</url>
+    <content><![CDATA[<p><em>From algoexpert.io</em><br><br><em>A palindrome is a string that’s written the same forward and backward. For this problem, we need to write a function to determine whether a string is palindrome</em><br><br><em>The code implementation is pretty straightforward, we use two pointers, they point to the start and end of the string. Then, we check if the characters are the same until we reach the midpoint of the string.</em><br><br><em>Here is the code implementation</em><br></p>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">boolean</span> <span class="title">isPalindrome</span><span class="params">(String str)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">int</span> left = <span class="number">0</span>;</span><br><span class="line">        <span class="keyword">int</span> right = str.length() - <span class="number">1</span>;</span><br><span class="line">        <span class="keyword">while</span> (left &lt;= right) &#123;</span><br><span class="line">            <span class="keyword">if</span> (str.charAt(left) != str.charAt(right)) <span class="keyword">return</span> <span class="keyword">false</span>;</span><br><span class="line">            left++;</span><br><span class="line">            right--;</span><br><span class="line">        &#125;</span><br><span class="line">    <span class="keyword">return</span> <span class="keyword">true</span>;</span><br><span class="line">  &#125;</span><br></pre></td></tr></table></figure>
+<p>Time complexity: O(n); Space complexity: O(1)</p>
 ]]></content>
       <categories>
         <category>Algorithm</category>
@@ -201,21 +201,6 @@
       </tags>
   </entry>
   <entry>
-    <title>Alg.3 Remove Duplicates From Linked List</title>
-    <url>/panaceacode.github.io/2020/04/04/Alg-3-Remove-Duplicates-From-Linked-List/</url>
-    <content><![CDATA[<p><em>From algoexpert.io</em><br><br><em>GIven a singly linked list, their nodes are sorted with respect to their value. Write a function to remove the nodes with duplicate values.</em><br><br><em>This method is pretty straightforward</em><br></p>
-<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="keyword">public</span> LinkedList <span class="title">removeDuplicatesFromLinkedList</span><span class="params">(LinkedList linkedList)</span> </span>&#123;</span><br><span class="line">    <span class="comment">// Write your code here.</span></span><br><span class="line">        LinkedList current = linkedList;</span><br><span class="line">        <span class="keyword">while</span> (current != <span class="keyword">null</span>) &#123;</span><br><span class="line">            LinkedList next = current.next;</span><br><span class="line">            <span class="keyword">while</span> (next != <span class="keyword">null</span> &amp;&amp; current.value == next.value) &#123;</span><br><span class="line">                next = next.next;</span><br><span class="line">            &#125;</span><br><span class="line">            current.next = next;</span><br><span class="line">            current = next;</span><br><span class="line">        &#125;</span><br><span class="line">    <span class="keyword">return</span> linkedList;</span><br><span class="line">  &#125;</span><br></pre></td></tr></table></figure>
-<p>Time complexity: O(n); Space complexity: O(1)</p>
-]]></content>
-      <categories>
-        <category>Algorithm</category>
-      </categories>
-      <tags>
-        <tag>Algorithm</tag>
-        <tag>Linked Lists</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>Alg.20 Knutt-Morris-Pratt Algorithm</title>
     <url>/panaceacode.github.io/2020/04/13/Alg-20-Knutt-Morris-Pratt-Algorithm/</url>
     <content><![CDATA[<p><em>From algoexpert.io</em><br><br><em>Knutt-Morris-Pratt Algorithm, known as KMP, is a famous algorithm to solve substring problem. Given a string and a substring, we are supposed to determine whether the string contains the substring.</em><br><br><em>Usually, when we try to solve the substring problem, we may iterate the original string and check if it matches. In KMP algorithm, we can skip all the unnecessary compare and acclerate this process. For example, check if “aef aef aef aed aef aed aef aef” contains “aef aed aef aef”, we will encounter a match failure when we compare the second “f” in string and the first “d” in substring. Here, we may want start another round from second “aef” instead of the second character in the string. First, for each character of the substring, we need to find the nearest restart pointer when we meet a failure in matching:</em><br></p>
@@ -230,6 +215,21 @@
       <tags>
         <tag>Algorithm</tag>
         <tag>String</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>Alg.3 Remove Duplicates From Linked List</title>
+    <url>/panaceacode.github.io/2020/04/04/Alg-3-Remove-Duplicates-From-Linked-List/</url>
+    <content><![CDATA[<p><em>From algoexpert.io</em><br><br><em>GIven a singly linked list, their nodes are sorted with respect to their value. Write a function to remove the nodes with duplicate values.</em><br><br><em>This method is pretty straightforward</em><br></p>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="keyword">public</span> LinkedList <span class="title">removeDuplicatesFromLinkedList</span><span class="params">(LinkedList linkedList)</span> </span>&#123;</span><br><span class="line">    <span class="comment">// Write your code here.</span></span><br><span class="line">        LinkedList current = linkedList;</span><br><span class="line">        <span class="keyword">while</span> (current != <span class="keyword">null</span>) &#123;</span><br><span class="line">            LinkedList next = current.next;</span><br><span class="line">            <span class="keyword">while</span> (next != <span class="keyword">null</span> &amp;&amp; current.value == next.value) &#123;</span><br><span class="line">                next = next.next;</span><br><span class="line">            &#125;</span><br><span class="line">            current.next = next;</span><br><span class="line">            current = next;</span><br><span class="line">        &#125;</span><br><span class="line">    <span class="keyword">return</span> linkedList;</span><br><span class="line">  &#125;</span><br></pre></td></tr></table></figure>
+<p>Time complexity: O(n); Space complexity: O(1)</p>
+]]></content>
+      <categories>
+        <category>Algorithm</category>
+      </categories>
+      <tags>
+        <tag>Algorithm</tag>
+        <tag>Linked Lists</tag>
       </tags>
   </entry>
   <entry>
@@ -331,22 +331,6 @@
       </tags>
   </entry>
   <entry>
-    <title>Belfast</title>
-    <url>/panaceacode.github.io/2019/12/21/Belfast/</url>
-    <content><![CDATA[<h1 id="2019-12-19"><a href="#2019-12-19" class="headerlink" title="2019/12/19"></a><em>2019/12/19</em></h1><p><em>第一天计划去贝尔法斯特玩，我垚坚持要买早班飞机，结果早上起不来，于是就有了两张机票</em> <br><br><img src="https://blog-lzr.oss-cn-shanghai.aliyuncs.com/Belfast/ticket.jpg" width="50%" height="35%" align="bottom" /><br></p>
-<p><em>在贝法第一天去了泰坦尼克博物馆，晚上去吃了一个很不错的汉堡。当天晚上有个圣诞集市，贝法的景色还是很不错的</em> <br><br><img src="https://blog-lzr.oss-cn-shanghai.aliyuncs.com/Belfast/titanic.jpg" width="50%" height="50%" align="bottom" /><br><br><img src="https://blog-lzr.oss-cn-shanghai.aliyuncs.com/Belfast/titanic1.jpg" width="50%" height="50%" align="bottom" /><br><br><img src="https://blog-lzr.oss-cn-shanghai.aliyuncs.com/Belfast/19.jpg" width="50%" height="50%" align="bottom" /><br></p>
-<h1 id="2019-12-20"><a href="#2019-12-20" class="headerlink" title="2019/12/20"></a><em>2019/12/20</em></h1><p><em>今天是权游主题观光！！！吃到个超棒的chowder！！！</em> <br><br><img src="https://blog-lzr.oss-cn-shanghai.aliyuncs.com/Belfast/got1.JPG" width="50%" height="50%" align="bottom" /><br><br><img src="https://blog-lzr.oss-cn-shanghai.aliyuncs.com/Belfast/got2.JPG" width="50%" height="50%" align="bottom" /><br><br><img src="https://blog-lzr.oss-cn-shanghai.aliyuncs.com/Belfast/got3.JPG" width="50%" height="50%" align="bottom" /><br><br><img src="https://blog-lzr.oss-cn-shanghai.aliyuncs.com/Belfast/got4.JPG" width="50%" height="50%" align="bottom" /><br><br><img src="https://blog-lzr.oss-cn-shanghai.aliyuncs.com/Belfast/got5.JPG" width="50%" height="50%" align="bottom" /><br><br><img src="https://blog-lzr.oss-cn-shanghai.aliyuncs.com/Belfast/got6.JPG" width="50%" height="50%" align="bottom" /><br><br><img src="https://blog-lzr.oss-cn-shanghai.aliyuncs.com/Belfast/got7.JPG" width="50%" height="50%" align="bottom" /><br><br><img src="https://blog-lzr.oss-cn-shanghai.aliyuncs.com/Belfast/got8.JPG" width="50%" height="50%" align="bottom" /><br></p>
-<h1 id="2019-12-21"><a href="#2019-12-21" class="headerlink" title="2019/12/21"></a><em>2019/12/21</em></h1><p><em>最后一天简单逛了一下贝法的女王大学和市政厅，打道回府～</em> <br><br><img src="https://blog-lzr.oss-cn-shanghai.aliyuncs.com/Belfast/belfast.JPG" width="50%" height="50%" align="bottom" /><br></p>
-]]></content>
-      <categories>
-        <category>Travel</category>
-      </categories>
-      <tags>
-        <tag>Travel</tag>
-        <tag>Belfast</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>CPU Virtualization-Mechanism(Limited Direct Execution)</title>
     <url>/panaceacode.github.io/2020/05/08/CPU-Virtualization-Mechanism-Limited-Direct-Execution/</url>
     <content><![CDATA[<p><em>该节关于底层的进程切换原理，为后面的schedule章节的底层逻辑</em><br></p>
@@ -373,6 +357,22 @@
       </categories>
       <tags>
         <tag>Operating System</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>Belfast</title>
+    <url>/panaceacode.github.io/2019/12/21/Belfast/</url>
+    <content><![CDATA[<h1 id="2019-12-19"><a href="#2019-12-19" class="headerlink" title="2019/12/19"></a><em>2019/12/19</em></h1><p><em>第一天计划去贝尔法斯特玩，我垚坚持要买早班飞机，结果早上起不来，于是就有了两张机票</em> <br><br><img src="https://blog-lzr.oss-cn-shanghai.aliyuncs.com/Belfast/ticket.jpg" width="50%" height="35%" align="bottom" /><br></p>
+<p><em>在贝法第一天去了泰坦尼克博物馆，晚上去吃了一个很不错的汉堡。当天晚上有个圣诞集市，贝法的景色还是很不错的</em> <br><br><img src="https://blog-lzr.oss-cn-shanghai.aliyuncs.com/Belfast/titanic.jpg" width="50%" height="50%" align="bottom" /><br><br><img src="https://blog-lzr.oss-cn-shanghai.aliyuncs.com/Belfast/titanic1.jpg" width="50%" height="50%" align="bottom" /><br><br><img src="https://blog-lzr.oss-cn-shanghai.aliyuncs.com/Belfast/19.jpg" width="50%" height="50%" align="bottom" /><br></p>
+<h1 id="2019-12-20"><a href="#2019-12-20" class="headerlink" title="2019/12/20"></a><em>2019/12/20</em></h1><p><em>今天是权游主题观光！！！吃到个超棒的chowder！！！</em> <br><br><img src="https://blog-lzr.oss-cn-shanghai.aliyuncs.com/Belfast/got1.JPG" width="50%" height="50%" align="bottom" /><br><br><img src="https://blog-lzr.oss-cn-shanghai.aliyuncs.com/Belfast/got2.JPG" width="50%" height="50%" align="bottom" /><br><br><img src="https://blog-lzr.oss-cn-shanghai.aliyuncs.com/Belfast/got3.JPG" width="50%" height="50%" align="bottom" /><br><br><img src="https://blog-lzr.oss-cn-shanghai.aliyuncs.com/Belfast/got4.JPG" width="50%" height="50%" align="bottom" /><br><br><img src="https://blog-lzr.oss-cn-shanghai.aliyuncs.com/Belfast/got5.JPG" width="50%" height="50%" align="bottom" /><br><br><img src="https://blog-lzr.oss-cn-shanghai.aliyuncs.com/Belfast/got6.JPG" width="50%" height="50%" align="bottom" /><br><br><img src="https://blog-lzr.oss-cn-shanghai.aliyuncs.com/Belfast/got7.JPG" width="50%" height="50%" align="bottom" /><br><br><img src="https://blog-lzr.oss-cn-shanghai.aliyuncs.com/Belfast/got8.JPG" width="50%" height="50%" align="bottom" /><br></p>
+<h1 id="2019-12-21"><a href="#2019-12-21" class="headerlink" title="2019/12/21"></a><em>2019/12/21</em></h1><p><em>最后一天简单逛了一下贝法的女王大学和市政厅，打道回府～</em> <br><br><img src="https://blog-lzr.oss-cn-shanghai.aliyuncs.com/Belfast/belfast.JPG" width="50%" height="50%" align="bottom" /><br></p>
+]]></content>
+      <categories>
+        <category>Travel</category>
+      </categories>
+      <tags>
+        <tag>Travel</tag>
+        <tag>Belfast</tag>
       </tags>
   </entry>
   <entry>
@@ -426,9 +426,49 @@
 <h3 id="4-Shortest-Job-First-SJF"><a href="#4-Shortest-Job-First-SJF" class="headerlink" title="4. Shortest Job First(SJF)"></a><em>4. Shortest Job First(SJF)</em></h3><p>AKA最短时间优先原则，在这种规则下，我们按照进程运行时间依次运行，运行时间越短的越先运行。用上面的例子来分析：<br><br><img src="https://blog-lzr.oss-cn-shanghai.aliyuncs.com/Operating%20System/SJF.png" width="73%" height="73%" align="middle" /><br><br>当A、B、C同时进入，因为B、C运行时间较短，在这种情况下先运行B、C，最后运行A，所以它的平均$T_{turnaround}=\frac{(10-0)+(20-0)+(120-0)}{3}=50$。<br><br>在我们的假设中，所有进程/任务都是在同一时间到达，但是很明显这是很理想化的，所以我们可能会遇到这样的问题：当任务A先到达时，B、C随之而来，假设它们的$T_{completion}=10$，这样的话，该种情况下的平均$T_{turnaround}=\frac{(100-0)+(110-10)+(120-10)}{3}=103.33$。<strong>注意</strong>：过去，我们会使用一些<strong>非抢占式</strong>的调度，这意味着系统在决定是否运行一个新的进程/任务时，会把当前任务执行完毕，这也是为什么在这里B、C不会在进入调度后立马执行。但是，现在我们会应用<strong>抢占式</strong>调度，这也就需要用到上一节<strong>上下文切换还/Context Switch</strong>的内容。<br><br><img src="https://blog-lzr.oss-cn-shanghai.aliyuncs.com/Operating%20System/SJF1.png" width="73%" height="73%" align="middle" /><br></p>
 <h3 id="5-Shortest-Time-to-Completion-First-STCF"><a href="#5-Shortest-Time-to-Completion-First-STCF" class="headerlink" title="5. Shortest Time-to-Completion First(STCF)"></a><em>5. Shortest Time-to-Completion First(STCF)</em></h3><p>AKA最短剩余时间优先原则，SJF是属于一种非抢占式的调度方式，为了解决上述问题，STCF被提出来，在STCF中，每进来一个任务，该调度方法会调度当前剩余未完成的任务中剩余时间最少的任务，在上述例子中，任务B、C会抢占A，如下图所示，平均$T_{turnaround}=\frac{(20-10)+(30-10)+(120-0)}{3}=50$。<br><br><img src="https://blog-lzr.oss-cn-shanghai.aliyuncs.com/Operating%20System/STCF.png" width="73%" height="73%" align="middle" /><br></p>
 <h3 id="6-A-New-Metric-Response-Time"><a href="#6-A-New-Metric-Response-Time" class="headerlink" title="6. A New Metric: Response Time"></a><em>6. A New Metric: Response Time</em></h3><p>如果假设4、5成立，所有任务时长都已知且只使用CPU，$T_{turnaround}$的衡量方法下的STCF表现较好，但是现在我们需要进行一些交互式的操作，所以一种新的衡量方式出现，Response time/反应时间。它的定义为任务第一次被调度的时间减去任务到达的时间：$$T_{response}=T_{firstrun}-T_{arrival}$$。以STCF中的图为例，A、B、C的反应时间分别为0、0、10，平均为3.33。下面会介绍在反应时间上表现较好的调度方法。<br></p>
-<h3 id="7-Round-Robin-轮询"><a href="#7-Round-Robin-轮询" class="headerlink" title="7. Round Robin(轮询)"></a><em>7. Round Robin(轮询)</em></h3><p>在RR调度方法中，我们不会把某个任务一直运行到结束，而是分配给它一个时间片（time slice/scheduling quantum），当使用完该时间片后，我们会切换到另一个任务/进程，用下图来举个例子：<br><br><img src="https://blog-lzr.oss-cn-shanghai.aliyuncs.com/Operating%20System/Round%20Robin.png" width="73%" height="73%" align="middle" /><br><br>在该例中，时间片的长度为一个单位时间1，任务A、B、C的$T_{response_time}=\frac{0-0)+(1-0)+(2-0)}{3}=1$。再看看如果用的是SJF：<br><br><img src="https://blog-lzr.oss-cn-shanghai.aliyuncs.com/Operating%20System/SJF2.png" width="73%" height="73%" align="middle" /><br><br>在SJF中，任务A、B、C的$T_{response_time}=\frac{0-0)+(5-0)+(10-0)}{3}=5$。很明显，在Response time的衡量标准下，RR的表现更好，但同时也能发现，时间片的大小对RR也是至关重要的，当时间片越小时，反应时间表现越好，但同时切换任务时上下文切换会消耗很多性能，所以我们需要合理设置时间片的长度来分摊这一消耗。值得注意的是，上下文切换不仅仅是操作系统保存和恢复一些寄存器，程序在运行时，在CPU的高速缓存、TLB、分支预测器和一些其他硬件上也建立了大量状态。所以不同的调度算法会在周转时间和响应时间做不同的平衡。下面一小节要介绍在考虑IO操作的情况下的调度方法。</p>
+<h3 id="7-Round-Robin-轮询"><a href="#7-Round-Robin-轮询" class="headerlink" title="7. Round Robin(轮询)"></a><em>7. Round Robin(轮询)</em></h3><p>在RR调度方法中，我们不会把某个任务一直运行到结束，而是分配给它一个时间片（time slice/scheduling quantum），当使用完该时间片后，我们会切换到另一个任务/进程，用下图来举个例子：<br><br><img src="https://blog-lzr.oss-cn-shanghai.aliyuncs.com/Operating%20System/Round%20Robin.png" width="73%" height="73%" align="middle" /><br><br>在该例中，时间片的长度为一个单位时间1，任务A、B、C的$T_{response}=\frac{0-0)+(1-0)+(2-0)}{3}=1$。再看看如果用的是SJF：<br><br><img src="https://blog-lzr.oss-cn-shanghai.aliyuncs.com/Operating%20System/SJF2.png" width="73%" height="73%" align="middle" /><br><br>在SJF中，任务A、B、C的$T_{response}=\frac{0-0)+(5-0)+(10-0)}{3}=5$。很明显，在Response time的衡量标准下，RR的表现更好，但同时也能发现，时间片的大小对RR也是至关重要的，当时间片越小时，反应时间表现越好，但同时切换任务时上下文切换会消耗很多性能，所以我们需要合理设置时间片的长度来分摊这一消耗。值得注意的是，上下文切换不仅仅是操作系统保存和恢复一些寄存器，程序在运行时，在CPU的高速缓存、TLB、分支预测器和一些其他硬件上也建立了大量状态。所以不同的调度算法会在周转时间和响应时间做不同的平衡。下面一小节要介绍在考虑IO操作的情况下的调度方法。</p>
 <h3 id="8-结合I-O"><a href="#8-结合I-O" class="headerlink" title="8. 结合I/O"></a><em>8. 结合I/O</em></h3><p>当前进程需要访问I/O的时候，它会被阻塞直到I/O操作完成，如果这一操作需要访问磁盘，当前进程可能会被阻塞几毫秒或更长的时间，这时候当前进程并没有用到CPU，所以这时我们可以调度其他的进程。文中举了这样一个例子：两个任务A、B，且都需要使用50ms的CPU，但A每10ms会发起一次I/O操作，假设每次I/O操作耗时10ms，而B任务只是使用50ms的CPU。在这里如果使用STCF，按照之前的调度规则，我们可能会把A分成5个子任务，但总体还是两个任务运行，如下图所示：<br><br><img src="https://blog-lzr.oss-cn-shanghai.aliyuncs.com/Operating%20System/IO1.png" width="73%" height="73%" align="middle" /><br><br>这样的调度使得CPU资源没有得到充分利用，我们可以把A的5个子任务当成5个独立的任务，当一个A子任务完成调度，只剩下B任务，当后面的A子任务进来时，它将抢占当前运行的B，这样可以利用I/O过程中的CPU空闲期，如下图所示：<br><br><img src="https://blog-lzr.oss-cn-shanghai.aliyuncs.com/Operating%20System/IO2.png" width="73%" height="73%" align="middle" /><br></p>
 <h3 id="9-No-More-Oracle"><a href="#9-No-More-Oracle" class="headerlink" title="9. No More Oracle"></a><em>9. No More Oracle</em></h3><p>前面介绍了一些基本的IO操作情况下的调度，还有一点就是我们通常不知道进程/任务的运行时间，后面将介绍这个问题。</p>
+]]></content>
+      <categories>
+        <category>Operating System</category>
+      </categories>
+      <tags>
+        <tag>Operating System</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>CPU Virtualization-Scheduling(The Multi-Level Feedback Queue)</title>
+    <url>/panaceacode.github.io/2020/05/10/CPU-Virtualization-Scheduling-The-Multi-Level-Feedback-Queue/</url>
+    <content><![CDATA[<p>上一节我们介绍了一些进程调度方法，它们在优化<strong>turnaround time</strong>和<strong>response time</strong>上有不同的思路。这一节要介绍Multi-Level Feedback Queue/多级反馈队列，在不知道进程信息的情况下，我们如何去优化前面介绍的两种衡量标准，如何去优化调度决策。多级反馈队列是个很典型的利用历史记录去做预测的模型，类似的还有分支预测和高速缓存算法。<br></p>
+<h3 id="1-MLFQ-Basic-Rules"><a href="#1-MLFQ-Basic-Rules" class="headerlink" title="1. MLFQ: Basic Rules"></a><em>1. MLFQ: Basic Rules</em></h3><p>MLFQ由若干个队列组成，每个队列有不一样的优先级。当一个任务就绪时，它在且只会在其中一个队列当中，MLFQ根据优先级的不同来选择需要运行的任务，当某一队列中存在多个就绪任务时，这些任务使用RR调度算法。所以，这里可以得出两个调度规则：<br></p>
+<blockquote>
+<p>Rule 1: if Priority(A) &gt; Priority(B), A runs (B doesn’t).</p>
+</blockquote>
+<blockquote>
+<p>Rule 2: if Priority(A) = Priority(B), A &amp; B run in Round-Robin.</p>
+</blockquote>
+<p>在MLFQ中，优先级的设定是很重要的，当一个任务频繁放弃CPU的话（例如交互式行为，包括键盘等），我们会保持它的高优先级。相对的，如果一个进程是CPU密集型任务，我们会降低它的优先级。当进程运行时，MLFQ会了解每个进程的特性，并利用它们过去的信息预测未来的行为。下面是一个MLFQ示例图：<br><br><img src="https://blog-lzr.oss-cn-shanghai.aliyuncs.com/Operating%20System/MLFQ.png" width="73%" height="73%" align="middle" /><br><br>如图所示，任务A、B位于最高优先级队列，C位于中等优先级而D位于最低优先级，按照前两个规则，CPU将会以RR的方式被A、B使用，而C、D将没有机会使用CPU。当然，随着任务的运行，它们的优先级不会一直不变，下面我们将介绍进程的优先级会如何变化。<br></p>
+<h3 id="2-尝试-1-如何改变优先级"><a href="#2-尝试-1-如何改变优先级" class="headerlink" title="2. 尝试#1: 如何改变优先级"></a><em>2. 尝试#1: 如何改变优先级</em></h3><p>在这一节我们将讨论如何去改变进程的优先级，首先需要明确的是，在这里，系统中有很多交互型任务，它们可能会频繁地放弃CPU；还有一些任务是CPU密集型，它们可能对Response time的要求不是很高。下面介绍一下优先级改变算法第一次尝试：<br></p>
+<blockquote>
+<p>Rule 3: 当任务进入调度时，它将会被放置到最高优先级队列当中</p>
+</blockquote>
+<blockquote>
+<p>Rule 4a: 当一个任务在运行时消耗完整个时间片，它的优先级将会被降低（移动到下一个队列）</p>
+</blockquote>
+<blockquote>
+<p>Rule 4b: 当一个任务在消耗完当前时间片前放弃了CPU，它将保留当前优先级</p>
+</blockquote>
+<ol>
+<li><p>Example 1: A Single Long-Running Job<br>下图为一个Long-Running任务，调度器为一个有三个不同优先级队列的MLFQ：<br><br><img src="https://blog-lzr.oss-cn-shanghai.aliyuncs.com/Operating%20System/MLFQ%20E1.png" width="73%" height="73%" align="middle" /><br><br>当该任务进入系统调度时，会进入最高优先级Q2，在消耗完一个完整时间片后，它的优先级降低到Q1，最后它的优先级降低到Q0，并在Q0完成剩余任务。<br></p>
+</li>
+<li><p>Example 2: Along Came A Short Job<br>下图中有两个任务A、B，A是long-running job(CPU intensively)，B是short-running job(interactive)，假设A已经运行了一段时间，B在T=100时进入，此时，B将进入最高优先级的队列，因为B的运行时间较短，它在到达最低优先级队列之前就完成了，之后A就恢复运行。<br><br><img src="https://blog-lzr.oss-cn-shanghai.aliyuncs.com/Operating%20System/MLFQ%20E1.png" width="73%" height="73%" align="middle" /><br><br>在这个MLFQ中，我们可以看出它的设计初衷，当一个任务进入调度时，我们不知道它的预期运行时间是多少，但我们假设它的运行时间较短并给予它较高的优先级，这样就会有两种情况：一、它的运行时间真的较短，并在较高优先级时完成运行；二、它实际为一个运行时间较长的任务，在运行一段时间后进入较低优先级的队列<br></p>
+</li>
+<li><p>Example 3: What About I/O?<br>下面是一个带I/O的例子，任务B会使用CPU 1ms，所以根据Rule 4，因为任务B在时间片被消耗完之前放弃了CPU，它的优先级并不会被降低。所以，MLFQ可以让interactive的任务更快速地完成。<br></p>
+</li>
+<li><p>Problems With Our Current MLFQ<br>在MLFQ中也存在很多问题，第一，如果系统中存在过多的interactive的任务，它们会一起占用大量的CPU资源，会使一些CPU密集型任务得不到CPU资源；第二、一些程序可能会故意在时间片使用完之前（例如使用了99%的时间片），访问一个无关紧要的文件，这样会使得其放弃CPU，从而可以维持其当前优先级，通过这个方法，某个程序可以一直占用CPU；第三、程序的行为可能会改变，当一个CPU密集型任务需要做一些交互性操作时，当前调度方法无法像处理其他任务一样处理它。<br></p>
+</li>
+</ol>
 ]]></content>
       <categories>
         <category>Operating System</category>
