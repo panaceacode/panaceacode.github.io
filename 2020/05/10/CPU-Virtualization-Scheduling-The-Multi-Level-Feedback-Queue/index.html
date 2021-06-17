@@ -75,7 +75,7 @@
         <span class="post-meta-item-icon">
             <i class="ri-quill-pen-line"></i>
             <span class="post-meta-item-text"> Word count:</span>
-            <span class="post-count">1.3k</span>
+            <span class="post-count">2.4k</span>
         </span>
     </span>
 
@@ -84,7 +84,7 @@
         <span class="post-meta-item-icon">
             <i class="ri-book-open-line"></i>
             <span class="post-meta-item-text"> Reading time≈</span>
-            <span class="post-count">4 min</span>
+            <span class="post-count">8 min</span>
         </span>
     </span>
 </div>
@@ -128,7 +128,34 @@
 <li><p>Problems With Our Current MLFQ<br>在MLFQ中也存在很多问题，第一，如果系统中存在过多的interactive的任务，它们会一起占用大量的CPU资源，会使一些CPU密集型任务得不到CPU资源；第二、一些程序可能会故意在时间片使用完之前（例如使用了99%的时间片），访问一个无关紧要的文件，这样会使得其放弃CPU，从而可以维持其当前优先级，通过这个方法，某个程序可以一直占用CPU；第三、程序的行为可能会改变，当一个CPU密集型任务需要做一些交互性操作时，当前调度方法无法像处理其他任务一样处理它。<br></p>
 </li>
 </ol>
-<h3 id="3-尝试-2-The-Priority-Boost"><a href="#3-尝试-2-The-Priority-Boost" class="headerlink" title="3. 尝试#2: The Priority Boost"></a><em>3. 尝试#2: The Priority Boost</em></h3> 
+<h3 id="3-尝试-2-The-Priority-Boost"><a href="#3-尝试-2-The-Priority-Boost" class="headerlink" title="3. 尝试#2: The Priority Boost"></a><em>3. 尝试#2: The Priority Boost</em></h3><p>为了解决starvation（以上第一点）的问题，我们可以间隔一段时间提升所有任务的优先级，在这里，我们就简单地将所有任务提升到最高优先级的队列当中。所以我们可以得出Rule 5:<br></p>
+<blockquote>
+<p>Rule 5: 每隔一个时间段S，将系统中所有的任务移到最高优先级的队列当中</p>
+</blockquote>
+<p>根据这条规则，我们可以一次性解决上面的1、3两个问题，我们可以解决一些长时间运行的CPU密集型任务的<br>starvation，同时当一个CPU密集型任务转变为interactive，在priority boost之后，我们也可以正确处理它。下图为一个例子<br><br><img src="https://blog-lzr.oss-cn-shanghai.aliyuncs.com/Operating%20System/MLFQ%20E3.png" width="73%" height="73%" align="middle" /><br><br>在这个例子当中，左边因为没有priority boost，long-running任务会面临starvation的问题，而右图中每隔50ms（实际这个数值有点太小了，这里只是举个例子）会有一个<br>priority boost，最低优先级的任务也有机会获得CPU。在<br>priority boost中，这个时间间隔S是一个较为重要的参量，被称为voo-doo constants，太高的话，long-running jobs会starve；太低的话，interactive jobs会不能合适地分享CPU。<br></p>
+<h3 id="4-尝试-3-Better-Accounting"><a href="#4-尝试-3-Better-Accounting" class="headerlink" title="4. 尝试#3: Better Accounting"></a><em>4. 尝试#3: Better Accounting</em></h3><p>如何阻止调度程序被愚弄？可以看出，这里的元凶是规则<br>4a 和 4b，导致工作在时间片以内释放 CPU，就保留它的优先级。这里的解决方案，是为 MLFQ 的每层队列提供更完善的 CPU 计时方式（accounting）。<br>调度程序应该记录一个进程在某一层中消耗的总时间，而不是在调度时重新计时。只要进<br>程用完了自己的配额，就将它降到低一优先级的队列中去。不论它是一次用完的，还是拆<br>成很多次用完。因此，我们重写规则 4a 和 4b。<br></p>
+<blockquote>
+<p>Rule 4: 一旦工作用完了其在某一层中的时间配额（无论中间主动放弃了多少次<br>CPU），就降低其优先级（移入低一级队列）</p>
+</blockquote>
+<p>来看一个例子。下图对比了在规则 4a、4b 的策略下（左图），以及在新的规则 4（右<br>图）的策略下，同样试图愚弄调度程序的进程的表现。没有规则 4 的保护时，进程可以在<br>每个时间片结束前发起一次 I/O 操作，从而垄断 CPU 时间。有了这样的保护后，不论进程<br>的 I/O 行为如何，都会慢慢地降低优先级，因而无法获得超过公平的 CPU 时间比例。<br><br><img src="https://blog-lzr.oss-cn-shanghai.aliyuncs.com/Operating%20System/MLFQ%20E4.png" width="73%" height="73%" align="middle" /><br></p>
+<h3 id="5-MLFQ调优和其他问题"><a href="#5-MLFQ调优和其他问题" class="headerlink" title="5. MLFQ调优和其他问题"></a><em>5. MLFQ调优和其他问题</em></h3><p>关于MLFQ调度算法还有一些问题。其中一个大问题是如何配置一个调度程序，例如，配置多少队列？每一层队列的时间片配置多大？为了避免饥饿问题以及进程行为改变，应该多久提升一次进程的优先级？例如，大多数的MLFQ变体都支持不同队列可变的时间片长度。高优先级队列通常只有较短的时间片（比如10ms或者更少），因而这一层的交互工作可以更快地切换。相反，低优先级队列中更多的是CPU密集型工作，配置更长的时间片会取得更好的效果。下图展示了一个例子，两个长工作在高优先级队列执行10ms，中间队列执行 20ms，最后在最低优先级队列执行 40ms。<br><br><img src="https://blog-lzr.oss-cn-shanghai.aliyuncs.com/Operating%20System/MLFQ%20E5.png" width="73%" height="73%" align="middle" /><br></p>
+<h3 id="6-MLFQ-Summary"><a href="#6-MLFQ-Summary" class="headerlink" title="6. MLFQ: Summary"></a><em>6. MLFQ: Summary</em></h3><p>MLFQ有趣的原因是：它不需要对工作的运行方式有先验知识，而是通过观察工作的运行来给出对应的优先级。通过这种方式，MLFQ可以同时满足各种工作的需求：对于短时间运行的交互型工作，获得类似于SJF/STCF的很好的全局性能，同时对长时间运行的CPU密集型负载也可以公平地、不断地稳步向前。<br></p>
+<blockquote>
+<p>Rule 1: if Priority(A) &gt; Priority(B), A runs (B doesn’t).</p>
+</blockquote>
+<blockquote>
+<p>Rule 2: if Priority(A) = Priority(B), A &amp; B run in Round-Robin.</p>
+</blockquote>
+<blockquote>
+<p>Rule 3: 当任务进入调度时，它将会被放置到最高优先级队列当中</p>
+</blockquote>
+<blockquote>
+<p>Rule 4: 一旦工作用完了其在某一层中的时间配额（无论中间主动放弃了多少次<br>CPU），就降低其优先级（移入低一级队列）</p>
+</blockquote>
+<blockquote>
+<p>Rule 5: 每隔一个时间段S，将系统中所有的任务移到最高优先级的队列当中</p>
+</blockquote>
+ 
       <!-- reward -->
       
       <div id="reword-out">
