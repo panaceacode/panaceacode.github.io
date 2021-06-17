@@ -121,14 +121,14 @@
 <ol>
 <li><p>Example 1: A Single Long-Running Job<br>下图为一个Long-Running任务，调度器为一个有三个不同优先级队列的MLFQ：<br><br><img src="https://blog-lzr.oss-cn-shanghai.aliyuncs.com/Operating%20System/MLFQ%20E1.png" width="73%" height="73%" align="middle" /><br><br>当该任务进入系统调度时，会进入最高优先级Q2，在消耗完一个完整时间片后，它的优先级降低到Q1，最后它的优先级降低到Q0，并在Q0完成剩余任务。<br></p>
 </li>
-<li><p>Example 2: Along Came A Short Job<br>下图中有两个任务A、B，A是long-running job(CPU intensively)，B是short-running job(interactive)，假设A已经运行了一段时间，B在T=100时进入，此时，B将进入最高优先级的队列，因为B的运行时间较短，它在到达最低优先级队列之前就完成了，之后A就恢复运行。<br><br><img src="https://blog-lzr.oss-cn-shanghai.aliyuncs.com/Operating%20System/MLFQ%20E1.png" width="73%" height="73%" align="middle" /><br><br>在这个MLFQ中，我们可以看出它的设计初衷，当一个任务进入调度时，我们不知道它的预期运行时间是多少，但我们假设它的运行时间较短并给予它较高的优先级，这样就会有两种情况：一、它的运行时间真的较短，并在较高优先级时完成运行；二、它实际为一个运行时间较长的任务，在运行一段时间后进入较低优先级的队列<br></p>
+<li><p>Example 2: Along Came A Short Job<br>下图中有两个任务A、B，A是long-running job(CPU intensively)，B是short-running job(interactive)，假设A已经运行了一段时间，B在T=100时进入，此时，B将进入最高优先级的队列，因为B的运行时间较短，它在到达最低优先级队列之前就完成了，之后A就恢复运行。<br><br><img src="https://blog-lzr.oss-cn-shanghai.aliyuncs.com/Operating%20System/MLFQ%20E2.png" width="73%" height="73%" align="middle" /><br><br>在这个MLFQ中，我们可以看出它的设计初衷，当一个任务进入调度时，我们不知道它的预期运行时间是多少，但我们假设它的运行时间较短并给予它较高的优先级，这样就会有两种情况：一、它的运行时间真的较短，并在较高优先级时完成运行；二、它实际为一个运行时间较长的任务，在运行一段时间后进入较低优先级的队列<br></p>
 </li>
 <li><p>Example 3: What About I/O?<br>下面是一个带I/O的例子，任务B会使用CPU 1ms，所以根据Rule 4，因为任务B在时间片被消耗完之前放弃了CPU，它的优先级并不会被降低。所以，MLFQ可以让interactive的任务更快速地完成。<br></p>
 </li>
 <li><p>Problems With Our Current MLFQ<br>在MLFQ中也存在很多问题，第一，如果系统中存在过多的interactive的任务，它们会一起占用大量的CPU资源，会使一些CPU密集型任务得不到CPU资源；第二、一些程序可能会故意在时间片使用完之前（例如使用了99%的时间片），访问一个无关紧要的文件，这样会使得其放弃CPU，从而可以维持其当前优先级，通过这个方法，某个程序可以一直占用CPU；第三、程序的行为可能会改变，当一个CPU密集型任务需要做一些交互性操作时，当前调度方法无法像处理其他任务一样处理它。<br></p>
 </li>
 </ol>
- 
+<h3 id="3-尝试-2-The-Priority-Boost"><a href="#3-尝试-2-The-Priority-Boost" class="headerlink" title="3. 尝试#2: The Priority Boost"></a><em>3. 尝试#2: The Priority Boost</em></h3> 
       <!-- reward -->
       
       <div id="reword-out">
