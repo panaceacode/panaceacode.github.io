@@ -9,7 +9,7 @@
     
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
   <title>
-    CPU Virtualization-Scheduling(The Multi-Level Feedback Queue) |  Hi
+    Alg.21 Min Height BST |  Hi
   </title>
   <meta name="generator" content="hexo-theme-ayer">
   
@@ -45,7 +45,7 @@
     <main class="content on">
       <section class="outer">
   <article
-  id="post-CPU-Virtualization-Scheduling-The-Multi-Level-Feedback-Queue"
+  id="post-Alg-21-Min-Height-BST"
   class="article article-type-post"
   itemscope
   itemprop="blogPost"
@@ -56,18 +56,18 @@
     <header class="article-header">
        
 <h1 class="article-title sea-center" style="border-left:0" itemprop="name">
-  CPU Virtualization-Scheduling(The Multi-Level Feedback Queue)
+  Alg.21 Min Height BST
 </h1>
  
 
     </header>
      
     <div class="article-meta">
-      <a href="/panaceacode.github.io/2020/05/10/CPU-Virtualization-Scheduling-The-Multi-Level-Feedback-Queue/" class="article-date">
-  <time datetime="2020-05-09T19:52:52.000Z" itemprop="datePublished">2020-05-10</time>
+      <a href="/panaceacode.github.io/2020/05/10/Alg-21-Min-Height-BST/" class="article-date">
+  <time datetime="2020-05-10T14:27:18.000Z" itemprop="datePublished">2020-05-10</time>
 </a> 
   <div class="article-category">
-    <a class="article-category-link" href="/panaceacode.github.io/categories/Operating-System/">Operating System</a>
+    <a class="article-category-link" href="/panaceacode.github.io/categories/Algorithm/">Algorithm</a>
   </div>
   
 <div class="word_count">
@@ -75,7 +75,7 @@
         <span class="post-meta-item-icon">
             <i class="ri-quill-pen-line"></i>
             <span class="post-meta-item-text"> Word count:</span>
-            <span class="post-count">2.4k</span>
+            <span class="post-count">453</span>
         </span>
     </span>
 
@@ -84,77 +84,33 @@
         <span class="post-meta-item-icon">
             <i class="ri-book-open-line"></i>
             <span class="post-meta-item-text"> Reading time≈</span>
-            <span class="post-count">8 min</span>
+            <span class="post-count">2 min</span>
         </span>
     </span>
 </div>
  
     </div>
       
-    <div class="tocbot"></div>
-
 
 
 
   
     <div class="article-entry" itemprop="articleBody">
        
-  <p>上一节我们介绍了一些进程调度方法，它们在优化<strong>turnaround time</strong>和<strong>response time</strong>上有不同的思路。这一节要介绍Multi-Level Feedback Queue/多级反馈队列，在不知道进程信息的情况下，我们如何去优化前面介绍的两种衡量标准，如何去优化调度决策。多级反馈队列是个很典型的利用历史记录去做预测的模型，类似的还有分支预测和高速缓存算法。<br></p>
-<h3 id="1-MLFQ-Basic-Rules"><a href="#1-MLFQ-Basic-Rules" class="headerlink" title="1. MLFQ: Basic Rules"></a><em>1. MLFQ: Basic Rules</em></h3><p>MLFQ由若干个队列组成，每个队列有不一样的优先级。当一个任务就绪时，它在且只会在其中一个队列当中，MLFQ根据优先级的不同来选择需要运行的任务，当某一队列中存在多个就绪任务时，这些任务使用RR调度算法。所以，这里可以得出两个调度规则：<br></p>
-<blockquote>
-<p>Rule 1: if Priority(A) &gt; Priority(B), A runs (B doesn’t).</p>
-</blockquote>
-<blockquote>
-<p>Rule 2: if Priority(A) = Priority(B), A &amp; B run in Round-Robin.</p>
-</blockquote>
-<p>在MLFQ中，优先级的设定是很重要的，当一个任务频繁放弃CPU的话（例如交互式行为，包括键盘等），我们会保持它的高优先级。相对的，如果一个进程是CPU密集型任务，我们会降低它的优先级。当进程运行时，MLFQ会了解每个进程的特性，并利用它们过去的信息预测未来的行为。下面是一个MLFQ示例图：<br><br><img src="https://blog-lzr.oss-cn-shanghai.aliyuncs.com/Operating%20System/MLFQ.png" width="73%" height="73%" align="middle" /><br><br>如图所示，任务A、B位于最高优先级队列，C位于中等优先级而D位于最低优先级，按照前两个规则，CPU将会以RR的方式被A、B使用，而C、D将没有机会使用CPU。当然，随着任务的运行，它们的优先级不会一直不变，下面我们将介绍进程的优先级会如何变化。<br></p>
-<h3 id="2-尝试-1-如何改变优先级"><a href="#2-尝试-1-如何改变优先级" class="headerlink" title="2. 尝试#1: 如何改变优先级"></a><em>2. 尝试#1: 如何改变优先级</em></h3><p>在这一节我们将讨论如何去改变进程的优先级，首先需要明确的是，在这里，系统中有很多交互型任务，它们可能会频繁地放弃CPU；还有一些任务是CPU密集型，它们可能对Response time的要求不是很高。下面介绍一下优先级改变算法第一次尝试：<br></p>
-<blockquote>
-<p>Rule 3: 当任务进入调度时，它将会被放置到最高优先级队列当中</p>
-</blockquote>
-<blockquote>
-<p>Rule 4a: 当一个任务在运行时消耗完整个时间片，它的优先级将会被降低（移动到下一个队列）</p>
-</blockquote>
-<blockquote>
-<p>Rule 4b: 当一个任务在消耗完当前时间片前放弃了CPU，它将保留当前优先级</p>
-</blockquote>
-<ol>
-<li><p>Example 1: A Single Long-Running Job<br>下图为一个Long-Running任务，调度器为一个有三个不同优先级队列的MLFQ：<br><br><img src="https://blog-lzr.oss-cn-shanghai.aliyuncs.com/Operating%20System/MLFQ%20E1.png" width="73%" height="73%" align="middle" /><br><br>当该任务进入系统调度时，会进入最高优先级Q2，在消耗完一个完整时间片后，它的优先级降低到Q1，最后它的优先级降低到Q0，并在Q0完成剩余任务。<br></p>
-</li>
-<li><p>Example 2: Along Came A Short Job<br>下图中有两个任务A、B，A是long-running job(CPU intensively)，B是short-running job(interactive)，假设A已经运行了一段时间，B在T=100时进入，此时，B将进入最高优先级的队列，因为B的运行时间较短，它在到达最低优先级队列之前就完成了，之后A就恢复运行。<br><br><img src="https://blog-lzr.oss-cn-shanghai.aliyuncs.com/Operating%20System/MLFQ%20E2.png" width="73%" height="73%" align="middle" /><br><br>在这个MLFQ中，我们可以看出它的设计初衷，当一个任务进入调度时，我们不知道它的预期运行时间是多少，但我们假设它的运行时间较短并给予它较高的优先级，这样就会有两种情况：一、它的运行时间真的较短，并在较高优先级时完成运行；二、它实际为一个运行时间较长的任务，在运行一段时间后进入较低优先级的队列<br></p>
-</li>
-<li><p>Example 3: What About I/O?<br>下面是一个带I/O的例子，任务B会使用CPU 1ms，所以根据Rule 4，因为任务B在时间片被消耗完之前放弃了CPU，它的优先级并不会被降低。所以，MLFQ可以让interactive的任务更快速地完成。<br></p>
-</li>
-<li><p>Problems With Our Current MLFQ<br>在MLFQ中也存在很多问题，第一，如果系统中存在过多的interactive的任务，它们会一起占用大量的CPU资源，会使一些CPU密集型任务得不到CPU资源；第二、一些程序可能会故意在时间片使用完之前（例如使用了99%的时间片），访问一个无关紧要的文件，这样会使得其放弃CPU，从而可以维持其当前优先级，通过这个方法，某个程序可以一直占用CPU；第三、程序的行为可能会改变，当一个CPU密集型任务需要做一些交互性操作时，当前调度方法无法像处理其他任务一样处理它。<br></p>
-</li>
-</ol>
-<h3 id="3-尝试-2-The-Priority-Boost"><a href="#3-尝试-2-The-Priority-Boost" class="headerlink" title="3. 尝试#2: The Priority Boost"></a><em>3. 尝试#2: The Priority Boost</em></h3><p>为了解决starvation（以上第一点）的问题，我们可以间隔一段时间提升所有任务的优先级，在这里，我们就简单地将所有任务提升到最高优先级的队列当中。所以我们可以得出Rule 5:<br></p>
-<blockquote>
-<p>Rule 5: 每隔一个时间段S，将系统中所有的任务移到最高优先级的队列当中</p>
-</blockquote>
-<p>根据这条规则，我们可以一次性解决上面的1、3两个问题，我们可以解决一些长时间运行的CPU密集型任务的<br>starvation，同时当一个CPU密集型任务转变为interactive，在priority boost之后，我们也可以正确处理它。下图为一个例子<br><br><img src="https://blog-lzr.oss-cn-shanghai.aliyuncs.com/Operating%20System/MLFQ%20E3.png" width="73%" height="73%" align="middle" /><br><br>在这个例子当中，左边因为没有priority boost，long-running任务会面临starvation的问题，而右图中每隔50ms（实际这个数值有点太小了，这里只是举个例子）会有一个<br>priority boost，最低优先级的任务也有机会获得CPU。在<br>priority boost中，这个时间间隔S是一个较为重要的参量，被称为voo-doo constants，太高的话，long-running jobs会starve；太低的话，interactive jobs会不能合适地分享CPU。<br></p>
-<h3 id="4-尝试-3-Better-Accounting"><a href="#4-尝试-3-Better-Accounting" class="headerlink" title="4. 尝试#3: Better Accounting"></a><em>4. 尝试#3: Better Accounting</em></h3><p>如何阻止调度程序被愚弄？可以看出，这里的元凶是规则<br>4a 和 4b，导致工作在时间片以内释放 CPU，就保留它的优先级。这里的解决方案，是为 MLFQ 的每层队列提供更完善的 CPU 计时方式（accounting）。<br>调度程序应该记录一个进程在某一层中消耗的总时间，而不是在调度时重新计时。只要进<br>程用完了自己的配额，就将它降到低一优先级的队列中去。不论它是一次用完的，还是拆<br>成很多次用完。因此，我们重写规则 4a 和 4b。<br></p>
-<blockquote>
-<p>Rule 4: 一旦工作用完了其在某一层中的时间配额（无论中间主动放弃了多少次<br>CPU），就降低其优先级（移入低一级队列）</p>
-</blockquote>
-<p>来看一个例子。下图对比了在规则 4a、4b 的策略下（左图），以及在新的规则 4（右<br>图）的策略下，同样试图愚弄调度程序的进程的表现。没有规则 4 的保护时，进程可以在<br>每个时间片结束前发起一次 I/O 操作，从而垄断 CPU 时间。有了这样的保护后，不论进程<br>的 I/O 行为如何，都会慢慢地降低优先级，因而无法获得超过公平的 CPU 时间比例。<br><br><img src="https://blog-lzr.oss-cn-shanghai.aliyuncs.com/Operating%20System/MLFQ%20E4.png" width="73%" height="73%" align="middle" /><br></p>
-<h3 id="5-MLFQ调优和其他问题"><a href="#5-MLFQ调优和其他问题" class="headerlink" title="5. MLFQ调优和其他问题"></a><em>5. MLFQ调优和其他问题</em></h3><p>关于MLFQ调度算法还有一些问题。其中一个大问题是如何配置一个调度程序，例如，配置多少队列？每一层队列的时间片配置多大？为了避免饥饿问题以及进程行为改变，应该多久提升一次进程的优先级？例如，大多数的MLFQ变体都支持不同队列可变的时间片长度。高优先级队列通常只有较短的时间片（比如10ms或者更少），因而这一层的交互工作可以更快地切换。相反，低优先级队列中更多的是CPU密集型工作，配置更长的时间片会取得更好的效果。下图展示了一个例子，两个长工作在高优先级队列执行10ms，中间队列执行 20ms，最后在最低优先级队列执行 40ms。<br><br><img src="https://blog-lzr.oss-cn-shanghai.aliyuncs.com/Operating%20System/MLFQ%20E5.png" width="73%" height="73%" align="middle" /><br></p>
-<h3 id="6-MLFQ-Summary"><a href="#6-MLFQ-Summary" class="headerlink" title="6. MLFQ: Summary"></a><em>6. MLFQ: Summary</em></h3><p>MLFQ有趣的原因是：它不需要对工作的运行方式有先验知识，而是通过观察工作的运行来给出对应的优先级。通过这种方式，MLFQ可以同时满足各种工作的需求：对于短时间运行的交互型工作，获得类似于SJF/STCF的很好的全局性能，同时对长时间运行的CPU密集型负载也可以公平地、不断地稳步向前。<br></p>
-<blockquote>
-<p>Rule 1: if Priority(A) &gt; Priority(B), A runs (B doesn’t).</p>
-</blockquote>
-<blockquote>
-<p>Rule 2: if Priority(A) = Priority(B), A &amp; B run in Round-Robin.</p>
-</blockquote>
-<blockquote>
-<p>Rule 3: 当任务进入调度时，它将会被放置到最高优先级队列当中</p>
-</blockquote>
-<blockquote>
-<p>Rule 4: 一旦工作用完了其在某一层中的时间配额（无论中间主动放弃了多少次<br>CPU），就降低其优先级（移入低一级队列）</p>
-</blockquote>
-<blockquote>
-<p>Rule 5: 每隔一个时间段S，将系统中所有的任务移到最高优先级的队列当中</p>
-</blockquote>
+  <p><em>From algoexpert.io</em><br><br><em>Given a sorted array (each element is distinct), write a function to construct a BST with min height.</em><br><br><em>Here is the structure of BST, and we provide a  insert function which can insert an element to a given BST in O(logn).</em><br></p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">static</span> <span class="class"><span class="keyword">class</span> <span class="title">BST</span> </span>&#123;</span><br><span class="line">  <span class="keyword">public</span> <span class="keyword">int</span> value;</span><br><span class="line">  <span class="keyword">public</span> BST left;</span><br><span class="line">  <span class="keyword">public</span> BST right;</span><br><span class="line"></span><br><span class="line">  <span class="function"><span class="keyword">public</span> <span class="title">BST</span><span class="params">(<span class="keyword">int</span> value)</span> </span>&#123;</span><br><span class="line">    <span class="keyword">this</span>.value = value;</span><br><span class="line">    left = <span class="keyword">null</span>;</span><br><span class="line">    right = <span class="keyword">null</span>;</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">  <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">insert</span><span class="params">(<span class="keyword">int</span> value)</span> </span>&#123;</span><br><span class="line">    <span class="keyword">if</span> (value &lt; <span class="keyword">this</span>.value) &#123;</span><br><span class="line">      <span class="keyword">if</span> (left == <span class="keyword">null</span>) &#123;</span><br><span class="line">        left = <span class="keyword">new</span> BST(value);</span><br><span class="line">      &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">        left.insert(value);</span><br><span class="line">      &#125;</span><br><span class="line">    &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">      <span class="keyword">if</span> (right == <span class="keyword">null</span>) &#123;</span><br><span class="line">        right = <span class="keyword">new</span> BST(value);</span><br><span class="line">      &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">        right.insert(value);</span><br><span class="line">      &#125;</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p><em>The basic idea is: try to allocate the elements evenly, since the array is sorted, we try to make the left and right subtree have the same amount of elements. So, we can let the middle point be the root node, and repeat this operation on the left and right subtree recursively. In the solution, we call the minHeightBstHelper function recursively.</em><br></p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">static</span> BST <span class="title">minHeightBst</span><span class="params">(List&lt;Integer&gt; array)</span> </span>&#123;</span><br><span class="line">  <span class="keyword">return</span> minHeightBstHelper(array, <span class="number">0</span>, array.size() - <span class="number">1</span>);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p><em>Here is one solution with the given insert function.</em><br></p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">static</span> BST <span class="title">minHeightBstHelper</span><span class="params">(List&lt;Integer&gt; array, BST bst, <span class="keyword">int</span> start, <span class="keyword">int</span> end)</span> </span>&#123;</span><br><span class="line">    <span class="keyword">if</span> (start &gt; end) <span class="keyword">return</span> <span class="keyword">null</span>;</span><br><span class="line">    </span><br><span class="line">    <span class="keyword">int</span> midIdx = start + (end - start) / <span class="number">2</span>;</span><br><span class="line">    <span class="keyword">int</span> mid = array.get(midIdx);</span><br><span class="line">    </span><br><span class="line">    <span class="keyword">if</span> (bst == <span class="keyword">null</span>) bst = <span class="keyword">new</span> BST(mid);</span><br><span class="line">    <span class="keyword">else</span> bst.insert(mid);</span><br><span class="line">    minHeightBstHelper(array, bst, start, midIdx - <span class="number">1</span>);</span><br><span class="line">    minHeightBstHelper(array, bst, midIdx + <span class="number">1</span>, end);</span><br><span class="line">  <span class="keyword">return</span> bst;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>Time complexity: O(nlogn); Space complexity: O(n).<br></p>
+<p><em>Now, we can implement our own insert operation, in this case, this solution will be completed in O(n).</em><br></p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">static</span> BST <span class="title">minHeightBstHelper</span><span class="params">(List&lt;Integer&gt; array, BST bst, <span class="keyword">int</span> start, <span class="keyword">int</span> end)</span> </span>&#123;</span><br><span class="line">    <span class="keyword">if</span> (start &gt; end) <span class="keyword">return</span> <span class="keyword">null</span>;</span><br><span class="line">    <span class="keyword">int</span> midIdx = start + (end - start) / <span class="number">2</span>;</span><br><span class="line">    <span class="keyword">int</span> mid = array.get(midIdx);</span><br><span class="line">    BST newNode = <span class="keyword">new</span> BST(mid);</span><br><span class="line">    <span class="keyword">if</span> (bst == <span class="keyword">null</span>) &#123;</span><br><span class="line">        bst = newNode;</span><br><span class="line">    &#125; <span class="keyword">else</span> <span class="keyword">if</span> (bst.value &gt; mid) &#123;</span><br><span class="line">        bst.left = newNode;</span><br><span class="line">        bst = newNode;</span><br><span class="line">    &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">        bst.right = newNode;</span><br><span class="line">        bst = newNode;</span><br><span class="line">    &#125;</span><br><span class="line">    minHeightBstHelper(array, bst, start, midIdx - <span class="number">1</span>);</span><br><span class="line">    minHeightBstHelper(array, bst, midIdx + <span class="number">1</span>, end);</span><br><span class="line">    <span class="keyword">return</span> bst;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>Time complexity: O(n); Space complexity: O(n).<br></p>
+<p><em>The third way is a simplified version of the second way.</em><br></p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">static</span> BST <span class="title">minHeightBstHelper</span><span class="params">(List&lt;Integer&gt; array, <span class="keyword">int</span> start, <span class="keyword">int</span> end)</span> </span>&#123;</span><br><span class="line">    <span class="keyword">if</span> (start &gt; end) <span class="keyword">return</span> <span class="keyword">null</span>;</span><br><span class="line">    <span class="keyword">int</span> midIdx = start + (end - start) / <span class="number">2</span>;</span><br><span class="line">    <span class="keyword">int</span> mid = array.get(midIdx);</span><br><span class="line">    BST bst = <span class="keyword">new</span> BST(mid);</span><br><span class="line">    bst.left = minHeightBstHelper(array, start, midIdx - <span class="number">1</span>);</span><br><span class="line">    bst.right = minHeightBstHelper(array, midIdx + <span class="number">1</span>, end);</span><br><span class="line">    <span class="keyword">return</span> bst;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>Time complexity: O(n); Space complexity: O(n).<br></p>
  
       <!-- reward -->
       
@@ -225,12 +181,12 @@
     <a class="modal-close" href="javascript:;"><i class="ri-close-circle-line"></i></a>
     <p>扫一扫，分享到微信</p>
     <div class="wx-qrcode">
-      <img src="//api.qrserver.com/v1/create-qr-code/?size=150x150&data=https://panaceacode.github.io/2020/05/10/CPU-Virtualization-Scheduling-The-Multi-Level-Feedback-Queue/" alt="微信分享二维码">
+      <img src="//api.qrserver.com/v1/create-qr-code/?size=150x150&data=https://panaceacode.github.io/2020/05/10/Alg-21-Min-Height-BST/" alt="微信分享二维码">
     </div>
 </div>
 
 <div id="share-mask"></div>  
-  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/panaceacode.github.io/tags/Operating-System/" rel="tag">Operating System</a></li></ul>
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/panaceacode.github.io/tags/Algorithm/" rel="tag">Algorithm</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/panaceacode.github.io/tags/Binary-Search-Tree/" rel="tag">Binary Search Tree</a></li></ul>
 
     </footer>
   </div>
@@ -238,19 +194,19 @@
    
   <nav class="article-nav">
     
-      <a href="/panaceacode.github.io/2020/05/10/Alg-21-Min-Height-BST/" class="article-nav-link">
+      <a href="/panaceacode.github.io/2021/05/10/CPU-Virtualization-Scheduling-Proportional-Share/" class="article-nav-link">
         <strong class="article-nav-caption">Prev</strong>
         <div class="article-nav-title">
           
-            Alg.21 Min Height BST
+            CPU Virtualization-Scheduling(Proportional Share)
           
         </div>
       </a>
     
     
-      <a href="/panaceacode.github.io/2020/05/09/CPU-Virtualization-Scheduling-Introduction/" class="article-nav-link">
+      <a href="/panaceacode.github.io/2020/05/10/CPU-Virtualization-Scheduling-The-Multi-Level-Feedback-Queue/" class="article-nav-link">
         <strong class="article-nav-caption">Next</strong>
-        <div class="article-nav-title">CPU Virtualization-Scheduling(Introduction)</div>
+        <div class="article-nav-title">CPU Virtualization-Scheduling(The Multi-Level Feedback Queue)</div>
       </a>
     
   </nav>
