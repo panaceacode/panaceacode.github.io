@@ -6,7 +6,7 @@
   <link href="https://panaceacode.github.io/atom.xml" rel="self"/>
   
   <link href="https://panaceacode.github.io/"/>
-  <updated>2021-06-18T05:40:13.764Z</updated>
+  <updated>2021-07-03T13:57:09.941Z</updated>
   <id>https://panaceacode.github.io/</id>
   
   <author>
@@ -15,6 +15,35 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>Alg.21 BST Construction</title>
+    <link href="https://panaceacode.github.io/2021/05/10/Alg-21-BST-Construction/"/>
+    <id>https://panaceacode.github.io/2021/05/10/Alg-21-BST-Construction/</id>
+    <published>2021-05-10T12:55:04.000Z</published>
+    <updated>2021-07-03T13:57:09.941Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;p&gt;&lt;em&gt;From algoexpert.io&lt;/em&gt;&lt;br&gt;&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;Definition of a valid Binary Search Tree: its value is strictly greater than its</summary>
+        
+      
+    
+    
+    
+    <category term="Algorithm" scheme="https://panaceacode.github.io/categories/Algorithm/"/>
+    
+    
+    <category term="Algorithm" scheme="https://panaceacode.github.io/tags/Algorithm/"/>
+    
+    <category term="Binary Search Tree" scheme="https://panaceacode.github.io/tags/Binary-Search-Tree/"/>
+    
+  </entry>
   
   <entry>
     <title>CPU Virtualization-Scheduling(Proportional Share)</title>
@@ -42,11 +71,11 @@
   </entry>
   
   <entry>
-    <title>Alg.21 Min Height BST</title>
-    <link href="https://panaceacode.github.io/2020/05/10/Alg-21-Min-Height-BST/"/>
-    <id>https://panaceacode.github.io/2020/05/10/Alg-21-Min-Height-BST/</id>
+    <title>Alg.22 Min Height BST</title>
+    <link href="https://panaceacode.github.io/2020/05/10/Alg-22-Min-Height-BST/"/>
+    <id>https://panaceacode.github.io/2020/05/10/Alg-22-Min-Height-BST/</id>
     <published>2020-05-10T14:27:18.000Z</published>
-    <updated>2021-06-28T15:02:32.842Z</updated>
+    <updated>2021-07-03T12:53:37.442Z</updated>
     
     
       
@@ -505,33 +534,6 @@
         
         
     <summary type="html">&lt;p&gt;&lt;em&gt;From algoexpert.io&lt;/em&gt;&lt;br&gt;&lt;br&gt;&lt;em&gt;For the Merge Sort, it also uses the conception “Divide and Conquer”. We simply divide the</summary>
-        
-      
-    
-    
-    
-    <category term="Algorithm" scheme="https://panaceacode.github.io/categories/Algorithm/"/>
-    
-    
-    <category term="Algorithm" scheme="https://panaceacode.github.io/tags/Algorithm/"/>
-    
-    <category term="Sorting" scheme="https://panaceacode.github.io/tags/Sorting/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>Alg.8 Quick Sort</title>
-    <link href="https://panaceacode.github.io/2020/04/07/Alg-8-Quick-Sort/"/>
-    <id>https://panaceacode.github.io/2020/04/07/Alg-8-Quick-Sort/</id>
-    <published>2020-04-07T01:22:04.000Z</published>
-    <updated>2021-05-01T05:50:09.400Z</updated>
-    
-    
-      
-      
-        
-        
-    <summary type="html">&lt;p&gt;&lt;em&gt;From algoexpert.io&lt;/em&gt;&lt;br&gt;&lt;br&gt;&lt;em&gt;Quick Sort is a widely-used sorting algorithm, it borrows the strategy, “Divide and Conquer”, to</summary>
         
       
     
