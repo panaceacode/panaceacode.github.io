@@ -6,7 +6,7 @@
   <link href="https://panaceacode.github.io/atom.xml" rel="self"/>
   
   <link href="https://panaceacode.github.io/"/>
-  <updated>2021-07-03T13:57:09.941Z</updated>
+  <updated>2021-07-03T12:53:37.442Z</updated>
   <id>https://panaceacode.github.io/</id>
   
   <author>
@@ -15,60 +15,6 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
-  
-  <entry>
-    <title>Alg.21 BST Construction</title>
-    <link href="https://panaceacode.github.io/2021/05/10/Alg-21-BST-Construction/"/>
-    <id>https://panaceacode.github.io/2021/05/10/Alg-21-BST-Construction/</id>
-    <published>2021-05-10T12:55:04.000Z</published>
-    <updated>2021-07-03T13:57:09.941Z</updated>
-    
-    
-      
-      
-        
-        
-    <summary type="html">&lt;p&gt;&lt;em&gt;From algoexpert.io&lt;/em&gt;&lt;br&gt;&lt;/p&gt;
-&lt;blockquote&gt;
-&lt;p&gt;Definition of a valid Binary Search Tree: its value is strictly greater than its</summary>
-        
-      
-    
-    
-    
-    <category term="Algorithm" scheme="https://panaceacode.github.io/categories/Algorithm/"/>
-    
-    
-    <category term="Algorithm" scheme="https://panaceacode.github.io/tags/Algorithm/"/>
-    
-    <category term="Binary Search Tree" scheme="https://panaceacode.github.io/tags/Binary-Search-Tree/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>CPU Virtualization-Scheduling(Proportional Share)</title>
-    <link href="https://panaceacode.github.io/2021/05/10/CPU-Virtualization-Scheduling-Proportional-Share/"/>
-    <id>https://panaceacode.github.io/2021/05/10/CPU-Virtualization-Scheduling-Proportional-Share/</id>
-    <published>2021-05-10T09:15:28.000Z</published>
-    <updated>2021-06-18T05:40:13.764Z</updated>
-    
-    
-      
-      
-        
-        
-    <summary type="html">&lt;p&gt;在本章中，我们介绍比例份额（proportional-share）调度，有时也称为公平份额（fair-share）调度。比例份额算法基于一个简单的想法：调度程序的最终目标，是确保每个工作获得一定比例的 CPU</summary>
-        
-      
-    
-    
-    
-    <category term="Operating System" scheme="https://panaceacode.github.io/categories/Operating-System/"/>
-    
-    
-    <category term="Operating System" scheme="https://panaceacode.github.io/tags/Operating-System/"/>
-    
-  </entry>
   
   <entry>
     <title>Alg.22 Min Height BST</title>
@@ -94,6 +40,60 @@
     <category term="Algorithm" scheme="https://panaceacode.github.io/tags/Algorithm/"/>
     
     <category term="Binary Search Tree" scheme="https://panaceacode.github.io/tags/Binary-Search-Tree/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>Alg.21 BST Construction</title>
+    <link href="https://panaceacode.github.io/2020/05/10/Alg-21-BST-Construction/"/>
+    <id>https://panaceacode.github.io/2020/05/10/Alg-21-BST-Construction/</id>
+    <published>2020-05-10T12:55:04.000Z</published>
+    <updated>2021-07-03T13:58:33.039Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;p&gt;&lt;em&gt;From algoexpert.io&lt;/em&gt;&lt;br&gt;&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;Definition of a valid Binary Search Tree: its value is strictly greater than its</summary>
+        
+      
+    
+    
+    
+    <category term="Algorithm" scheme="https://panaceacode.github.io/categories/Algorithm/"/>
+    
+    
+    <category term="Algorithm" scheme="https://panaceacode.github.io/tags/Algorithm/"/>
+    
+    <category term="Binary Search Tree" scheme="https://panaceacode.github.io/tags/Binary-Search-Tree/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>CPU Virtualization-Scheduling(Proportional Share)</title>
+    <link href="https://panaceacode.github.io/2020/05/10/CPU-Virtualization-Scheduling-Proportional-Share/"/>
+    <id>https://panaceacode.github.io/2020/05/10/CPU-Virtualization-Scheduling-Proportional-Share/</id>
+    <published>2020-05-10T09:15:28.000Z</published>
+    <updated>2021-07-03T13:58:27.051Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;p&gt;在本章中，我们介绍比例份额（proportional-share）调度，有时也称为公平份额（fair-share）调度。比例份额算法基于一个简单的想法：调度程序的最终目标，是确保每个工作获得一定比例的 CPU</summary>
+        
+      
+    
+    
+    
+    <category term="Operating System" scheme="https://panaceacode.github.io/categories/Operating-System/"/>
+    
+    
+    <category term="Operating System" scheme="https://panaceacode.github.io/tags/Operating-System/"/>
     
   </entry>
   
