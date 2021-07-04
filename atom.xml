@@ -6,7 +6,7 @@
   <link href="https://panaceacode.github.io/atom.xml" rel="self"/>
   
   <link href="https://panaceacode.github.io/"/>
-  <updated>2021-07-04T14:43:12.582Z</updated>
+  <updated>2021-07-04T15:53:39.652Z</updated>
   <id>https://panaceacode.github.io/</id>
   
   <author>
@@ -15,6 +15,33 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>Alg.23 Find Closest Value In BST</title>
+    <link href="https://panaceacode.github.io/2020/05/11/Alg-23-Find-Closest-Value-In-BST/"/>
+    <id>https://panaceacode.github.io/2020/05/11/Alg-23-Find-Closest-Value-In-BST/</id>
+    <published>2020-05-11T05:13:36.000Z</published>
+    <updated>2021-07-04T15:53:39.652Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;p&gt;&lt;em&gt;From algoexpert.io&lt;/em&gt;&lt;br&gt;&lt;br&gt;&lt;em&gt;Write a function to find the closest value of the target number in a BST. Here is an</summary>
+        
+      
+    
+    
+    
+    <category term="Algorithm" scheme="https://panaceacode.github.io/categories/Algorithm/"/>
+    
+    
+    <category term="Algorithm" scheme="https://panaceacode.github.io/tags/Algorithm/"/>
+    
+    <category term="Binary Search Tree" scheme="https://panaceacode.github.io/tags/Binary-Search-Tree/"/>
+    
+  </entry>
   
   <entry>
     <title>Alg.22 Min Height BST</title>
@@ -518,33 +545,6 @@
     <category term="Algorithm" scheme="https://panaceacode.github.io/tags/Algorithm/"/>
     
     <category term="Strings" scheme="https://panaceacode.github.io/tags/Strings/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>Alg.9 Merge Sort</title>
-    <link href="https://panaceacode.github.io/2020/04/07/Alg-9-Merge-Sort/"/>
-    <id>https://panaceacode.github.io/2020/04/07/Alg-9-Merge-Sort/</id>
-    <published>2020-04-07T02:13:24.000Z</published>
-    <updated>2021-05-01T03:32:15.694Z</updated>
-    
-    
-      
-      
-        
-        
-    <summary type="html">&lt;p&gt;&lt;em&gt;From algoexpert.io&lt;/em&gt;&lt;br&gt;&lt;br&gt;&lt;em&gt;For the Merge Sort, it also uses the conception “Divide and Conquer”. We simply divide the</summary>
-        
-      
-    
-    
-    
-    <category term="Algorithm" scheme="https://panaceacode.github.io/categories/Algorithm/"/>
-    
-    
-    <category term="Algorithm" scheme="https://panaceacode.github.io/tags/Algorithm/"/>
-    
-    <category term="Sorting" scheme="https://panaceacode.github.io/tags/Sorting/"/>
     
   </entry>
   
