@@ -75,7 +75,7 @@
         <span class="post-meta-item-icon">
             <i class="ri-quill-pen-line"></i>
             <span class="post-meta-item-text"> Word count:</span>
-            <span class="post-count">118</span>
+            <span class="post-count">126</span>
         </span>
     </span>
 
@@ -98,7 +98,8 @@
     <div class="article-entry" itemprop="articleBody">
        
   <p><em>From algoexpert.io</em><br><br><em>Write a function to check whether a tree is a BST.</em><br><br><img src="https://blog-lzr.oss-cn-shanghai.aliyuncs.com/Algorithm/Validate%20BST.png" width="73%" height="73%" align="middle" /><br><br><em>For this problem, each node has a minimum and maximum bound, a right node shall be equal to or greater than its parent, a left node shall be smaller than its parent.</em><br><br><em>Here is the code implementation:</em><br></p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">boolean</span> <span class="title">validateBst</span><span class="params">(BST tree)</span> </span>&#123;</span><br><span class="line">      <span class="keyword">return</span> helper(tree, Integer.MIN_VALUE, Integer.MAX_VALUE);</span><br><span class="line">&#125;</span><br><span class="line">  </span><br><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">boolean</span> <span class="title">helper</span><span class="params">(BST tree, <span class="keyword">int</span> min, <span class="keyword">int</span> max)</span> </span>&#123;</span><br><span class="line"><span class="keyword">if</span> (tree.value &lt; min || tree.value &gt;= max) <span class="keyword">return</span> <span class="keyword">false</span>;</span><br><span class="line"></span><br><span class="line"><span class="keyword">if</span> (tree.left != <span class="keyword">null</span> &amp;&amp; !helper(tree.left, min, tree.value)) <span class="keyword">return</span> <span class="keyword">false</span>;</span><br><span class="line"></span><br><span class="line"><span class="keyword">if</span> (tree.right != <span class="keyword">null</span> &amp;&amp; !helper(tree.right, tree.value, max)) <span class="keyword">return</span> <span class="keyword">false</span>;</span><br><span class="line"></span><br><span class="line"><span class="keyword">return</span> <span class="keyword">true</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">boolean</span> <span class="title">validateBst</span><span class="params">(BST tree)</span> </span>&#123;</span><br><span class="line">    <span class="keyword">return</span> helper(tree, Integer.MIN_VALUE, Integer.MAX_VALUE);</span><br><span class="line">&#125;</span><br><span class="line">  </span><br><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">boolean</span> <span class="title">helper</span><span class="params">(BST tree, <span class="keyword">int</span> min, <span class="keyword">int</span> max)</span> </span>&#123;</span><br><span class="line">    <span class="keyword">if</span> (tree.value &lt; min || tree.value &gt;= max) <span class="keyword">return</span> <span class="keyword">false</span>;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">if</span> (tree.left != <span class="keyword">null</span> &amp;&amp; !helper(tree.left, min, tree.value)) <span class="keyword">return</span> <span class="keyword">false</span>;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">if</span> (tree.right != <span class="keyword">null</span> &amp;&amp; !helper(tree.right, tree.value, max)) <span class="keyword">return</span> <span class="keyword">false</span>;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">return</span> <span class="keyword">true</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>Time complexity: O(n); Space complexity: O(logn).</p>
  
       <!-- reward -->
       
@@ -181,6 +182,15 @@
 
    
   <nav class="article-nav">
+    
+      <a href="/panaceacode.github.io/2020/05/11/Alg-25-BST-Traversal/" class="article-nav-link">
+        <strong class="article-nav-caption">Prev</strong>
+        <div class="article-nav-title">
+          
+            Alg.25 BST Traversal
+          
+        </div>
+      </a>
     
     
       <a href="/panaceacode.github.io/2020/05/11/Alg-23-Find-Closest-Value-In-BST/" class="article-nav-link">

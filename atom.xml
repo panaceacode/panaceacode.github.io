@@ -6,7 +6,7 @@
   <link href="https://panaceacode.github.io/atom.xml" rel="self"/>
   
   <link href="https://panaceacode.github.io/"/>
-  <updated>2021-07-06T13:23:48.670Z</updated>
+  <updated>2021-07-06T14:10:42.155Z</updated>
   <id>https://panaceacode.github.io/</id>
   
   <author>
@@ -17,11 +17,38 @@
   <generator uri="https://hexo.io/">Hexo</generator>
   
   <entry>
+    <title>Alg.25 BST Traversal</title>
+    <link href="https://panaceacode.github.io/2020/05/11/Alg-25-BST-Traversal/"/>
+    <id>https://panaceacode.github.io/2020/05/11/Alg-25-BST-Traversal/</id>
+    <published>2020-05-11T14:01:08.000Z</published>
+    <updated>2021-07-06T14:10:42.155Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;p&gt;&lt;em&gt;From algoexpert.io&lt;/em&gt;&lt;br&gt;&lt;br&gt;&lt;em&gt;This one will user 3 ways to traverse a BST (in-order/pre-order/post-order), the code</summary>
+        
+      
+    
+    
+    
+    <category term="Algorithm" scheme="https://panaceacode.github.io/categories/Algorithm/"/>
+    
+    
+    <category term="Algorithm" scheme="https://panaceacode.github.io/tags/Algorithm/"/>
+    
+    <category term="Binary Search Tree" scheme="https://panaceacode.github.io/tags/Binary-Search-Tree/"/>
+    
+  </entry>
+  
+  <entry>
     <title>Alg.24 Validate BST</title>
     <link href="https://panaceacode.github.io/2020/05/11/Alg-24-Validate-BST/"/>
     <id>https://panaceacode.github.io/2020/05/11/Alg-24-Validate-BST/</id>
     <published>2020-05-11T11:33:09.000Z</published>
-    <updated>2021-07-06T13:23:48.670Z</updated>
+    <updated>2021-07-06T14:10:22.752Z</updated>
     
     
       
@@ -507,33 +534,6 @@
         
         
     <summary type="html">&lt;p&gt;&lt;em&gt;From algoexpert.io&lt;/em&gt;&lt;br&gt;&lt;br&gt;&lt;em&gt;Here is the introduction of Run_Length Encoding: &lt;a</summary>
-        
-      
-    
-    
-    
-    <category term="Algorithm" scheme="https://panaceacode.github.io/categories/Algorithm/"/>
-    
-    
-    <category term="Algorithm" scheme="https://panaceacode.github.io/tags/Algorithm/"/>
-    
-    <category term="Strings" scheme="https://panaceacode.github.io/tags/Strings/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>Alg.11 Caesar Cipher Encryptor</title>
-    <link href="https://panaceacode.github.io/2020/04/08/Alg-11-Caesar-Cipher-Encryptor/"/>
-    <id>https://panaceacode.github.io/2020/04/08/Alg-11-Caesar-Cipher-Encryptor/</id>
-    <published>2020-04-08T04:35:46.000Z</published>
-    <updated>2021-05-01T04:59:14.013Z</updated>
-    
-    
-      
-      
-        
-        
-    <summary type="html">&lt;p&gt;&lt;em&gt;From algoexpert.io&lt;/em&gt;&lt;br&gt;&lt;br&gt;&lt;em&gt;This is a easy string-related problem, given a string and a number k, we need to shift every</summary>
         
       
     
